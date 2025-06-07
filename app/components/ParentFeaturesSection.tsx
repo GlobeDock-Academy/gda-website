@@ -1,28 +1,28 @@
 export default function ParentFeaturesSection() {
     return (
-        <section className="py-16 bg-gray-50" data-oid="ml942v9">
-            <div className="max-w-7xl mx-auto px-4" data-oid="5._e0ez">
+        <section className="py-16 bg-gray-50" data-oid="y7tf4x.">
+            <div className="max-w-7xl mx-auto px-4" data-oid="0sdw8fr">
                 <h2
                     className="text-3xl font-bold text-center text-gray-900 mb-12"
-                    data-oid="bmd.1jp"
+                    data-oid="_ytqe2w"
                 >
                     Parent Features
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-oid="5_vsq0q">
-                    <div data-oid="tct2ejq">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4" data-oid="hbdh.m5">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8" data-oid="dhb61k4">
+                    <div data-oid="y29t8k6">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4" data-oid="_9e6pbz">
                             Parental Controls
                         </h3>
-                        <p className="text-gray-600" data-oid="dl-m6:4">
+                        <p className="text-gray-600" data-oid="1czwp53">
                             Keep your children safe with comprehensive parental controls and
                             monitoring.
                         </p>
                     </div>
-                    <div data-oid="jdpb81l">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4" data-oid="s3wneoy">
+                    <div data-oid="u3:-c6-">
+                        <h3 className="text-xl font-semibold text-gray-900 mb-4" data-oid="hb7qirj">
                             Content Filtering
                         </h3>
-                        <p className="text-gray-600" data-oid="lzn429f">
+                        <p className="text-gray-600" data-oid="3l6x.k3">
                             Automatically filter inappropriate content based on age-appropriate
                             settings.
                         </p>

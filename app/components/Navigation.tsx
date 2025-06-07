@@ -1,32 +1,32 @@
 export default function Navigation() {
     return (
-        <nav className="bg-white shadow-sm" data-oid="eo1yn-q">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-oid="8v8j-ho">
-                <div className="flex justify-between h-16" data-oid="_gshmjb">
-                    <div className="flex items-center" data-oid="nkf0dot">
-                        <h1 className="text-xl font-bold text-gray-900" data-oid="jt.j_l1">
+        <nav className="bg-white shadow-sm" data-oid="um8hn_k">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" data-oid="04qbopy">
+                <div className="flex justify-between h-16" data-oid="0.bzhbi">
+                    <div className="flex items-center" data-oid="nmqcgfg">
+                        <h1 className="text-xl font-bold text-gray-900" data-oid="mv1hwec">
                             Your App
                         </h1>
                     </div>
-                    <div className="flex items-center space-x-4" data-oid="17lr:.0">
+                    <div className="flex items-center space-x-4" data-oid="vy6yp7m">
                         <a
                             href="#"
                             className="text-gray-700 hover:text-gray-900"
-                            data-oid=":liywy9"
+                            data-oid="p6t566e"
                         >
                             Home
                         </a>
                         <a
                             href="#"
                             className="text-gray-700 hover:text-gray-900"
-                            data-oid="2sd6lx_"
+                            data-oid="v9rvuqa"
                         >
                             About
                         </a>
                         <a
                             href="#"
                             className="text-gray-700 hover:text-gray-900"
-                            data-oid="ue8ybox"
+                            data-oid="gva552n"
                         >
                             Contact
                         </a>
