@@ -1,77 +1,77 @@
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-white py-12" data-oid="..0imq6">
-            <div className="max-w-7xl mx-auto px-4" data-oid="3.u7:eh">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8" data-oid="i4m94ss">
-                    <div data-oid="n-4kf25">
-                        <h3 className="text-lg font-semibold mb-4" data-oid="rw.i8y3">
+        <footer className="bg-gray-900 text-white py-12" data-oid="fxlh_t2">
+            <div className="max-w-7xl mx-auto px-4" data-oid="qo97yb6">
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-8" data-oid="9l:3m85">
+                    <div data-oid="t:b::xx">
+                        <h3 className="text-lg font-semibold mb-4" data-oid="5ateedl">
                             Your App
                         </h3>
-                        <p className="text-gray-400" data-oid="a40ojgm">
+                        <p className="text-gray-400" data-oid="824l3j9">
                             Building the future of digital experiences.
                         </p>
                     </div>
-                    <div data-oid="jpxg8ro">
-                        <h4 className="font-semibold mb-4" data-oid="-8fyg41">
+                    <div data-oid="2ufexlq">
+                        <h4 className="font-semibold mb-4" data-oid="uah_9n5">
                             Product
                         </h4>
-                        <ul className="space-y-2 text-gray-400" data-oid="6w:bfi3">
-                            <li data-oid="uclqd_a">
-                                <a href="#" className="hover:text-white" data-oid="i8h7hxh">
+                        <ul className="space-y-2 text-gray-400" data-oid="rp9s63a">
+                            <li data-oid="a8feyt1">
+                                <a href="#" className="hover:text-white" data-oid="0ikv.oc">
                                     Features
                                 </a>
                             </li>
-                            <li data-oid="imfc7x9">
-                                <a href="#" className="hover:text-white" data-oid="tl.wn3g">
+                            <li data-oid="m.l:kpt">
+                                <a href="#" className="hover:text-white" data-oid="vy9t7:z">
                                     Pricing
                                 </a>
                             </li>
-                            <li data-oid="318dv0b">
-                                <a href="#" className="hover:text-white" data-oid="-jn5hgp">
+                            <li data-oid="0lyc162">
+                                <a href="#" className="hover:text-white" data-oid="vyb:hrz">
                                     API
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div data-oid="xa_4t:u">
-                        <h4 className="font-semibold mb-4" data-oid="m6jhw1v">
+                    <div data-oid="1a4vm:l">
+                        <h4 className="font-semibold mb-4" data-oid="2na1u5z">
                             Company
                         </h4>
-                        <ul className="space-y-2 text-gray-400" data-oid="qyv332r">
-                            <li data-oid="dh6.qe6">
-                                <a href="#" className="hover:text-white" data-oid="yw:w42.">
+                        <ul className="space-y-2 text-gray-400" data-oid="91wioz2">
+                            <li data-oid="98ce1q5">
+                                <a href="#" className="hover:text-white" data-oid="l1x.psn">
                                     About
                                 </a>
                             </li>
-                            <li data-oid="i37l6v_">
-                                <a href="#" className="hover:text-white" data-oid="9xn5f_d">
+                            <li data-oid="9i5p2ko">
+                                <a href="#" className="hover:text-white" data-oid="30:.66v">
                                     Blog
                                 </a>
                             </li>
-                            <li data-oid="aj6_nmh">
-                                <a href="#" className="hover:text-white" data-oid="d_kfbc0">
+                            <li data-oid="0jlala.">
+                                <a href="#" className="hover:text-white" data-oid="113u3w7">
                                     Careers
                                 </a>
                             </li>
                         </ul>
                     </div>
-                    <div data-oid="00g2oqw">
-                        <h4 className="font-semibold mb-4" data-oid="gn7y4bu">
+                    <div data-oid="o56bsv-">
+                        <h4 className="font-semibold mb-4" data-oid="x2rrw52">
                             Support
                         </h4>
-                        <ul className="space-y-2 text-gray-400" data-oid="oaasf1_">
-                            <li data-oid=":ru5vq3">
-                                <a href="#" className="hover:text-white" data-oid="49-w9ex">
+                        <ul className="space-y-2 text-gray-400" data-oid="vk_um06">
+                            <li data-oid="n:623k7">
+                                <a href="#" className="hover:text-white" data-oid="9_wkcvp">
                                     Help Center
                                 </a>
                             </li>
-                            <li data-oid="77xdma9">
-                                <a href="#" className="hover:text-white" data-oid="559kqn.">
+                            <li data-oid="k-8kkpq">
+                                <a href="#" className="hover:text-white" data-oid="8elr9sd">
                                     Contact
                                 </a>
                             </li>
-                            <li data-oid="8muc8xv">
-                                <a href="#" className="hover:text-white" data-oid="fbrlq9a">
+                            <li data-oid="kcqc5.t">
+                                <a href="#" className="hover:text-white" data-oid="nl0zb-j">
                                     Status
                                 </a>
                             </li>
@@ -80,9 +80,9 @@ export default function Footer() {
                 </div>
                 <div
                     className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400"
-                    data-oid="gsn0fws"
+                    data-oid="8:.hrel"
                 >
-                    <p data-oid="w9e4y2:">&copy; 2024 Your App. All rights reserved.</p>
+                    <p data-oid="yu_k6yh">&copy; 2024 Your App. All rights reserved.</p>
                 </div>
             </div>
         </footer>

@@ -45,7 +45,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 className={cn(buttonVariants({ variant, size, className }))}
                 ref={ref}
                 {...props}
-                data-oid="yy1sp_p"
+                data-oid="sn6xo61"
             />
         );
     },
