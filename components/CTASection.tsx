@@ -1,0 +1,25 @@
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
+
+export default function CTASection() {
+    return (
+        <section className="py-20 bg-secondary text-secondary-foreground">
+            <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+                <h2 className="text-4xl font-bold mb-6">Ready to Revolutionize Learning?</h2>
+                <p className="text-xl text-secondary-foreground/80 mb-10 max-w-2xl mx-auto">
+                    Join thousands of students, parents, and educators who are experiencing the future of education with GlobeDock Academy. Sign up today and unlock a world of knowledge.
+                </p>
+                <Button 
+                    size="lg" 
+                    className="bg-white text-secondary hover:bg-secondary/10 hover:text-secondary-foreground text-lg px-10 py-4 shadow-lg transform transition-transform hover:scale-105"
+                >
+                    Get Started for Free
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+                <p className="mt-6 text-sm text-secondary-foreground/70">
+                    Access basic features for free. Affordable premium plans available.
+                </p>
+            </div>
+        </section>
+    );
+}
