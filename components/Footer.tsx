@@ -26,7 +26,7 @@ export default function Footer() {
                                 </a>
                             </Link>
                             <p className="text-sm text-gray-400 mt-3 max-w-md">
-                                GlobeDock is democratising learning, making it accessible to all. Join the revolution, learn on the world's largest learning platform.
+                                GlobeDock is democratising learning, making it accessible to all. Join the revolution, learn on the world&apos;s largest learning platform.
                             </p>
                         </div>
                         <div className="flex space-x-3">

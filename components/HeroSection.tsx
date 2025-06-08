@@ -85,7 +85,7 @@ export default function HeroSection() {
                             />
                         </div>
                         <p className="text-xs text-slate-500 mt-2 mb-6 max-w-md">
-                            We'll send an OTP for verification
+                            We&apos;ll send an OTP for verification
                         </p>
                         <Button 
                             size="lg" 

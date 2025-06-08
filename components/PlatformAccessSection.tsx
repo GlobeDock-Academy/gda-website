@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Monitor, Smartphone, Download, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 
 export default function PlatformAccessSection() {
     return (
@@ -35,11 +36,16 @@ export default function PlatformAccessSection() {
                         </Button>
                     </div>
                     <div className="relative mt-10 lg:mt-0">
-                        <img 
-                            src="/images/mobile_pc_mockup.png" 
-                            alt="Platform Showcase on multiple devices" 
-                            className="rounded-lg shadow-2xl transform transition-transform hover:scale-105"
-                        />
+                        <div className="relative w-full h-auto rounded-lg shadow-2xl transform transition-transform hover:scale-105 overflow-hidden">
+                            <Image 
+                                src="/images/mobile_pc_mockup.png" 
+                                alt="Platform Showcase on multiple devices"
+                                width={600}
+                                height={400}
+                                className="w-full h-auto"
+                                priority
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
