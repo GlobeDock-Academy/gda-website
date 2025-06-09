@@ -14,24 +14,23 @@ const contactInfo = [
   {
     icon: <MapPin className="w-6 h-6 text-slate-700" />,
     title: 'Address',
-    lines: ['Vistar Arcade, 3rd Floor, 1081, 14th Main Rd,', 'Sector 3, HSR Layout, Bengaluru, Karnataka 560102, India'], // Example from image
+    lines: ['Jemaa Building, 6th Floor, Gabon Street, Meskel Flower,', '10097, Addis Ababa, Ethiopia'],
   },
   {
     icon: <Clock className="w-6 h-6 text-slate-700" />,
     title: 'Office Hours',
-    lines: ['Monday - Saturday: 10:00 AM to 9:00 PM', '(Sun: 10AM - 7PM)'], // Example from image
+    lines: ['Monday - Saturday: 9:00 AM to 5:00 PM'],
   },
   {
     icon: <Mail className="w-6 h-6 text-slate-700" />,
     title: 'Write To US',
-    lines: ['globedock-support@example.com', <a key="mail-link" href="mailto:globedock-support@example.com" className="text-purple-600 hover:text-purple-700 underline">Mail Us &rarr;</a>],
+    lines: ['support@gdacademy.et', <a key="mail-link" href="mailto:support@gdacademy.et" className="text-purple-600 hover:text-purple-700 underline">Mail Us &rarr;</a>],
   },
   {
     icon: <Phone className="w-6 h-6 text-slate-700" />,
     title: 'Get In Touch',
     lines: [
-      <a key="phone1" href="tel:+919606463928" className="text-purple-600 hover:text-purple-700">+91-960-646-3928</a>, // Example from image
-      <a key="phone2" href="tel:+919886602456" className="text-purple-600 hover:text-purple-700">+91-988-660-2456</a>, // Example from image
+      <a key="phone1" href="tel:+2517421" className="text-purple-600 hover:text-purple-700">7421</a>,
     ],
   },
 ];
