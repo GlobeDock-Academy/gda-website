@@ -1,6 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import { MapPin, Clock, Mail, Phone } from 'lucide-react';
+import Container from '@/components/Container';
 
 // A simple SVG for the 'talk' accent, trying to mimic the two small dashes/sparkles
 const TalkAccent = () => (
@@ -38,7 +39,7 @@ const contactInfo = [
 export default function ContactUsSection() {
   return (
     <section className="py-16 sm:py-20 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image with decorative background */}
           <div className="relative h-[400px] sm:h-[500px] lg:h-full">
@@ -94,7 +95,7 @@ export default function ContactUsSection() {
             </div>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import Autoplay from 'embla-carousel-autoplay';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
+import Container from '@/components/Container';
 
 const testimonialsData = [
   {
@@ -63,7 +64,7 @@ export default function TestimonialsSection() {
 
   return (
     <section className="py-16 sm:py-20 bg-slate-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <Container className="relative">
         <div className="text-center mb-12 sm:mb-16">
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-800 mb-4">
             Loved by Students, Parents & Educators
@@ -114,7 +115,7 @@ export default function TestimonialsSection() {
         >
           <ChevronRight className="h-6 w-6 text-slate-700" />
         </button>
-      </div>
+      </Container>
     </section>
   );
 }

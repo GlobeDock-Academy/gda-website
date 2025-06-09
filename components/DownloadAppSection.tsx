@@ -1,9 +1,10 @@
 import Image from 'next/image';
+import Container from '@/components/Container';
 
 const DownloadAppSection = () => {
   return (
     <section className="bg-white py-16 md:py-24">
-      <div className="container mx-auto px-4">
+      <Container>
         <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -44,7 +45,7 @@ const DownloadAppSection = () => {
             />
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 };

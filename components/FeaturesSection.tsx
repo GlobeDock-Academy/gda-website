@@ -1,10 +1,11 @@
 import { Card, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { MessageCircle, Download, BarChart3, Users, BookOpen, Brain } from 'lucide-react';
+import Container from '@/components/Container';
 
 export default function FeaturesSection() {
     return (
         <section id="features" className="py-20 bg-gradient-to-br from-gray-50 to-secondary/10">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Container>
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">
                         Powerful Features for Modern Learning
@@ -95,7 +96,7 @@ export default function FeaturesSection() {
                     </Card>
 
                 </div>
-            </div>
+            </Container>
         </section>
     );
 }

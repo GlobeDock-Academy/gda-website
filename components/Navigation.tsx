@@ -1,11 +1,11 @@
 import { Button } from '@/components/ui/button';
-import Image from 'next/image'; // Added Image import
-// Globe import removed as it's replaced by the image logo
+import Image from 'next/image';
+import Container from '@/components/Container';
 
 export default function Navigation() {
     return (
-        <nav className="bg-white/80 backdrop-blur-md border-b border-secondary/20 sticky top-0 z-50">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <nav className="bg-[#FCFCFC] border-b border-secondary/20 sticky top-0 z-50">
+            <Container>
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
                         {/* Assumes your logo 'image.png' is in the /public directory */}
@@ -23,7 +23,7 @@ export default function Navigation() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </nav>
     );
 }

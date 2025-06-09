@@ -5,6 +5,7 @@ import Image from 'next/image';
 import React, { useState } from 'react';
 import PhoneInput from 'react-phone-input-2';
 import 'react-phone-input-2/lib/style.css';
+import Container from '@/components/Container';
 
 export default function HeroSection() {
     const [phoneNumber, setPhoneNumber] = useState<string | undefined>(undefined); // State for the full phone number
@@ -13,64 +14,98 @@ export default function HeroSection() {
         <>
             {/* Custom styles for react-phone-number-input */}
             <style jsx global>{`
-                .form-control { /* react-phone-input-2 uses 'form-control' for the input */
-                    border: 1px solid #e2e8f0; /* slate-300 */
-                    border-radius: 0.375rem; /* rounded-md */
-                    padding: 0.625rem 0.75rem; /* py-2.5 px-3 */
-                    font-size: 0.875rem; /* text-sm */
-                    line-height: 1.25rem; /* text-sm */
-                    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
-                    flex: 1; /* Allow input to take available space */
-                    min-width: 0; /* Important for flex items */
+                .react-tel-input {
+                    font-family: inherit;
+                    position: relative;
+                    width: 100%;
                 }
-                .form-control:focus {
-                    border-color: #00c0a3; /* secondary brand color */
-                    outline: 0;
-                    box-shadow: 0 0 0 0.2rem rgba(52, 211, 153, 0.25); /* focus ring */
+                
+                .react-tel-input .form-control {
+                    width: 100%;
+                    border: 1px solid #d1d5db;
+                    border-radius: 0.5rem;
+                    line-height: 1.5rem;
+                    height: 3rem;
+                    padding: 0.75rem 0.75rem 0.75rem 3.5rem;
+                    font-size: 1rem;
+                    color: #374151;
+                    background-color: #fff;
+                    outline: none;
                 }
-                .flag-dropdown { /* Styles for the flag dropdown container */
-                    margin-right: 0.5rem;
-                    /* Vertically center the flag and dropdown arrow */
+                
+                .react-tel-input .flag-dropdown {
+                    position: absolute;
+                    top: 0;
+                    bottom: 0;
+                    padding: 0 0.5rem;
+                    border-radius: 0.5rem 0 0 0.5rem;
+                    background-color: transparent;
+                    border: none;
+                }
+                
+                /* Explicitly hide any borders from all dropdown elements */
+                .react-tel-input .flag-dropdown *,
+                .react-tel-input .selected-flag,
+                .react-tel-input .selected-flag:focus,
+                .react-tel-input .selected-flag:hover,
+                .react-tel-input .selected-flag.open,
+                .react-tel-input .selected-flag div {
+                    border: none !important;
+                    border-right: none !important;
+                    box-shadow: none !important;
+                }
+                
+                .react-tel-input .selected-flag {
+                    outline: none;
+                    position: relative;
+                    width: 3rem;
+                    height: 100%;
+                    padding: 0 0 0 0.5rem;
                     display: flex;
                     align-items: center;
                 }
-                .flag-dropdown .arrow {
-                    opacity: 0.7;
-                }
-                /* Container for the phone input to help with sizing and border */
-                .phone-input-custom-container {
+                
+                .react-tel-input .selected-flag .flag {
                     display: flex;
-                    border: 1px solid #e2e8f0; /* slate-300, same as input for unified look */
-                    border-radius: 0.375rem; /* rounded-md */
-                    background-color: white; /* Ensure background for the container */
+                    align-items: center;
                 }
-                .phone-input-custom-container:focus-within {
-                    border-color: #00c0a3; /* secondary brand color */
-                    box-shadow: 0 0 0 0.2rem rgba(52, 211, 153, 0.25); /* focus ring */
+                
+                .react-tel-input .selected-flag .arrow {
+                    position: relative;
+                    top: 0;
+                    left: 0.3rem;
+                    width: 0;
+                    height: 0;
+                    border-left: 3px solid transparent;
+                    border-right: 3px solid transparent;
+                    border-top: 4px solid #555;
                 }
-                .phone-input-custom-container .form-control {
-                    border: none; /* Remove border from internal input as container has it */
-                    box-shadow: none; /* Remove shadow from internal input */
-                    /* Significantly increase left padding to make space for the country selector */
-                    /* The value (e.g., 3.5rem) might need tweaking based on the actual width of the country selector */
-                    padding-left: 3.5rem !important; 
+                
+                .react-tel-input .form-control:focus {
+                    border-color: #6D3D94;
+                    box-shadow: 0 0 0 1px rgba(109, 61, 148, 0.2);
                 }
-                .phone-input-custom-container .form-control:focus {
-                    border: none;
-                    box-shadow: none;
+                
+                .react-tel-input .form-control::placeholder {
+                    color: #9ca3af;
+                }
+                
+                /* Remove special-label if it exists */
+                .react-tel-input .special-label {
+                    display: none;
                 }
             `}</style>
-        <section className="relative py-20 px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
+        <section className="relative py-20 bg-white">
+            <Container>
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-slate-800 mb-4 leading-tight">
-                            Achieve your learning goals with top educators
+                        <h1 className="text-slate-800 mb-4" style={{ fontSize: '48px', fontWeight: 700, lineHeight: '56px', letterSpacing: '-0.01em' }}>
+                        Unlock Your Potential with GlobeDock
                         </h1>
                         <p className="text-lg text-slate-600 mb-8">
-                            Millions trust us for their exam preparation.
+                        From classroom concepts to exam confidence—<span className="text-[#6D3D94] font-semibold">one platform</span>.
                         </p>
-                        <div className="max-w-md phone-input-custom-container">
+                        <div className="max-w-md">
                             <PhoneInput
                                 country={'et'} // Default country for react-phone-input-2
                                 value={phoneNumber}
@@ -109,7 +144,7 @@ export default function HeroSection() {
                         </div>
                     </div>
                 </div>
-            </div>
+            </Container>
         </section>
         </>
     );
