@@ -22,7 +22,7 @@ export default function Footer() {
                         <div>
                             <Link href="/" legacyBehavior>
                                 <a>
-                                    <Image src="/images/logo.png" alt="GlobeDock Academy Logo" width={161} height={40} className="h-12 w-auto" />
+                                    <Image src="/images/logo2.png" alt="GlobeDock Academy Logo" width={161} height={40} className="h-12 w-auto" />
                                 </a>
                             </Link>
                             <p className="text-sm text-gray-400 mt-3 max-w-md">

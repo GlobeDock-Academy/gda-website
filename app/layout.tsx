@@ -3,6 +3,9 @@ import './globals.css';
 export const metadata: Metadata = {
     title: 'GlobeDock Academy',
     description: 'Access a rich library of lessons and resources, all created by subject matter experts and educators.',
+    icons: {
+        icon: '/images/favicon.png',
+    },
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
