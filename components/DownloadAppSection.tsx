@@ -3,15 +3,16 @@ import Container from '@/components/Container';
 
 const DownloadAppSection = () => {
   return (
-    <section className="bg-gray-50 py-16 md:py-24">
+    <section className="bg-white py-16 md:py-24">
       <Container>
-        <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
+        <div className="bg-primary text-white rounded-[2rem] overflow-hidden py-12 px-6 md:px-10 lg:px-16">
+          <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Get the learning app
             </h2>
-            <p className="text-lg text-gray-700 mb-8 max-w-md">
+            <p className="text-lg text-white/80 mb-8 max-w-md">
               Download lessons and learn anytime, anywhere with the Unacademy app
             </p>
             <div className="flex items-center space-x-4">
@@ -43,6 +44,7 @@ const DownloadAppSection = () => {
               height={620}
               style={{ objectFit: 'contain' }}
             />
+          </div>
           </div>
         </div>
       </Container>
