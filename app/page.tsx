@@ -4,6 +4,7 @@ import StatsSection from '@/components/StatsSection';
 import WhyGlobedockWorksSection from '@/components/WhyGlobedockWorksSection'; // Added import
 import FeaturesSection from '@/components/FeaturesSection';
 import DownloadAppSection from '@/components/DownloadAppSection';
+import FactsSection from '@/components/FactsSection';
 import ContentTypesSection from '@/components/ContentTypesSection';
 import PlatformAccessSection from '@/components/PlatformAccessSection';
 import ParentFeaturesSection from '@/components/ParentFeaturesSection';
@@ -21,12 +22,14 @@ export default function HomePage() {
             <WhyGlobedockWorksSection /> {/* Added new section here */}
             <FeaturesSection />
             <DownloadAppSection />
-            <ContentTypesSection />
+            <FactsSection />
+            {/* ContentTypesSection hidden but code preserved */}
+            {/* <ContentTypesSection /> */}
             <PlatformAccessSection />
             <ParentFeaturesSection />
             <TestimonialsSection />
-            <CTASection />
             <ContactUsSection /> {/* Added new section here */}
+            <CTASection />
             <Footer />
         </div>
     );

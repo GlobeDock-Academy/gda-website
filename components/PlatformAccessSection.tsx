@@ -4,8 +4,9 @@ import Image from 'next/image';
 
 export default function PlatformAccessSection() {
     return (
-        <section id="platforms" className="py-20 bg-gradient-to-br from-primary to-secondary text-white">
+        <section id="platforms" className="py-20 bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="bg-gradient-to-br from-primary to-secondary text-white rounded-[2rem] overflow-hidden py-12 px-6 md:px-10 lg:px-16">
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div>
                         <h2 className="text-4xl font-bold mb-6">Learn Anytime, Anywhere</h2>
@@ -47,6 +48,7 @@ export default function PlatformAccessSection() {
                             />
                         </div>
                     </div>
+                </div>
                 </div>
             </div>
         </section>

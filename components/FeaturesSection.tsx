@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 
 export default function FeaturesSection() {
     return (
-        <section id="features" className="py-20 bg-gradient-to-br from-gray-50 to-secondary/10">
+        <section id="features" className="py-20 bg-white">
             <Container>
                 <div className="text-center mb-16">
                     <h2 className="text-4xl font-bold text-gray-900 mb-4">

@@ -3,7 +3,7 @@ import Container from '@/components/Container';
 
 const DownloadAppSection = () => {
   return (
-    <section className="bg-white py-16 md:py-24">
+    <section className="bg-gray-50 py-16 md:py-24">
       <Container>
         <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
           {/* Left Column */}
