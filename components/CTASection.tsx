@@ -13,9 +13,12 @@ export default function CTASection() {
                 <Button 
                     size="lg" 
                     className="bg-white text-secondary hover:bg-secondary/10 hover:text-secondary-foreground text-lg px-10 py-4 shadow-lg transform transition-transform hover:scale-105"
+                    asChild
                 >
-                    Get Started for Free
-                    <ArrowRight className="ml-2 h-5 w-5" />
+                    <a href="https://staging-stud.gdacademy.et/auth/verify-phone">
+                        Get Started for Free
+                        <ArrowRight className="ml-2 h-5 w-5" />
+                    </a>
                 </Button>
                 <p className="mt-6 text-sm text-secondary-foreground/70">
                     Access basic features for free. Affordable premium plans available.
