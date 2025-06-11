@@ -31,9 +31,12 @@ export default function PlatformAccessSection() {
                             size="lg"
                             variant="outline"
                             className="bg-white text-secondary hover:bg-secondary/10 border-white hover:border-secondary/20 text-lg px-8 py-3"
+                            asChild
                         >
-                            Explore Platform Features
-                            <ArrowRight className="ml-2 h-5 w-5" />
+                            <a href="https://staging-stud.gdacademy.et/auth/verify-phone">
+                                Explore Platform Features
+                                <ArrowRight className="ml-2 h-5 w-5" />
+                            </a>
                         </Button>
                     </div>
                     <div className="relative mt-10 lg:mt-0">

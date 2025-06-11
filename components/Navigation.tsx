@@ -14,11 +14,11 @@ export default function Navigation() {
                     <div className="hidden md:flex items-center space-x-6"> {/* Adjusted spacing for nav items and new button group */}
                         {/* New Button Group - Links removed as per user request */}
                         <div className="flex items-center space-x-2">
-                            <Button variant="outline" className="text-secondary border-secondary hover:bg-secondary/10 hover:text-secondary rounded-md px-4">
-                                Log in
+                            <Button variant="outline" className="text-secondary border-secondary hover:bg-secondary/10 hover:text-secondary rounded-md px-4" asChild>
+                                <a href="https://staging-stud.gdacademy.et/auth/signin">Log in</a>
                             </Button>
-                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-4">
-                                Join for free
+                            <Button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-md px-4" asChild>
+                                <a href="https://staging-stud.gdacademy.et/auth/verify-phone">Join for free</a>
                             </Button>
                         </div>
                     </div>

@@ -9,6 +9,7 @@ import ContentTypesSection from '@/components/ContentTypesSection';
 import PlatformAccessSection from '@/components/PlatformAccessSection';
 import ParentFeaturesSection from '@/components/ParentFeaturesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
+import GovernmentPartnershipSection from '@/components/GovernmentPartnershipSection';
 import CTASection from '@/components/CTASection';
 import ContactUsSection from '@/components/ContactUsSection'; // Added import
 import Footer from '@/components/Footer';
@@ -28,6 +29,7 @@ export default function HomePage() {
             <PlatformAccessSection />
             <ParentFeaturesSection />
             <TestimonialsSection />
+            <GovernmentPartnershipSection />
             <ContactUsSection /> {/* Added new section here */}
             <CTASection />
             <Footer />

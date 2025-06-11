@@ -125,8 +125,9 @@ export default function HeroSection() {
                         <Button 
                             size="lg" 
                             className="bg-slate-800 hover:bg-slate-700 text-white text-lg px-8 py-3 w-full max-w-md rounded-md"
+                            asChild
                         >
-                            Join for free
+                            <a href="https://staging-stud.gdacademy.et/auth/verify-phone">Join for free</a>
                         </Button>
                     </div>
                     <div className="relative">
