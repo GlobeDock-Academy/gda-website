@@ -18,7 +18,7 @@ const DonationForm = () => {
   const monthOptions = [1, 3, 6, 12];
   
   const currencies = ['ETB', 'USD', 'EUR', 'AUD', 'CAD', 'GBP'];
-  const currencySymbols = {
+  const currencySymbols: { [key: string]: string } = {
     'ETB': 'Br',
     'USD': '$',
     'EUR': '€',
@@ -27,7 +27,7 @@ const DonationForm = () => {
     'GBP': '£',
   };
 
-  const monthlySubscription = {
+  const monthlySubscription: { [key: string]: number } = {
     'ETB': 200,
     'USD': 4,
     'EUR': 3.5,
@@ -36,7 +36,7 @@ const DonationForm = () => {
     'GBP': 3,
   };
 
-  const handleDonationTypeChange = (type) => {
+  const handleDonationTypeChange = (type: string) => {
     setDonationType(type);
     if (type === 'sponsor') {
       setCustomAmount('');
