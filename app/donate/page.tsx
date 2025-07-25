@@ -5,134 +5,134 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import Image from 'next/image';
-import ImpactSection from '@/components/ImpactSection';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const DonationForm = () => {
-  const [currency, setCurrency] = useState('ETB');
   const [numStudents, setNumStudents] = useState(1);
-  const [numMonths, setNumMonths] = useState(1);
-  const [customAmount, setCustomAmount] = useState('');
-  const [donationType, setDonationType] = useState('sponsor'); // 'sponsor' or 'custom'
+  const [numMonths, setNumMonths] = useState(6);
+  const [showOtherInput, setShowOtherInput] = useState(false);
 
-  const studentOptions = [1, 2, 3, 5, 10];
-  const monthOptions = [1, 3, 6, 12];
+  const studentOptions = [1, 3, 5, 10];
+  const monthOptions = [6, 12];
   
-  const currencies = ['ETB', 'USD', 'EUR', 'AUD', 'CAD', 'GBP'];
-  const currencySymbols: { [key: string]: string } = {
-    'ETB': 'Br',
-    'USD': '$',
-    'EUR': '€',
-    'AUD': 'A$',
-    'CAD': 'C$',
-    'GBP': '£',
+  const currency = 'ETB';
+  const currencySymbol = 'Br';
+  const monthlySubscription = 200;
+
+  const totalSponsorAmount = numStudents * numMonths * monthlySubscription;
+
+  const handleStudentSelect = (students: number) => {
+    setNumStudents(students);
+    setShowOtherInput(false);
   };
 
-  const monthlySubscription: { [key: string]: number } = {
-    'ETB': 200,
-    'USD': 4,
-    'EUR': 3.5,
-    'AUD': 5.5,
-    'CAD': 5,
-    'GBP': 3,
+  const handleOtherClick = () => {
+    setShowOtherInput(true);
+    setNumStudents(0); // Reset to 0 or a custom value indicator
   };
-
-  const handleDonationTypeChange = (type: string) => {
-    setDonationType(type);
-    if (type === 'sponsor') {
-      setCustomAmount('');
-    } else {
-      setNumStudents(1);
-      setNumMonths(1);
-    }
-  };
-
-  const totalSponsorAmount = numStudents * numMonths * monthlySubscription[currency];
 
   return (
-    <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-gray-800">
-      <h2 className="text-xl font-bold mb-4">Unlock a Student’s Future—Fuel Their Learning Now.</h2>
+    <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-gray-800 font-averta">
+      <h2 className="text-xl font-bold mb-4 text-center">Support Free Education</h2>
       
-      <div className="mb-6">
-        <label htmlFor="currency" className="block text-sm font-medium text-gray-700 mb-1">Choose Currency</label>
-        <select
-          id="currency"
-          name="currency"
-          value={currency}
-          onChange={(e) => setCurrency(e.target.value)}
-          className="inline-block w-auto pl-3 pr-6 py-2 text-base border-2 border-primary focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md"
-        >
-          {currencies.map((c) => (
-            <option key={c}>{c}</option>
-          ))}
-        </select>
-      </div>
-
-      <div className="grid grid-cols-2 gap-3 mb-6">
-        <Button 
-          variant={donationType === 'sponsor' ? 'default' : 'outline'}
-          className="w-full"
-          onClick={() => handleDonationTypeChange('sponsor')}
-        >
-          Sponsor Students
-        </Button>
-        <Button 
-          variant={donationType === 'custom' ? 'default' : 'outline'}
-          className="w-full"
-          onClick={() => handleDonationTypeChange('custom')}
-        >
-          Custom Amount
-        </Button>
-      </div>
-
-      {donationType === 'sponsor' ? (
-        <div className="space-y-4">
-          <div>
-            <label htmlFor="students" className="block text-sm font-medium text-gray-700 mb-1">Number of students</label>
-            <select
-              id="students"
-              value={numStudents}
-              onChange={(e) => setNumStudents(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            >
-              {studentOptions.map(s => <option key={s} value={s}>{s} student{s > 1 ? 's' : ''}</option>)}
-            </select>
-          </div>
-          <div>
-            <label htmlFor="months" className="block text-sm font-medium text-gray-700 mb-1">Subscription duration</label>
-            <select
-              id="months"
-              value={numMonths}
-              onChange={(e) => setNumMonths(Number(e.target.value))}
-              className="w-full p-2 border border-gray-300 rounded-md"
-            >
-              {monthOptions.map(m => <option key={m} value={m}>{m} month{m > 1 ? 's' : ''}</option>)}
-            </select>
-          </div>
-          <div className="bg-gray-50 p-4 rounded-lg text-center">
-            <p className="text-gray-600">Total Donation</p>
-            <p className="text-2xl font-bold">{currencySymbols[currency]}{totalSponsorAmount.toFixed(2)}</p>
-          </div>
-        </div>
-      ) : (
+      <div className="space-y-6">
         <div>
-          <label htmlFor="custom-amount" className="block text-sm font-medium text-gray-700 mb-1">Enter your donation amount</label>
-          <div className="relative">
-            <span className="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-500">{currencySymbols[currency]}</span>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Number of students</label>
+          <div className="grid grid-cols-3 gap-3">
+            {studentOptions.map(s => (
+              <Button 
+                key={s} 
+                variant={numStudents === s && !showOtherInput ? 'default' : 'outline'}
+                onClick={() => handleStudentSelect(s)}
+              >
+                {s} Student{s > 1 ? 's' : ''}
+              </Button>
+            ))}
+            <Button variant={showOtherInput ? 'default' : 'outline'} onClick={handleOtherClick}>Other</Button>
+          </div>
+          {showOtherInput && (
             <input
-              id="custom-amount"
               type="number"
-              value={customAmount}
-              onChange={(e) => setCustomAmount(e.target.value)}
-              placeholder="0.00"
-              className="w-full pl-8 pr-4 py-2 border border-gray-300 rounded-md"
+              placeholder="Enter number of students"
+              className="w-full p-2 border border-gray-300 rounded-md mt-3"
+              onChange={(e) => setNumStudents(Number(e.target.value))}
             />
+          )}
+        </div>
+
+        <div>
+          <label className="block text-sm font-medium text-gray-700 mb-2">Subscription duration</label>
+          <div className="grid grid-cols-2 gap-3">
+            {monthOptions.map(m => (
+              <Button 
+                key={m} 
+                variant={numMonths === m ? 'default' : 'outline'}
+                onClick={() => setNumMonths(m)}
+              >
+                {m === 12 ? '1 Year' : `${m} Months`}
+              </Button>
+            ))}
           </div>
         </div>
-      )}
+
+        <div className="bg-gray-50 p-4 rounded-lg text-center">
+          <p className="text-gray-600">Total Donation</p>
+          <p className="text-2xl font-bold">{currencySymbol}{totalSponsorAmount.toFixed(2)}</p>
+        </div>
+      </div>
 
       <Button className="w-full bg-gray-900 text-white h-14 text-lg hover:bg-gray-800 mt-6">
         Continue
       </Button>
+    </div>
+  );
+};
+
+const faqs = [
+  {
+    question: "Is this donation tax deductible?",
+    answer: "Yes, GlobeDock is a 501(c)(3) nonprofit organization, and all donations are tax-deductible to the extent allowable by law."
+  },
+  {
+    question: "How do I give by check?",
+    answer: "You can mail a check to our office at [Your Address Here]. Please make the check payable to GlobeDock."
+  },
+  {
+    question: "Do you accept employee matching gifts?",
+    answer: "Yes, many employers will match your donation. Please check with your HR department for more information."
+  },
+  {
+    question: "Can I donate stock or make my donation by wire transfer?",
+    answer: "Yes, we accept stock donations and wire transfers. Please contact us at [Your Contact Email] for instructions."
+  },
+  {
+    question: "Do you accept cryptocurrency donations?",
+    answer: "Yes, we accept donations in various cryptocurrencies. Please visit our crypto donation page for more details."
+  },
+  {
+    question: "Can I donate in a currency other than US dollars?",
+    answer: "Yes, our donation form supports multiple currencies. Simply select your preferred currency from the dropdown menu."
+  },
+  {
+    question: "How do I manage my recurring donation?",
+    answer: "You can manage your recurring donation through the link provided in your initial donation receipt email."
+  }
+];
+
+const FaqSection = () => {
+  return (
+    <div className="bg-white py-20">
+      <div className="container mx-auto px-4 max-w-3xl">
+        <h2 className="text-3xl font-bold text-center mb-12 text-gray-800">Frequently Asked Questions</h2>
+        <Accordion type="single" collapsible className="w-full">
+          {faqs.map((faq, index) => (
+            <AccordionItem key={index} value={`item-${index}`}>
+              <AccordionTrigger>{faq.question}</AccordionTrigger>
+              <AccordionContent>{faq.answer}</AccordionContent>
+            </AccordionItem>
+          ))}
+        </Accordion>
+      </div>
     </div>
   );
 };
@@ -142,23 +142,22 @@ export default function DonatePage() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <main className="bg-primary text-white">
-        <div className="container mx-auto px-4 py-20">
+        <div className="container mx-auto px-8 py-20">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="flex justify-center lg:justify-end">
               <DonationForm />
             </div>
             <div className="relative">
-              <div className="relative w-64 h-64 mx-auto lg:mx-0">
-                <Image 
-                  src="/images/sal-khan-placeholder.png" // Placeholder image
-                  alt="Founder" 
-                  width={256}
-                  height={256}
-                  className="rounded-full object-cover relative z-10"
-                />
-                <div className="absolute -top-4 -left-4 w-20 h-20 bg-blue-400 rounded-full opacity-50"></div>
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-yellow-400 rounded-lg transform rotate-12"></div>
-              </div>
+              <iframe 
+                width="560" 
+                height="315" 
+                src="https://www.youtube.com/embed/BWHB_o_q-vA" 
+                title="YouTube video player" 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowFullScreen
+                className="w-full aspect-video rounded-lg"
+              ></iframe>
               <div className="mt-12 text-center lg:text-left">
                 <h2 className="text-4xl font-bold mb-4">From Offline to On Track: Power a Child’s First Online Lesson.</h2>
                 <p className="text-lg text-gray-300 max-w-lg mx-auto lg:mx-0">
@@ -170,7 +169,7 @@ export default function DonatePage() {
           </div>
         </div>
       </main>
-      <ImpactSection />
+      <FaqSection />
       <Footer />
     </div>
   );
