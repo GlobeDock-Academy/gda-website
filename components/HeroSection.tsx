@@ -28,13 +28,13 @@ export default function HeroSection() {
             <Container>
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-slate-800 mb-4" style={{ color:'#3C4852', fontSize: '48px', fontWeight: 700, lineHeight: '56px', letterSpacing: '-0.01em' }}>
-                        Top-Quality Learning for Ethiopian Students
+                        <h1 className="text-slate-800 mb-4" style={{ color:'#3C4852', fontSize: '52px', fontWeight: 700, lineHeight: '60px', letterSpacing: '-0.01em', paddingRight: '0', marginRight: '0' }}>
+                        Top-Quality Learning for <span style={{ color: '#FFB900' }}>Ethiopian Students</span>
                         </h1>
                         <p className="text-slate-600 mb-8 font-semibold" style={{ fontSize: '16px' }}>
                         Amharic, offline, and curriculum-aligned — <span className="text-[#6D3D94] font-semibold">built for results.</span>
                         </p>
-                        <div className="max-w-md">
+                        <div style={{ maxWidth: '520px' }}>
                             <TextField
                                 fullWidth
                                 variant="outlined"
@@ -133,11 +133,11 @@ export default function HeroSection() {
                                 }}
                             />
                         </div>
-                        <p className="text-slate-500 mt-2 mb-6 max-w-md font-normal" style={{ fontSize: '14px' }}>
+                        <p className="text-slate-500 mt-2 mb-6 font-normal" style={{ fontSize: '14px', maxWidth: '520px' }}>
                             We&apos;ll send an OTP for verification
                         </p>
                         <Button 
-                            className="w-full max-w-md font-bold"
+                            className="font-bold"
                             style={{
                                 padding: '10px 24px',
                                 boxSizing: 'border-box',
@@ -148,8 +148,11 @@ export default function HeroSection() {
                                 color: '#FFFFFF',
                                 lineHeight: '20px',
                                 fontWeight: 700,
-                                height: '48px'
+                                height: '48px',
+                                width: '100%',
+                                maxWidth: '520px'
                             }}
+
                             asChild
                         >
                             <a href="https://staging-stud.gdacademy.et/auth/verify-phone">Join for free</a>

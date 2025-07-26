@@ -14,7 +14,7 @@ export default function Navigation() {
                     background-color: rgba(113, 44, 148, 0.1) !important;
                 }
             `}</style>
-            <nav className="bg-[#FCFCFC] border-b border-secondary/20 sticky top-0 z-50">
+            <nav className="bg-[#FCFCFC] border-b border-gray-200 sticky top-0 z-50">
             <Container>
                 <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
@@ -25,7 +25,7 @@ export default function Navigation() {
                     </div>
                     <div className="hidden md:flex items-center space-x-6"> {/* Adjusted spacing for nav items and new button group */}
                         {/* New Button Group - Links removed as per user request */}
-                        <div className="flex items-center space-x-2">
+                        <div className="flex items-center space-x-2" style={{ display: 'flex' }}>
                             <Button variant="ghost" asChild>
                                 <Link href="/donate"><HeartHandshake className="mr-2 h-4 w-4" /> Donate</Link>
                             </Button>
@@ -39,6 +39,9 @@ export default function Navigation() {
                                     fontFamily: 'inherit',
                                     fontSize: '14px',
                                     fontWeight: 600,
+                                    width: '104px',
+                                    height: '40px',
+                                    minWidth: '100px',
                                     transition: 'all 0.2s ease-in-out'
                                 }}
                                 asChild
@@ -52,7 +55,10 @@ export default function Navigation() {
                                     color: '#FFFFFF',
                                     border: '1px solid #3C4852',
                                     fontSize: '14px',
-                                    fontWeight: 700
+                                    fontWeight: 600,
+                                    width: '104px',
+                                    height: '40px',
+                                    minWidth: '100px'
                                 }}
                                 asChild
                             >
