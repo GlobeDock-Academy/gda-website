@@ -16,7 +16,7 @@ const DownloadAppSection = () => {
               Download lessons and learn anytime, anywhere with the Unacademy app
             </p>
             <div className="flex items-center space-x-4">
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+              <a href="https://apps.apple.com/us/app/globedock-academy/id6459021458" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
                 <Image 
                   src="/images/app-store.svg" 
                   alt="Download on the App Store" 
@@ -24,7 +24,7 @@ const DownloadAppSection = () => {
                   height={50}
                 />
               </a>
-              <a href="#" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
+              <a href="https://play.google.com/store/apps/details?id=com.globedock.academy.android&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
                 <Image 
                   src="/images/google-play.png" 
                   alt="Get it on Google Play" 

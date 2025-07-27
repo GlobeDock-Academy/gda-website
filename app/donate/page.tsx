@@ -33,7 +33,7 @@ const DonationForm = () => {
 
   return (
     <div className="bg-white p-8 rounded-2xl shadow-lg max-w-md w-full text-gray-800 font-averta">
-      <h2 className="text-xl font-bold mb-4 text-center">Support Free Education</h2>
+      <h2 className="text-2xl font-bold mb-4 text-center">Support Free Education</h2>
       
       <div className="space-y-6">
         <div>
@@ -44,11 +44,12 @@ const DonationForm = () => {
                 key={s} 
                 variant={numStudents === s && !showOtherInput ? 'default' : 'outline'}
                 onClick={() => handleStudentSelect(s)}
+                className="font-semibold"
               >
                 {s} Student{s > 1 ? 's' : ''}
               </Button>
             ))}
-            <Button variant={showOtherInput ? 'default' : 'outline'} onClick={handleOtherClick}>Other</Button>
+            <Button variant={showOtherInput ? 'default' : 'outline'} onClick={handleOtherClick} className="font-semibold">Other</Button>
           </div>
           {showOtherInput && (
             <input
@@ -68,6 +69,7 @@ const DonationForm = () => {
                 key={m} 
                 variant={numMonths === m ? 'default' : 'outline'}
                 onClick={() => setNumMonths(m)}
+                className="font-semibold"
               >
                 {m === 12 ? '1 Year' : `${m} Months`}
               </Button>
@@ -142,28 +144,29 @@ export default function DonatePage() {
     <div className="min-h-screen bg-white">
       <Navigation />
       <main className="bg-primary text-white">
-        <div className="container mx-auto px-8 py-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="flex justify-center lg:justify-end">
+        <div className="container mx-auto px-12 py-20">
+          <div className="grid lg:grid-cols-2 gap-16 items-start">
+            <div className="flex justify-center lg:justify-end items-start">
               <DonationForm />
             </div>
             <div className="relative">
               <iframe 
                 width="560" 
                 height="315" 
-                src="https://www.youtube.com/embed/BWHB_o_q-vA" 
+                src="https://www.youtube.com/embed/KQp-2bNCGPM" 
                 title="YouTube video player" 
                 frameBorder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
                 className="w-full aspect-video rounded-lg"
+
               ></iframe>
               <div className="mt-12 text-center lg:text-left">
-                <h2 className="text-4xl font-bold mb-4">From Offline to On Track: Power a Child’s First Online Lesson.</h2>
-                <p className="text-lg text-gray-300 max-w-lg mx-auto lg:mx-0">
+                <h2 className="text-4xl font-bold mb-4" style={{ color: '#FFFFFF' }}>Help us do more</h2>
+                <p className="text-lg max-w-lg mx-auto lg:mx-0" style={{ color: '#FFFFFF', textAlign: 'justify' }}>
                   From the very first tap, your support unlocks daily guidance from expert teachers, builds confidence through bite-sized mastery checks, and turns long commutes or candle-lit study sessions into moments of empowered discovery. Donate today and watch an “offline” learner shift to “on track”—one subscription, one future at a time.
                 </p>
-                <p className="mt-6 font-semibold">- GlobeDock Founder and CEO</p>
+                <p className="mt-6 font-semibold" style={{ color: '#FFFFFF' }}> - Kirubel Akalu, Founder and CEO of GlobeDock Academy</p>
               </div>
             </div>
           </div>

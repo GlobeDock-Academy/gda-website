@@ -12,13 +12,14 @@ import {
     Building2,
     HeartHandshake,
     Mail,
-    ShieldCheck
+    ShieldCheck,
+    FileText
 } from 'lucide-react';
 import FooterContainer from '@/components/FooterContainer';
 
 export default function Footer() {
     return (
-        <footer className="bg-white text-gray-800 py-12">
+        <footer className="bg-white text-gray-800 py-12 border-t border-gray-200">
             <FooterContainer>
                 {/* Main content area */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
@@ -27,21 +28,23 @@ export default function Footer() {
                         <div>
                             <Link href="/" legacyBehavior>
                                 <a>
-                                    <Image src="/images/logo2.png" alt="GlobeDock Academy Logo" width={200} height={50} className="h-16 w-auto" />
+                                    <Image src="/images/logo.png" alt="GlobeDock Academy Logo" width={200} height={50} className="h-16 w-auto" />
                                 </a>
                             </Link>
-                            <p className="text-sm text-gray-600 mt-3 max-w-md">
-                                GlobeDock is democratising learning, making it accessible to all. Join the revolution, learn on Ethiopia&apos;s largest learning platform.
+                            <p className="text-base text-gray-600 mt-3 max-w-md">
+                                Ethiopia's largest & most trusted tutoring platform.
                             </p>
                         </div>
                         <div className="flex space-x-3">
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://apps.apple.com/us/app/globedock-academy/id6459021458" target="_blank" rel="noopener noreferrer">
                                 <Image src="/images/app-store.svg" alt="Download on the App Store" width={135} height={40} className="h-10" />
                             </a>
-                            <a href="#" target="_blank" rel="noopener noreferrer">
+                            <a href="https://play.google.com/store/apps/details?id=com.globedock.academy.android&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
                                 <Image src="/images/google-play.png" alt="Get it on Google Play" width={135} height={40} className="h-10" />
                             </a>
                         </div>
+                        {/* Separator line */}
+                        <div className="border-t border-gray-200 pt-6 w-[15%]"></div>
                         <div>
                             <h4 className="font-semibold text-black mb-2">Reach out to us</h4>
                             <p className="text-sm text-gray-600 mb-2">
@@ -60,24 +63,28 @@ export default function Footer() {
                             <h4 className="font-semibold text-black mb-4">Company</h4>
                             <ul className="space-y-2">
                                 <li>
-                                    <Link href="/about-us" className="flex items-center text-gray-600 hover:text-black text-sm">
-                                        <Building2 size={18} className="mr-2 text-primary" /> About Us
+                                    <Link href="/blog" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <FileText size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Blog
                                     </Link>
                                 </li>
-                                {/* Add other company links here if needed, following Unacademy's example like Shikshodaya, Careers, Blogs, Privacy policy, Terms and conditions */}
+                                <li>
+                                    <Link href="/about-us" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <Building2 size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> About Us
+                                    </Link>
+                                </li>
                             </ul>
                         </div>
                         <div>
                             <h4 className="font-semibold text-black mb-4">Help & support</h4>
                             <ul className="space-y-2">
                                 <li>
-                                    <Link href="/donation" className="flex items-center text-gray-600 hover:text-black text-sm">
-                                        <HeartHandshake size={18} className="mr-2 text-primary" /> Donation
+                                    <Link href="/donate" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <HeartHandshake size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Donate
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/contact-us" className="flex items-center text-gray-600 hover:text-black text-sm">
-                                        <Mail size={18} className="mr-2 text-secondary" /> Contact us
+                                    <Link href="#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <Mail size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Contact us
                                     </Link>
                                 </li>
 
@@ -87,13 +94,13 @@ export default function Footer() {
                             <h4 className="font-semibold text-black mb-4">Company Apps</h4>
                             <ul className="space-y-3">
                                 <li>
-                                    <Link href="#" className="flex items-center text-gray-600 hover:text-black text-sm">
-                                        <GraduationCap size={18} className="mr-2 text-primary" /> Learner app
+                                    <Link href="#" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Student App
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#" className="flex items-center text-gray-600 hover:text-black text-sm">
-                                        <Users size={18} className="mr-2 text-secondary" /> Parental app
+                                    <Link href="#" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                        <Users size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Parental app
                                     </Link>
                                 </li>
                             </ul>
@@ -106,7 +113,7 @@ export default function Footer() {
                     <div className="flex space-x-4 mb-4 sm:mb-0">
                         <a href="https://facebook.com/globedockacademy/" className="text-gray-600 hover:text-black"><Facebook size={20} /></a>
                         <a href="https://www.youtube.com/@globedockacademy" className="text-gray-600 hover:text-black"><Youtube size={20} /></a>
-                        <a href="https://twitter.com/globedock" className="text-gray-600 hover:text-black"><Twitter size={20} /></a>
+                        <a href="https://www.linkedin.com/company/globedock-academy/" className="text-gray-600 hover:text-black"><Linkedin size={20} /></a>
                         <a href="https://www.instagram.com/globedockacademy/" className="text-gray-600 hover:text-black"><Instagram size={20} /></a>
                     </div>
                     <div className="flex space-x-6">
