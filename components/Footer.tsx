@@ -32,7 +32,7 @@ export default function Footer() {
                                 </a>
                             </Link>
                             <p className="text-base text-gray-600 mt-3 max-w-md">
-                                Ethiopia's largest & most trusted tutoring platform.
+                                Ethiopia&apos;s largest & most trusted tutoring platform.
                             </p>
                         </div>
                         <div className="flex space-x-3">
