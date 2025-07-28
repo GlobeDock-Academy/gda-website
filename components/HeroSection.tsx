@@ -162,7 +162,7 @@ export default function HeroSection() {
                         <div className="bg-gradient-to-br from-secondary to-primary rounded-3xl p-6 sm:p-8 transform rotate-3 shadow-2xl">
                             <div className="bg-white rounded-2xl p-4 sm:p-6 transform -rotate-3">
                                 <Image 
-                                    src="/images/two_boys.png" 
+                                    src="/images/hero_img.png" 
                                     alt="Students learning with GlobeDock Academy"
                                     width={500} // Adjusted width slightly for the container
                                     height={400} // Adjusted height slightly for the container
