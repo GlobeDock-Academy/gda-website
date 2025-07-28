@@ -159,18 +159,14 @@ export default function HeroSection() {
                         </Button>
                     </div>
                     <div className="relative">
-                        <div className="bg-gradient-to-br from-secondary to-primary rounded-3xl p-6 sm:p-8 transform rotate-3 shadow-2xl">
-                            <div className="bg-white rounded-2xl p-4 sm:p-6 transform -rotate-3">
-                                <Image 
-                                    src="/images/hero_img.png" 
-                                    alt="Students learning with GlobeDock Academy"
-                                    width={500} // Adjusted width slightly for the container
-                                    height={400} // Adjusted height slightly for the container
-                                    className="w-full h-auto rounded-lg shadow-lg object-contain"
-                                    priority
-                                />
-                            </div>
-                        </div>
+                        <Image 
+                            src="/images/hero_img.png" 
+                            alt="Students learning with GlobeDock Academy"
+                            width={600} // Increased by 20% from 500
+                            height={480} // Increased by 20% from 400
+                            className="w-full h-auto object-contain"
+                            priority
+                        />
                     </div>
                 </div>
             </Container>
