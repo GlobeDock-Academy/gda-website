@@ -83,9 +83,9 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <a href="#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                    <Link href="/#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <Mail size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Contact us
-                                    </a>
+                                    </Link>
                                 </li>
 
                             </ul>
