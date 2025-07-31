@@ -83,9 +83,9 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                    <a href="#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <Mail size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Contact us
-                                    </Link>
+                                    </a>
                                 </li>
 
                             </ul>
@@ -94,9 +94,9 @@ export default function Footer() {
                             <h4 className="font-semibold text-black mb-4">Company Apps</h4>
                             <ul className="space-y-3">
                                 <li>
-                                    <Link href="#" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                    <a href="https://app.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Student App
-                                    </Link>
+                                    </a>
                                 </li>
                                 <li>
                                     <Link href="#" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
@@ -111,10 +111,10 @@ export default function Footer() {
                 {/* Bottom Bar */}
                 <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm">
                     <div className="flex space-x-4 mb-4 sm:mb-0">
-                        <a href="https://facebook.com/globedockacademy/" className="text-gray-600 hover:text-black"><Facebook size={20} /></a>
-                        <a href="https://www.youtube.com/@globedockacademy" className="text-gray-600 hover:text-black"><Youtube size={20} /></a>
-                        <a href="https://www.linkedin.com/company/globedock-academy/" className="text-gray-600 hover:text-black"><Linkedin size={20} /></a>
-                        <a href="https://www.instagram.com/globedockacademy/" className="text-gray-600 hover:text-black"><Instagram size={20} /></a>
+                        <a href="https://facebook.com/globedockacademy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Facebook size={20} /></a>
+                        <a href="https://www.youtube.com/@globedockacademy" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Youtube size={20} /></a>
+                        <a href="https://www.linkedin.com/company/globedock-academy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Linkedin size={20} /></a>
+                        <a href="https://www.instagram.com/globedockacademy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Instagram size={20} /></a>
                     </div>
                     <div className="flex space-x-6">
                         <Link href="/privacy-policy" className="text-gray-600 hover:text-black">Privacy Policy</Link>
