@@ -4,7 +4,7 @@ import Container from '@/components/Container';
 
 export default function CTASection() {
     return (
-        <section className="py-20 bg-secondary text-secondary-foreground">
+        <section className="py-20 bg-[#0B1D53] text-secondary-foreground">
             <Container className="max-w-4xl mx-auto text-center">
                 <h2 className="text-4xl font-bold mb-6">Ready to Revolutionize Learning?</h2>
                 <p className="text-xl text-secondary-foreground/80 mb-10 max-w-2xl mx-auto">
