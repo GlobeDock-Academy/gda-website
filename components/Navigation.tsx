@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Container from '@/components/Container';
 import Link from 'next/link';
-import { HeartHandshake } from 'lucide-react';
+import { HeartHandshake, CreditCard } from 'lucide-react';
 
 export default function Navigation() {
     return (
@@ -26,6 +26,9 @@ export default function Navigation() {
                     <div className="hidden md:flex items-center space-x-6"> {/* Adjusted spacing for nav items and new button group */}
                         {/* New Button Group - Links removed as per user request */}
                         <div className="flex items-center space-x-2" style={{ display: 'flex' }}>
+                            <Button variant="ghost" asChild>
+                                <Link href="/pricing"><CreditCard className="mr-2 h-4 w-4" /> Pricing</Link>
+                            </Button>
                             <Button variant="ghost" asChild>
                                 <Link href="/donate"><HeartHandshake className="mr-2 h-4 w-4" /> Donate</Link>
                             </Button>
