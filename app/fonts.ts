@@ -28,6 +28,19 @@ export const avertaStd = localFont({
   display: 'swap'
 });
 
+// Define the Daily Memo font family
+export const dailyMemo = localFont({
+  src: [
+    {
+      path: '../public/fonts/Daily Memo.otf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-daily-memo',
+  display: 'swap'
+});
+
 // Define the Lato font family
 export const lato = localFont({
   src: [

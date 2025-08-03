@@ -10,6 +10,7 @@ import Container from '@/components/Container';
 export default function HeroSection() {
     const [phoneNumber, setPhoneNumber] = useState<string>(''); // State for the phone number
     const [countryCode, setCountryCode] = useState<string>('+251'); // Default to Ethiopia
+    const [error, setError] = useState<boolean>(false); // State to track validation errors
 
     // Helper function to get country code for flag display
     const getCountryCodeForFlag = (phoneCode: string) => {
@@ -40,7 +41,11 @@ export default function HeroSection() {
                                 variant="outlined"
                                 placeholder="Enter your mobile number"
                                 value={phoneNumber}
-                                onChange={(e) => setPhoneNumber(e.target.value)}
+                                onChange={(e) => {
+                                    setPhoneNumber(e.target.value);
+                                    if (error) setError(false); // Clear error when user types
+                                }}
+                                error={error}
                                 InputProps={{
                                     startAdornment: (
                                         <InputAdornment position="start">
@@ -113,15 +118,18 @@ export default function HeroSection() {
                                 sx={{
                                     '& .MuiOutlinedInput-root': {
                                         '& fieldset': {
-                                            borderColor: '#3C4852',
-                                            borderWidth: '1px'
+                                            borderColor: error ? '#FF0000' : '#3C4852',
+                                            borderWidth: error ? '2px' : '1px'
                                         },
                                         '&:hover fieldset': {
-                                            borderColor: '#3C4852'
+                                            borderColor: error ? '#FF0000' : '#3C4852'
                                         },
                                         '&.Mui-focused fieldset': {
-                                            borderColor: '#6D3D94',
-                                            boxShadow: '0 0 0 2px rgba(109, 61, 148, 0.1)'
+                                            borderColor: error ? '#FF0000' : '#6D3D94',
+                                            boxShadow: error ? '0 0 0 2px rgba(255, 0, 0, 0.1)' : '0 0 0 2px rgba(109, 61, 148, 0.1)'
+                                        },
+                                        '&.Mui-error fieldset': {
+                                            borderColor: '#FF0000'
                                         }
                                     },
                                     '& .MuiInputBase-input::placeholder': {
@@ -133,8 +141,8 @@ export default function HeroSection() {
                                 }}
                             />
                         </div>
-                        <p className="text-slate-500 mt-2 mb-6 font-normal" style={{ fontSize: '14px', maxWidth: '520px' }}>
-                            We&apos;ll send an OTP for verification
+                        <p className={`mt-2 mb-6 font-normal ${error ? 'text-red-500' : 'text-slate-500'}`} style={{ fontSize: '14px', maxWidth: '520px' }}>
+                            {error ? 'Enter a valid mobile number' : 'We\'ll send an OTP for verification'}
                         </p>
                         <Button 
                             className="font-bold"
@@ -152,7 +160,15 @@ export default function HeroSection() {
                                 width: '100%',
                                 maxWidth: '520px'
                             }}
-
+                            onClick={(e) => {
+                                // Validate phone number
+                                if (!phoneNumber.trim()) {
+                                    e.preventDefault();
+                                    setError(true);
+                                }
+                                // For production, add more sophisticated validation if needed
+                                // e.g., check if phone number follows expected format
+                            }}
                             asChild
                         >
                             <a href="https://staging-stud.gdacademy.et/auth/verify-phone">Join for free</a>

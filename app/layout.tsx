@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { avertaStd } from './fonts';
+import { avertaStd, dailyMemo } from './fonts';
 import StagewiseWrapper from '../components/StagewiseWrapper';
 export const metadata: Metadata = {
     title: 'GlobeDock Academy',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en" className={avertaStd.variable}>
+        <html lang="en" className={`${avertaStd.variable} ${dailyMemo.variable}`}>
             <body className="font-averta">
                 {children}
                 <StagewiseWrapper />

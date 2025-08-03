@@ -35,12 +35,12 @@ export default function Footer() {
                                 Ethiopia&apos;s largest & most trusted tutoring platform.
                             </p>
                         </div>
-                        <div className="flex space-x-3">
-                            <a href="https://apps.apple.com/us/app/globedock-academy/id6459021458" target="_blank" rel="noopener noreferrer">
-                                <Image src="/images/app-store.svg" alt="Download on the App Store" width={135} height={40} className="h-10" />
+                        <div className="flex -mx-1.5">
+                            <a href="https://apps.apple.com/us/app/globedock-academy/id6459021458" target="_blank" rel="noopener noreferrer" className="px-1.5">
+                                <Image src="/images/app-store.svg" alt="Download on the App Store" width={135} height={40} className="h-10 w-auto" />
                             </a>
-                            <a href="https://play.google.com/store/apps/details?id=com.globedock.academy.android&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
-                                <Image src="/images/google-play.png" alt="Get it on Google Play" width={135} height={40} className="h-10" />
+                            <a href="https://play.google.com/store/apps/details?id=com.globedock.academy.android&pcampaignid=web_share" target="_blank" rel="noopener noreferrer" className="px-1.5">
+                                <Image src="/images/google-play.png" alt="Get it on Google Play" width={135} height={40} className="h-10 w-auto" />
                             </a>
                         </div>
                         {/* Separator line */}

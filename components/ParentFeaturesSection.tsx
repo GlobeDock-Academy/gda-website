@@ -50,7 +50,7 @@ export default function ParentFeaturesSection() {
                 {/* Centered header content above the columns */}
                 <div className="text-center mb-12">
                     {/* Yellow header text */}
-                    <p className="text-yellow-400 font-semibold text-lg mb-4">
+                    <p className="text-yellow-400 font-semibold text-xl mb-4 font-daily-memo">
                         We deliver the best results, period.
                     </p>
                     
@@ -76,7 +76,7 @@ export default function ParentFeaturesSection() {
                     <div className="text-white max-w-[85%]">
                         
                         {/* Subheading */}
-                        <h3 className="text-xl font-semibold text-white mb-6">
+                        <h3 className="text-xl font-semibold text-white mb-6 font-daily-memo">
                             Our Innovative Approach Ensures Your Child Achieves Stellar Results
                         </h3>
                         

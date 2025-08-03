@@ -11,6 +11,7 @@ const config: Config = {
   	extend: {
   		fontFamily: {
   			averta: ['var(--font-averta)', 'sans-serif'],
+  			'daily-memo': ['var(--font-daily-memo)', 'sans-serif'],
   		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
