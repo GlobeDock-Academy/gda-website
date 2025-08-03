@@ -13,25 +13,18 @@ const TalkAccent = () => (
 
 const contactInfo = [
   {
-    icon: <MapPin className="w-6 h-6 text-slate-700" />,
-    title: 'Address',
-    lines: ['Jemaa Building, 6th Floor, Gabon Street, Meskel Flower,', '10097, Addis Ababa, Ethiopia'],
-  },
-  {
-    icon: <Clock className="w-6 h-6 text-slate-700" />,
-    title: 'Office Hours',
-    lines: ['Monday - Saturday: 9:00 AM to 5:00 PM'],
-  },
-  {
     icon: <Mail className="w-6 h-6 text-slate-700" />,
-    title: 'Write To US',
-    lines: ['support@gdacademy.et', <a key="mail-link" href="mailto:support@gdacademy.et" className="text-purple-600 hover:text-purple-700 underline">Mail Us &rarr;</a>],
+    title: 'Email Us',
+    lines: [<span key="email" className="text-[24px] font-semibold">info@globedocket.com</span>, <a key="mail-link" href="mailto:info@globedocket.com" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
   },
   {
     icon: <Phone className="w-6 h-6 text-slate-700" />,
     title: 'Get In Touch',
     lines: [
-      <a key="phone1" href="tel:+2517421" className="text-purple-600 hover:text-purple-700">7421</a>,
+      <div key="phone1" className="flex flex-col">
+        <a href="tel:+2517421" className="text-purple-600 hover:text-purple-700 text-[24px] font-semibold">7421</a>
+        <span className="text-xs text-slate-500 mt-1">(local calls from within Ethiopia only)</span>
+      </div>,
     ],
   },
 ];
@@ -69,25 +62,25 @@ export default function ContactUsSection() {
 
           {/* Right Column: Contact Details */}
           <div className="relative z-10">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-10 sm:mb-12 leading-tight">
-              Get in touch with us & 
-              <span className="relative inline-block">
-                <span className="text-purple-600">let’s talk</span>
-                <span className="absolute left-0 bottom-0 w-full h-1 bg-purple-600 transform translate-y-1.5" />
-                <TalkAccent />
-              </span>
-            </h2>
+            <div className="mb-10 sm:mb-12">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-2 leading-tight">
+                Contact Us
+              </h2>
+              <p className="text-lg text-slate-600">
+                Need more clarification? Connect with our Learning Advisors.
+              </p>
+            </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+            <div className="grid grid-cols-1 gap-y-10">
               {contactInfo.map((item, index) => (
                 <div key={index} className="flex items-start space-x-4">
                   <div className="flex-shrink-0 mt-1">{item.icon}</div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-800 mb-1.5">{item.title}</h3>
                     {item.lines.map((line, i) => (
-                      <p key={i} className="text-sm text-slate-600 leading-relaxed">
+                      <div key={i} className="text-sm text-slate-600 leading-relaxed">
                         {line}
-                      </p>
+                      </div>
                     ))}
                   </div>
                 </div>
