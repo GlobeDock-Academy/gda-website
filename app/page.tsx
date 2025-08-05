@@ -2,6 +2,7 @@ import Navigation from '@/components/Navigation';
 import HeroSection from '@/components/HeroSection';
 import StatsSection from '@/components/StatsSection';
 import WhyGlobedockWorksSection from '@/components/WhyGlobedockWorksSection'; // Added import
+import GradeGridSection from '@/components/GradeGridSection'; // Added new grid section
 import FeaturesSection from '@/components/FeaturesSection';
 import DownloadAppSection from '@/components/DownloadAppSection';
 import FactsSection from '@/components/FactsSection';
@@ -18,6 +19,7 @@ export default function HomePage() {
         <div className="min-h-screen bg-gradient-to-br from-secondary/10 via-white to-primary/10">
             <Navigation />
             <HeroSection />
+            <GradeGridSection /> {/* Added new grade grid section */}
             <WhyGlobedockWorksSection /> {/* Added new section here */}
             <FeaturesSection />
             <DownloadAppSection />
