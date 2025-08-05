@@ -171,7 +171,7 @@ export default function HeroSection() {
                             }}
                             asChild
                         >
-                            <a href="https://staging-stud.gdacademy.et/auth/verify-phone">Join for free</a>
+                            <a href="https://app.gdacademy.et/register">Join for free</a>
                         </Button>
                     </div>
                     <div className="relative">

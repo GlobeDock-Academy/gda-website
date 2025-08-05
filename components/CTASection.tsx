@@ -15,7 +15,7 @@ export default function CTASection() {
                     className="bg-white text-secondary hover:bg-secondary/10 hover:text-secondary-foreground text-lg px-10 py-4 shadow-lg transform transition-transform hover:scale-105"
                     asChild
                 >
-                    <a href="https://staging-stud.gdacademy.et/auth/verify-phone">
+                    <a href="https://app.gdacademy.et/register">
                         Get Started for Free
                         <ArrowRight className="ml-2 h-5 w-5" />
                     </a>

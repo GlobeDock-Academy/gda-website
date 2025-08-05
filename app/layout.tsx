@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import { avertaStd, dailyMemo } from './fonts';
-import StagewiseWrapper from '../components/StagewiseWrapper';
 export const metadata: Metadata = {
     title: 'GlobeDock Academy',
     description: 'Access a rich library of lessons and resources, all created by subject matter experts and educators.',
@@ -20,7 +19,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en" className={`${avertaStd.variable} ${dailyMemo.variable}`}>
             <body className="font-averta">
                 {children}
-                <StagewiseWrapper />
             </body>
         </html>
     );

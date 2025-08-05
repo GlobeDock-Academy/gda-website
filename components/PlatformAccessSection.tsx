@@ -33,7 +33,7 @@ export default function PlatformAccessSection() {
                             className="bg-white text-secondary hover:bg-secondary/10 border-white hover:border-secondary/20 text-lg px-8 py-3"
                             asChild
                         >
-                            <a href="https://staging-stud.gdacademy.et/auth/verify-phone">
+                            <a href="https://app.gdacademy.et/register">
                                 Explore Platform Features
                                 <ArrowRight className="ml-2 h-5 w-5" />
                             </a>
