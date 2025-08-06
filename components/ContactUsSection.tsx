@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6 text-slate-700" />,
     title: 'Email Us',
-    lines: [<span key="email" className="text-[24px] font-semibold">info@globedocket.com</span>, <a key="mail-link" href="mailto:info@globedocket.com" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
+    lines: [<span key="email" className="text-[24px] font-semibold">info@globedock.et</span>, <a key="mail-link" href="mailto:'info@globedock.et'" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
   },
   {
     icon: <Phone className="w-6 h-6 text-slate-700" />,

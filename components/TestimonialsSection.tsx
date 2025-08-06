@@ -16,6 +16,18 @@ const testimonials = [
     name: "Eyasu Tomola",
     location: "Amhara Region, Ethiopia",
     rating: 5
+  },
+  {
+    quote: "GlobeDock has transformed my daughter's approach to learning. The personalized curriculum and engaging content have made a huge difference in her academic performance and confidence.",
+    name: "Abeba Kebede",
+    location: "Addis Ababa, Ethiopia",
+    rating: 5
+  },
+  {
+    quote: "As a teacher, I've seen remarkable improvement in students who use GlobeDock. The platform complements our classroom teaching perfectly and helps students grasp difficult concepts more easily.",
+    name: "Michael Tesfaye",
+    location: "Dire Dawa, Ethiopia",
+    rating: 5
   }
 ];
 
@@ -71,7 +83,7 @@ export default function TestimonialsSection() {
   const currentTestimonial = testimonials[currentIndex];
 
   return (
-    <section className="py-20 relative overflow-hidden" style={{ backgroundColor: '#0B1D53' }}>
+    <section className="pt-8 pb-20 relative overflow-hidden" style={{ backgroundColor: '#0B1D53' }}>
       <Container>
         <div className="relative max-w-4xl mx-auto px-8">
           {/* Quote Icon - Positioned top left */}

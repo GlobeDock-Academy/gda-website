@@ -108,25 +108,25 @@ const PricingPage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
-      <main className="pt-20">
+      <main className="pt-16">
         {/* Hero Section */}
-        <section className="py-16 px-4 overflow-hidden">
+        <section className="py-8 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-[#2D1B48] text-white rounded-[32px] relative py-12 md:py-16 px-6 md:px-12 overflow-hidden">
+            <div className="bg-[#2D1B48] text-white rounded-[32px] relative py-8 md:py-12 px-6 md:px-12 overflow-hidden">
               {/* Orange circle background elements */}
-              <div className="absolute top-0 right-0 w-[300px] h-[300px] rounded-full bg-gradient-to-br from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-50 -mr-32 -mt-32"></div>
-              <div className="absolute bottom-0 left-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-40 -ml-48 -mb-48"></div>
+              <div className="absolute top-0 right-0 w-[200px] h-[200px] rounded-full bg-gradient-to-br from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-50 -mr-32 -mt-32"></div>
+              <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-40 -ml-48 -mb-48"></div>
               
               <div className="flex flex-col md:flex-row items-center relative z-10">
                 <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-                  <h1 className={`text-4xl md:text-5xl font-bold mb-6 ${lato.className}`}>
-                    Get unlimited access to <span className="text-[#FF7B54]">GDA features</span> with a paid subscription.
+                  <h1 className={`text-3xl md:text-4xl font-bold mb-6 ${lato.className}`}>
+                    Get unlimited access to <span className="text-[#FF7B54]">our features</span> with a paid subscription.
                   </h1>
                 </div>
                 
                 <div className="md:w-1/2 relative">
                   {/* Device mockups container - left empty as per request */}
-                  <div className="relative w-full h-[300px] md:h-[400px]">
+                  <div className="relative w-full h-[200px] md:h-[300px]">
                     {/* Device mockups removed as requested */}
                   </div>
                   

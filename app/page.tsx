@@ -7,7 +7,6 @@ import FeaturesSection from '@/components/FeaturesSection';
 import DownloadAppSection from '@/components/DownloadAppSection';
 import FactsSection from '@/components/FactsSection';
 import ContentTypesSection from '@/components/ContentTypesSection';
-import PlatformAccessSection from '@/components/PlatformAccessSection';
 import ParentFeaturesSection from '@/components/ParentFeaturesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import GovernmentPartnershipSection from '@/components/GovernmentPartnershipSection';
@@ -26,7 +25,6 @@ export default function HomePage() {
             <FactsSection />
             {/* ContentTypesSection hidden but code preserved */}
             {/* <ContentTypesSection /> */}
-            <PlatformAccessSection />
             <ParentFeaturesSection />
             <TestimonialsSection />
             <GovernmentPartnershipSection />

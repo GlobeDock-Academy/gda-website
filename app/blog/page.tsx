@@ -5,7 +5,6 @@ import BlogHeader from '@/components/blog/BlogHeader';
 import FeaturedPosts from '@/components/blog/FeaturedPosts';
 import BlogCategories from '@/components/blog/BlogCategories';
 import BlogPostGrid from '@/components/blog/BlogPostGrid';
-import BlogSubscribe from '@/components/blog/BlogSubscribe';
 
 export const metadata = {
   title: 'GDA Blog - GlobeDock Academy',
@@ -38,9 +37,7 @@ export default function BlogPage() {
             </div>
           </div>
         </div>
-        
-        {/* Subscribe Section */}
-        <BlogSubscribe />
+
       </main>
       
       <Footer />

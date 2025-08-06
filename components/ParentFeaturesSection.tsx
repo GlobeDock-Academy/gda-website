@@ -45,7 +45,7 @@ export default function ParentFeaturesSection() {
     };
 
     return (
-        <section id="parents" className="py-20" style={{ backgroundColor: '#0B1D53' }}>
+        <section id="parents" className="pt-16 pb-8" style={{ backgroundColor: '#0B1D53' }}>
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Centered header content above the columns */}
                 <div className="text-center mb-12">

@@ -25,7 +25,7 @@ export default function HeroSection() {
 
     return (
         <>
-        <section className="relative py-20 bg-white">
+        <section className="relative pt-20 pb-8 bg-white">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center">
