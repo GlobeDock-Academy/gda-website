@@ -6,27 +6,27 @@ import Container from '@/components/Container';
 
 const testimonials = [
   {
-    quote: "The lessons have been very productive. My son's grades have really improved, and even his school teachers commend his new confidence. He now answers questions in class, and scores higher than most of his class mates.",
-    name: "Mrs. Alice",
-    location: "Uyo, Akwaibom",
+    quote: "My daughter used to struggle with science, but now she teaches it to her little brother! GlobeDock’s videos explain things so clearly. As a parent, I finally feel like I can support her learning, even if I didn’t finish school myself.",
+    name: "– Almaz Mekonnen",
+    location: "Parent of Grade 8 Student, Hawassa",
     rating: 5
   },
   {
-    quote: "I'm from the Amhara region, and I was struggling to prepare for the University Entrance Exam (UEE). B/c of you guys I passed my UEE and now have the chance to attend university.",
-    name: "Eyasu Tomola",
-    location: "Amhara Region, Ethiopia",
+    quote: "We couldn’t afford private tutoring, but GlobeDock made it possible for my son to learn at home. He now studies every evening without being reminded, and even his teacher noticed the difference!",
+    name: "– Bekele Daba",
+    location: "Father of Grade 10 Student, Bahir Dar",
     rating: 5
   },
   {
-    quote: "GlobeDock has transformed my daughter's approach to learning. The personalized curriculum and engaging content have made a huge difference in her academic performance and confidence.",
-    name: "Abeba Kebede",
-    location: "Addis Ababa, Ethiopia",
+    quote: "I always worried that online learning would distract my child, but GlobeDock has been the opposite. The app is focused, the lessons are short and strong, and it shows me what my child is learning. I recommend it to every parent I meet.",
+    name: "– Meskerem Yilma",
+    location: "Mother of Grade 7 Student, Addis Ababa",
     rating: 5
   },
   {
-    quote: "As a teacher, I've seen remarkable improvement in students who use GlobeDock. The platform complements our classroom teaching perfectly and helps students grasp difficult concepts more easily.",
-    name: "Michael Tesfaye",
-    location: "Dire Dawa, Ethiopia",
+    quote: "GlobeDock helped my child catch up after missing school during the conflict. The lessons follow the Ethiopian curriculum exactly, and now she’s confident again. This platform gave us hope.",
+    name: "– Abdu Mussa",
+    location: "Parent from Woldiya",
     rating: 5
   }
 ];

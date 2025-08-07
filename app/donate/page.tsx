@@ -16,7 +16,7 @@ const DonationForm = () => {
   
   const currency = 'ETB';
   const currencySymbol = 'ETB';
-  const yearlyFee = 2000;
+  const yearlyFee = 2500;
 
   const totalSponsorAmount = numStudents * yearlyFee;
   
@@ -187,32 +187,32 @@ const DonationForm = () => {
 
 const faqs = [
   {
-    question: "Is this donation tax deductible?",
-    answer: "Yes, GlobeDock is a 501(c)(3) nonprofit organization, and all donations are tax-deductible to the extent allowable by law."
+    question: "What does my donation of ETB 2,500 cover?",
+    answer: "Your donation sponsors one child’s full access to GlobeDock Academy’s platform for an entire year. This includes curriculum-aligned video lessons, interactive quizzes, offline learning access, and parent tracking via the Parent App."
   },
   {
-    question: "How do I give by check?",
-    answer: "You can mail a check to our office at [Your Address Here]. Please make the check payable to GlobeDock."
+    question: "Who receives the support?",
+    answer: "We work with the Ministry of Innovation and Technology to identify deserving students, especially those from low-income families, rural areas, or schools impacted by conflict or displacement."
   },
   {
-    question: "Do you accept employee matching gifts?",
-    answer: "Yes, many employers will match your donation. Please check with your HR department for more information."
+    question: "Do I get updates on the students I support?",
+    answer: "Yes. We send quarterly impact reports showing how your support is helping students — including usage data, learning milestones, and stories from the field when available."
   },
   {
-    question: "Can I donate stock or make my donation by wire transfer?",
-    answer: "Yes, we accept stock donations and wire transfers. Please contact us at [Your Contact Email] for instructions."
+    question: "Can I choose the number of students I want to sponsor?",
+    answer: "Absolutely. You can sponsor 1, 3, 5, 10, or enter your own number. Every student matters — and even one subscription can change a child’s future."
   },
   {
-    question: "Do you accept cryptocurrency donations?",
-    answer: "Yes, we accept donations in various cryptocurrencies. Please visit our crypto donation page for more details."
+    question: "Is my donation tax-deductible?",
+    answer: "At this time, donations are not tax-deductible. However, we are actively exploring partnerships and compliance to enable this in the future."
   },
   {
-    question: "Can I donate in a currency other than US dollars?",
-    answer: "Yes, our donation form supports multiple currencies. Simply select your preferred currency from the dropdown menu."
+    question: "Can I sponsor as an organization or business?",
+    answer: "Yes. We welcome support from businesses, NGOs, schools, and religious groups. For bulk sponsorships or CSR partnerships, please contact us for a customized package."
   },
   {
-    question: "How do I manage my recurring donation?",
-    answer: "You can manage your recurring donation through the link provided in your initial donation receipt email."
+    question: "What makes GlobeDock Academy different?",
+    answer: "We offer Ethiopia-specific digital learning that’s accessible on mobile, aligned with the national curriculum, and supported by real teachers. Our platform is competency-based, bilingual, and built for both students and parents."
   }
 ];
 
@@ -269,8 +269,14 @@ export default function DonatePage() {
               <div className="mt-12 text-center lg:text-left">
                 <h1 className={`mb-6 text-white ${timesNewRoman.className}`} style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
+                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                    From the very first tap, your support unlocks a full year of learning: expert-taught video lessons, skill-based quizzes, and daily progress tools — all aligned with Ethiopia’s curriculum.
+                  </p>
+                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                    Through our partnership with the Ministry of Innovation and Technology, we identify students who need it most. Whether they&apos;re in remote areas or recovering from interrupted schooling, your support means they don&apos;t fall behind.
+                  </p>
                   <p className="text-lg leading-relaxed mb-6 text-white font-normal">
-                    &ldquo;From the very first tap, your support unlocks daily guidance from expert teachers, builds confidence through bite-sized mastery checks, and turns long commutes or candle-lit study sessions into moments of empowered discovery. Donate today and watch an &lsquo;offline&rsquo; learner shift to &lsquo;on track&rsquo;&mdash;one subscription, one future at a time.&rdquo;
+                    Donate today and help an ‘offline’ learner become an engaged, confident student — one subscription, one future at a time.
                   </p>
                   <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO of GlobeDock Academy</p>
                 </div>

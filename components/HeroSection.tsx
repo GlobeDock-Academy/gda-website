@@ -25,7 +25,7 @@ export default function HeroSection() {
 
     return (
         <>
-        <section className="relative pt-20 pb-8 bg-white">
+        <section className="relative pt-10 pb-8 bg-white">
             <Container>
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center">
@@ -33,7 +33,7 @@ export default function HeroSection() {
                         Top-Quality Learning for <span style={{ color: '#FFB900' }}>Ethiopian Students</span>
                         </h1>
                         <p className="text-slate-600 mb-8 font-semibold" style={{ fontSize: '16px' }}>
-                        Amharic, offline, and curriculum-aligned — <span className="text-[#6D3D94] font-semibold">built for results.</span>
+                        Amharic, offline, and curriculum-aligned — <span className="text-[#6D3D94] font-bold">built for results.</span>
                         </p>
                         <div style={{ maxWidth: '520px' }}>
                             <TextField

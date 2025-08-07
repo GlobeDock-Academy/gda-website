@@ -108,7 +108,7 @@ const PricingPage = () => {
     <div className="min-h-screen bg-gray-50">
       <Navigation />
       
-      <main className="pt-16">
+      <main className="pt-8">
         {/* Hero Section */}
         <section className="py-8 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">

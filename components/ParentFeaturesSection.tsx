@@ -11,28 +11,28 @@ export default function ParentFeaturesSection() {
     const features = [
         {
             number: '1',
-            title: 'GlobeDock Academy Insights ™ Assessment',
-            description: 'Our comprehensive assessment system evaluates your child\'s learning style, strengths, and areas for improvement to create a personalized learning experience.',
+            title: 'GlobeDock Competency Checks',
+            description: 'We use short quizzes after each lesson to check your child’s understanding. These ongoing checks help highlight strengths and identify where more support may be needed — without blocking their progress.',
         },
         {
             number: '2',
-            title: 'Adaptive Learning Plans',
-            description: 'Dynamic learning paths that adjust in real-time based on your child\'s progress, ensuring they\'re always challenged at the right level.',
+            title: 'Flexible Learning, Built on Competencies',
+            description: 'Your child can explore lessons freely, but each one is designed to build specific skills and concepts. This makes it easy for students to follow the curriculum while learning at their own pace — supported, not pressured.',
         },
         {
             number: '3',
-            title: 'Child-Centered Learning',
-            description: 'Every lesson is designed around your child\'s unique needs, interests, and learning pace to maximize engagement and retention.',
+            title: 'Engaging & Localized Content',
+            description: 'We create high-quality videos with Ethiopian teachers and relatable examples. This helps students stay focused and makes learning feel fun and relevant.',
         },
         {
             number: '4',
-            title: 'Periodic Evaluation',
-            description: 'Regular assessments and progress checks ensure your child stays on track and help identify areas that need additional focus.',
+            title: 'Parent App for Tracking',
+            description: 'With our Parent App, you can see what your child is learning, view their quiz results, and track their weekly activity — all in one place.',
         },
         {
             number: '5',
-            title: 'Progress Reports & Reviews',
-            description: 'Detailed reports and regular reviews keep you informed about your child\'s academic journey and achievements.',
+            title: 'Real Feedback, Real Results',
+            description: 'We send regular updates and reports so you always know how your child is doing — what\'s working, what needs help, and how they’re improving.',
         },
     ];
     
@@ -50,7 +50,7 @@ export default function ParentFeaturesSection() {
                 {/* Centered header content above the columns */}
                 <div className="text-center mb-12">
                     {/* Yellow header text */}
-                    <p className="text-yellow-400 font-semibold text-xl mb-4 font-daily-memo">
+                    <p className="text-yellow-400 font-semibold text-[24px] mb-4 font-['ShantellSans']">
                         We deliver the best results, period.
                     </p>
                     
@@ -76,8 +76,8 @@ export default function ParentFeaturesSection() {
                     <div className="text-white max-w-[85%]">
                         
                         {/* Subheading */}
-                        <h3 className="text-xl font-semibold text-white mb-6 font-daily-memo">
-                            Our Innovative Approach Ensures Your Child Achieves Stellar Results
+                        <h3 className="text-[24px] font-semibold text-white mb-6 font-['ShantellSans']">
+                        Our Unique Approach Helps Your Child Learn Better
                         </h3>
                         
                         {/* Features list */}
