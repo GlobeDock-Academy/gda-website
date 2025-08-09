@@ -126,3 +126,16 @@ export const timesNewRoman = localFont({
   variable: '--font-times-new-roman',
   display: 'swap'
 });
+
+// Define the ShantellSans font family
+export const shantellSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/ShantellSans.ttf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-shantell-sans',
+  display: 'swap'
+});

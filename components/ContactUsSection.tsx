@@ -50,12 +50,13 @@ export default function ContactUsSection() {
             {/* Image */}
             <div className="absolute inset-0 flex items-center justify-center z-20 p-4 sm:p-8">
               <Image
-                src="https://via.placeholder.com/450x550/E9D5FF/805AD5?text=Our+Team+at+GlobeDock"
-                alt="GlobeDock Team"
+                src="/images/contact_us.png"
+                alt="Contact GlobeDock Academy"
                 width={450}
                 height={550}
                 className="object-cover rounded-2xl shadow-xl w-full h-full max-w-md lg:max-w-none"
                 style={{ objectPosition: 'center' }}
+                priority
               />
             </div>
           </div>
