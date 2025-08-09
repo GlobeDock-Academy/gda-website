@@ -1,11 +1,12 @@
 "use client";
 
 import React, { useState } from 'react';
+import { montserrat, mulish } from '../fonts';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
-import { lato, timesNewRoman } from '../fonts';
+
 
 const PricingPage = () => {
   // Country selection removed as per user request
@@ -105,7 +106,7 @@ const PricingPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div style={{ backgroundColor: '#F2F2FB' }}>
       <Navigation />
       
       <main className="pt-8">
@@ -119,7 +120,7 @@ const PricingPage = () => {
               
               <div className="flex flex-col md:flex-row items-center relative z-10">
                 <div className="md:w-1/2 mb-10 md:mb-0 text-center md:text-left">
-                  <h1 className={`text-3xl md:text-4xl font-bold mb-6 ${lato.className}`}>
+                  <h1 className={`text-3xl md:text-4xl font-bold mb-6 ${montserrat.className}`} style={{ fontWeight: 700 }}>
                     Get unlimited access to <span className="text-[#FF7B54]">our features</span> with a paid subscription.
                   </h1>
                 </div>
@@ -154,12 +155,12 @@ const PricingPage = () => {
         </section>
 
         {/* Pricing Plans */}
-        <section className="py-16 bg-white">
+        <section className="py-16">
           <div className="max-w-6xl mx-auto px-4 text-center mb-12">
-            <h2 className={`text-3xl font-bold text-gray-800 ${lato.className} mb-4`}>
+            <h2 className={`text-3xl font-bold text-gray-800 ${montserrat.className} mb-4`} style={{ fontWeight: 700 }}>
               Choose your Plan
             </h2>
-            <p className={`text-lg text-gray-600 max-w-2xl mx-auto ${lato.className}`}>
+            <p className={`text-lg text-gray-600 max-w-2xl mx-auto ${mulish.className}`}>
               Select the perfect plan that fits your learning needs and budget
             </p>
           </div>
@@ -183,12 +184,12 @@ const PricingPage = () => {
                   
                   <div className="text-center flex flex-col h-full">
                     <div>
-                      <h3 className={`text-xl font-bold text-gray-800 mb-4 ${lato.className}`}>
+                      <h3 className={`text-xl font-bold text-gray-800 mb-4 ${montserrat.className}`} style={{ fontWeight: 700 }}>
                         {plan.duration}
                       </h3>
                       
                       <div className="mb-4">
-                        <div className={`text-3xl font-bold text-blue-600 mb-2 ${lato.className}`}>
+                        <div className={`text-3xl font-bold text-blue-600 mb-2 ${mulish.className}`}>
                           {plan.price}
                         </div>
                         {plan.originalPrice && (
@@ -198,7 +199,7 @@ const PricingPage = () => {
                         )}
                       </div>
                       
-                      <p className={`text-gray-600 mb-6 ${lato.className}`}>
+                      <p className={`text-gray-600 mb-6 ${mulish.className}`}>
                         Valid for {plan.validity}
                       </p>
                     </div>
@@ -220,7 +221,7 @@ const PricingPage = () => {
             </div>
             
             <div className="text-center mt-8">
-              <p className={`text-lg text-gray-600 ${lato.className} flex items-center justify-center gap-2`}>
+              <p className={`text-lg text-gray-600 ${mulish.className} flex items-center justify-center gap-2`}>
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M15.2467 16.11L16.9267 14.43C17.153 14.2066 17.4393 14.0536 17.7508 13.9897C18.0624 13.9258 18.3858 13.9537 18.6817 14.07L20.7292 14.8875C21.0284 15.0089 21.2848 15.2162 21.4663 15.4831C21.6479 15.75 21.7463 16.0647 21.7492 16.3875V20.1375C21.7475 20.3571 21.7013 20.5741 21.6135 20.7754C21.5257 20.9766 21.3981 21.1581 21.2384 21.3087C21.0786 21.4594 20.89 21.5761 20.6839 21.652C20.4778 21.7278 20.2586 21.7612 20.0392 21.75C5.69175 20.8575 2.79675 8.70753 2.24925 4.05753C2.22383 3.82918 2.24705 3.59804 2.31738 3.37931C2.38771 3.16058 2.50356 2.95923 2.6573 2.78848C2.81104 2.61774 2.99918 2.48148 3.20936 2.38868C3.41954 2.29587 3.64699 2.24862 3.87675 2.25003H7.49925C7.8225 2.25099 8.13808 2.34863 8.40539 2.5304C8.6727 2.71217 8.87952 2.96976 8.99925 3.27003L9.81675 5.31753C9.93694 5.61233 9.9676 5.93601 9.90491 6.24814C9.84222 6.56027 9.68895 6.847 9.46425 7.07253L7.78425 8.75253C7.78425 8.75253 8.75175 15.3 15.2467 16.11Z" fill="#EA7052"></path>
                 </svg>
@@ -231,45 +232,56 @@ const PricingPage = () => {
         </section>
 
         {/* Features Section */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16">
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#FFA978] flex items-center justify-center flex-shrink-0">
+            <div className="text-center mb-12 mx-auto" style={{ maxWidth: '610px' }}>
+              <h2 className={`font-bold mb-4 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '36px', lineHeight: '43px', color: 'rgb(48, 20, 70)' }}>
+                What you get with a subscription?
+              </h2>
+              <div className="w-20 h-1 bg-[#FF7B54] mx-auto"></div>
+            </div>
+            
+            {/* First row - 2 items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mb-12 justify-center">
+              <div className="flex items-start mx-auto" style={{ maxWidth: '450px' }}>
+                <div className="w-16 h-16 rounded-full bg-[#FFA978] flex items-center justify-center mr-6 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                     <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                     <path d="M17 21H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
+                  <h3 className={`font-bold mb-2 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '22px', lineHeight: '26px', color: 'rgb(48, 20, 70)' }}>
                     AI-Powered Homework Help
                   </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
+                  <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
                     Get instant, personalised, and accurate homework help 24/7 so that you never get stuck on tricky questions.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#57C3A4] flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start mx-auto" style={{ maxWidth: '450px' }}>
+                <div className="w-16 h-16 rounded-full bg-[#57C3A4] flex items-center justify-center mr-6 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                     <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
                     <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
+                  <h3 className={`font-bold mb-2 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '22px', lineHeight: '26px', color: 'rgb(48, 20, 70)' }}>
                     Every grade covered
                   </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
-                    Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There&apos;s a path for every learner.
+                  <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
+                    Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There's a path for every learner.
                   </p>
                 </div>
               </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#F27660] flex items-center justify-center flex-shrink-0">
+            </div>
+            
+            {/* Second row - 2 items */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-12 mb-12 justify-center">
+              <div className="flex items-start mx-auto" style={{ maxWidth: '450px' }}>
+                <div className="w-16 h-16 rounded-full bg-[#F27660] flex items-center justify-center mr-6 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                     <path d="M8 3v3a2 2 0 0 1-2 2H3m18 0h-3a2 2 0 0 1-2-2V3m0 18v-3a2 2 0 0 1 2-2h3M3 16h3a2 2 0 0 1 2 2v3" />
                     <path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z" />
@@ -277,34 +289,37 @@ const PricingPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
+                  <h3 className={`font-bold mb-2 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '22px', lineHeight: '26px', color: 'rgb(48, 20, 70)' }}>
                     Progress Report
                   </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
+                  <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
                     Improve your academic performance with detailed reports and analysis on your learning progress.
                   </p>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#6E84EE] flex items-center justify-center flex-shrink-0">
+              <div className="flex items-start mx-auto" style={{ maxWidth: '450px' }}>
+                <div className="w-16 h-16 rounded-full bg-[#6E84EE] flex items-center justify-center mr-6 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                     <circle cx="12" cy="8" r="5" />
                     <path d="M20 21a8 8 0 0 0-16 0" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
+                  <h3 className={`font-bold mb-2 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '22px', lineHeight: '26px', color: 'rgb(48, 20, 70)' }}>
                     Practice Test and Exams
                   </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
-                    Put all you&apos;ve learnt to practice so you&apos;re well on your way to mastering concepts. Practice makes perfect.
+                  <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
+                    Put all you've learnt to practice so you're well on your way to mastering concepts. Practice makes perfect.
                   </p>
                 </div>
               </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#FFA978] flex items-center justify-center flex-shrink-0">
+            </div>
+            
+            {/* Third row - 1 centered item */}
+            <div className="flex justify-center w-full">
+              <div className="flex items-start mx-auto" style={{ maxWidth: '450px' }}>
+                <div className="w-16 h-16 rounded-full bg-[#FFA978] flex items-center justify-center mr-6 flex-shrink-0">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
                     <rect width="18" height="18" x="3" y="3" rx="2" />
                     <path d="m10 10 5 5" />
@@ -312,30 +327,11 @@ const PricingPage = () => {
                   </svg>
                 </div>
                 <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
+                  <h3 className={`font-bold mb-2 ${montserrat.className}`} style={{ fontWeight: 700, fontSize: '22px', lineHeight: '26px', color: 'rgb(48, 20, 70)' }}>
                     Unlimited Video Library
                   </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
+                  <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
                     Pause, play, rewind; learn at your own pace with well-illustrated, easy-to-understand video lessons.
-                  </p>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-4">
-                <div className="w-16 h-16 rounded-full bg-[#57C3A4] flex items-center justify-center flex-shrink-0">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
-                    <circle cx="9" cy="7" r="4" />
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className={`text-lg font-bold text-gray-800 mb-2 ${lato.className}`}>
-                    Expert Tutor Support
-                  </h3>
-                  <p className={`text-gray-600 ${lato.className}`}>
-                    Get personalized help from qualified tutors who are experts in their subjects.
                   </p>
                 </div>
               </div>
