@@ -285,6 +285,48 @@ export default function DonatePage() {
           </div>
         </div>
       </main>
+      
+      {/* Contact Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h2 className={`text-2xl font-semibold mb-4 text-gray-900 ${lato.className}`} style={{fontSize: '28px', fontWeight: 700}}>Still have questions?</h2>
+          <p className="text-lg text-gray-700 mb-8">We&apos;re here to help. Reach out to our team anytime.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">📧</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Email</h3>
+              <a href="mailto:support@globedocket.com" className="text-blue-600 hover:underline">support@globedocket.com</a>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">📞</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Phone</h3>
+              <p className="text-gray-700">+251-XXX-XXX-XXX</p>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">💬</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>WhatsApp</h3>
+              <a href="https://wa.me/251XXXXXXXXX" className="text-blue-600 hover:underline">Click to Chat</a>
+            </div>
+          </div>
+          
+          <Button 
+            className={`rounded-lg font-bold ${lato.className}`}
+            style={{
+              fontSize: '18px', 
+              fontWeight: 600,
+              padding: '12px 32px',
+              backgroundColor: '#0B1D53',
+              color: 'white'
+            }}
+          >
+            Contact Us
+          </Button>
+        </div>
+      </div>
+      
       <FaqSection />
       <Footer />
     </div>
