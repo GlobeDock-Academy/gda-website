@@ -272,7 +272,7 @@ const PricingPage = () => {
                     Every grade covered
                   </h3>
                   <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
-                    Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There's a path for every learner.
+                    Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There&apos;s a path for every learner.
                   </p>
                 </div>
               </div>
@@ -310,7 +310,7 @@ const PricingPage = () => {
                     Practice Test and Exams
                   </h3>
                   <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
-                    Put all you've learnt to practice so you're well on your way to mastering concepts. Practice makes perfect.
+                    Put all you&apos;ve learnt to practice so you&apos;re well on your way to mastering concepts. Practice makes perfect.
                   </p>
                 </div>
               </div>
