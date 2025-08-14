@@ -44,19 +44,19 @@ export default function ContactUsSection() {
                 backgroundSize: '20px 20px',
               }}
             />
-            {/* Pink rounded rectangle background */}
-            <div className="absolute inset-x-4 sm:inset-x-8 top-4 bottom-4 sm:top-8 sm:bottom-8 lg:left-12 lg:right-0 bg-pink-100/50 rounded-3xl z-10" />
-            
-            {/* Image */}
-            <div className="absolute inset-0 flex items-center justify-center z-20 p-4 sm:p-8">
-              <Image
-                src="https://via.placeholder.com/450x550/E9D5FF/805AD5?text=Our+Team+at+GlobeDock"
-                alt="GlobeDock Team"
-                width={450}
-                height={550}
-                className="object-cover rounded-2xl shadow-xl w-full h-full max-w-md lg:max-w-none"
-                style={{ objectPosition: 'center' }}
-              />
+            {/* Taller image container */}
+            <div className="absolute inset-x-4 sm:inset-x-8 -top-12 -bottom-12 sm:-top-16 sm:-bottom-16 lg:left-12 lg:right-0 bg-pink-100/50 rounded-3xl z-10 overflow-hidden">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/Contactusimg.png"
+                  alt="GlobeDock Team"
+                  fill
+                  className="object-cover w-full h-full"
+                  style={{ objectPosition: 'center' }}
+                  priority
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                />
+              </div>
             </div>
           </div>
 

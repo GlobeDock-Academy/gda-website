@@ -14,22 +14,22 @@ const PricingPage = () => {
     {
       duration: '1 Month',
       price: 'ETB 200',
-      originalPrice: '',
-      validity: '30 days',
+      originalPrice: 'ETB 500',
+      validity: '1 Month',
       popular: false
     },
     {
       duration: '6 Months',
       price: 'ETB 1,000',
       originalPrice: 'ETB 1,200',
-      validity: '180 days',
+      validity: '6 Months',
       popular: true
     },
     {
       duration: '12 Months',
       price: 'ETB 2,000',
       originalPrice: 'ETB 2,400',
-      validity: '365 days',
+      validity: '1 Year',
       popular: false
     }
   ];
@@ -154,7 +154,7 @@ const PricingPage = () => {
         </section>
 
         {/* Pricing Plans */}
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-gray-50">
           <div className="max-w-6xl mx-auto px-4 text-center mb-12">
             <h2 className={`text-3xl font-bold text-gray-800 ${lato.className} mb-4`}>
               Choose your Plan
@@ -164,31 +164,25 @@ const PricingPage = () => {
             </p>
           </div>
           <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center w-full max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 justify-items-center w-full max-w-5xl mx-auto">
               {pricingPlans.map((plan, index) => (
                 <div 
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg p-6 relative transition-all hover:scale-105 w-full max-w-xs flex flex-col h-full ${
-                    plan.popular ? 'ring-2 ring-blue-500' : 'transform scale-100 md:scale-95'
+                  className={`bg-white rounded-3xl shadow-xl p-8 relative w-full max-w-sm flex flex-col h-full border-2 transition-all duration-300 ${
+                    plan.popular 
+                      ? 'border-transparent hover:border-[#6B4EE8] transform hover:scale-[1.02] z-10' 
+                      : 'border-gray-100 hover:border-[#6B4EE8] transform scale-95 hover:scale-100'
                   }`}
                 >
-                  {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center">
-                        <Star className="w-4 h-4 mr-1" />
-                        Most Popular
-                      </div>
-                    </div>
-                  )}
                   
                   <div className="text-center flex flex-col h-full">
-                    <div>
-                      <h3 className={`text-xl font-bold text-gray-800 mb-4 ${lato.className}`}>
+                    <div className="mb-6">
+                      <h3 className={`text-2xl font-bold text-gray-900 mb-6 ${lato.className}`}>
                         {plan.duration}
                       </h3>
                       
-                      <div className="mb-4">
-                        <div className={`text-3xl font-bold text-blue-600 mb-2 ${lato.className}`}>
+                      <div className="mb-6">
+                        <div className={`text-4xl font-extrabold text-gray-900 mb-2 ${lato.className}`}>
                           {plan.price}
                         </div>
                         {plan.originalPrice && (
@@ -198,21 +192,21 @@ const PricingPage = () => {
                         )}
                       </div>
                       
-                      <p className={`text-gray-600 mb-6 ${lato.className}`}>
+                      <div className="h-px bg-gray-200 my-6"></div>
+                      
+                      <p className={`text-gray-600 mb-8 text-lg ${lato.className}`}>
                         Valid for {plan.validity}
                       </p>
                     </div>
                     
-                    <div className="mt-auto pt-4">
-                      <Button 
-                        className={`w-full py-3 text-lg font-semibold ${
-                          plan.popular 
-                            ? 'bg-blue-600 hover:bg-blue-700' 
-                            : 'bg-gray-800 hover:bg-gray-900'
-                        }`}
-                      >
+                    <div className="mt-auto">
+                      <button className={`w-full py-4 px-6 rounded-full text-lg font-semibold transition-transform duration-300 transform hover:scale-105 ${
+                        plan.popular 
+                          ? 'bg-[rgb(123,127,218)] text-white font-bold shadow-lg' 
+                          : 'bg-[rgb(123,127,218)] text-white font-bold shadow-lg'
+                      }`}>
                         BUY NOW
-                      </Button>
+                      </button>
                     </div>
                   </div>
                 </div>
