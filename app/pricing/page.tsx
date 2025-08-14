@@ -112,7 +112,7 @@ const PricingPage = () => {
         {/* Hero Section */}
         <section className="py-8 px-4 overflow-hidden">
           <div className="max-w-7xl mx-auto">
-            <div className="bg-[#2D1B48] text-white rounded-[32px] relative py-8 md:py-12 px-6 md:px-12 overflow-hidden">
+            <div className="bg-[#2D1B48] text-white rounded-[32px] relative py-4 md:py-6 px-6 md:px-12 overflow-hidden" style={{ height: 'auto', minHeight: 'auto' }}>
               {/* Orange circle background elements */}
               <div className="absolute top-0 right-0 w-[200px] h-[200px] rounded-full bg-gradient-to-br from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-50 -mr-32 -mt-32"></div>
               <div className="absolute bottom-0 left-0 w-[300px] h-[300px] rounded-full bg-gradient-to-tr from-[#FF7B54] to-[#FF5E3A] blur-lg opacity-40 -ml-48 -mb-48"></div>
@@ -126,7 +126,7 @@ const PricingPage = () => {
                 
                 <div className="md:w-1/2 relative">
                   {/* Device mockups container - left empty as per request */}
-                  <div className="relative w-full h-[200px] md:h-[300px]">
+                  <div className="relative w-full h-[100px] md:h-[150px]">
                     {/* Device mockups removed as requested */}
                   </div>
                   
@@ -135,14 +135,14 @@ const PricingPage = () => {
                     <span className="text-white font-bold text-xs">LIVE</span>
                   </div>
                   
-                  <div className="absolute bottom-12 left-0 w-14 h-14 bg-[#FF7B54] rounded-full flex items-center justify-center -ml-6 z-40">
+                  <div className="absolute bottom-6 left-4 w-12 h-12 bg-[#FF7B54] rounded-full flex items-center justify-center z-40">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
                       <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 00-1.032-.211 50.89 50.89 0 00-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 002.433 3.984L7.28 21.53A.75.75 0 016 21v-4.03a48.527 48.527 0 01-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979z" />
                       <path d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 001.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0015.75 7.5z" />
                     </svg>
                   </div>
                   
-                  <div className="absolute top-20 right-4 w-14 h-14 bg-[#6B4EE8] rounded-full flex items-center justify-center z-40">
+                  <div className="absolute top-10 right-4 w-12 h-12 bg-[#6B4EE8] rounded-full flex items-center justify-center z-40">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" className="w-6 h-6">
                       <path d="M21.731 2.269a2.625 2.625 0 00-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 000-3.712zM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 00-1.32 2.214l-.8 2.685a.75.75 0 00.933.933l2.685-.8a5.25 5.25 0 002.214-1.32L19.513 8.2z" />
                     </svg>
