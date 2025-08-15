@@ -15,7 +15,7 @@ const PricingPage = () => {
       duration: '1 Month',
       price: 'ETB 200',
       originalPrice: '',
-      validity: '30 days',
+      validity: '30 day',
       popular: false
     },
     {
