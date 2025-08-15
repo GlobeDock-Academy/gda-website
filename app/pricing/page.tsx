@@ -155,33 +155,14 @@ const PricingPage = () => {
         </section>
 
         {/* Pricing Plans */}
-        <section className="py-16">
-          <div className="max-w-6xl mx-auto px-4 text-center mb-12">
-            <h2 className={`text-3xl font-bold text-gray-800 ${montserrat.className} mb-4`} style={{ fontWeight: 700 }}>
-              Choose your Plan
-            </h2>
-            <p className={`text-lg text-gray-600 max-w-2xl mx-auto ${mulish.className}`}>
-              Select the perfect plan that fits your learning needs and budget
-            </p>
-          </div>
-          <div className="max-w-6xl mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 justify-items-center w-full max-w-5xl mx-auto">
+        <section className="py-16 bg-[#F2F2FB]">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-wrap justify-center gap-2 w-full">
               {pricingPlans.map((plan, index) => (
                 <div 
                   key={index}
-                  className={`bg-white rounded-2xl shadow-lg p-6 relative transition-all hover:scale-105 w-full max-w-xs flex flex-col h-full ${
-                    plan.popular ? 'ring-2 ring-blue-500' : 'transform scale-100 md:scale-95'
-                  }`}
+                  className="bg-white rounded-3xl shadow-sm p-6 flex flex-col h-full max-w-[250px] mx-auto w-full"
                 >
-                  {plan.popular && (
-                    <div className="absolute -top-3 left-1/2 transform -translate-x-1/2">
-                      <div className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm font-semibold flex items-center">
-                        <Star className="w-4 h-4 mr-1" />
-                        Most Popular
-                      </div>
-                    </div>
-                  )}
-                  
                   <div className="text-center flex flex-col h-full">
                     <div>
                       <h3 className={`text-xl font-bold text-gray-800 mb-4 ${montserrat.className}`} style={{ fontWeight: 700 }}>
@@ -189,7 +170,7 @@ const PricingPage = () => {
                       </h3>
                       
                       <div className="mb-4">
-                        <div className={`text-3xl font-bold text-blue-600 mb-2 ${mulish.className}`}>
+                        <div className={`text-3xl font-bold text-purple-800 mb-2 ${mulish.className}`}>
                           {plan.price}
                         </div>
                         {plan.originalPrice && (
@@ -199,21 +180,17 @@ const PricingPage = () => {
                         )}
                       </div>
                       
-                      <p className={`text-gray-600 mb-6 ${mulish.className}`}>
+                      <div className="mt-auto pt-6">
+                        <Button 
+                          className="w-full py-3 text-lg font-semibold bg-[#6B4EE8] hover:bg-[#5B3DD8] rounded-full"
+                        >
+                          BUY NOW
+                        </Button>
+                      </div>
+
+                      <p className={`text-gray-600 mt-6 ${mulish.className}`}>
                         Valid for {plan.validity}
                       </p>
-                    </div>
-                    
-                    <div className="mt-auto pt-4">
-                      <Button 
-                        className={`w-full py-3 text-lg font-semibold ${
-                          plan.popular 
-                            ? 'bg-blue-600 hover:bg-blue-700' 
-                            : 'bg-gray-800 hover:bg-gray-900'
-                        }`}
-                      >
-                        BUY NOW
-                      </Button>
                     </div>
                   </div>
                 </div>
