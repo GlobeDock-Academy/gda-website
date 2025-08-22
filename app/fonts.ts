@@ -1,5 +1,29 @@
 import localFont from 'next/font/local';
 
+// Define the Montserrat variable font
+export const montserrat = localFont({
+  src: [
+    {
+      path: '../public/fonts/Montserrat-VariableFont_wght.ttf',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-montserrat',
+  display: 'swap'
+});
+
+// Define the Mulish variable font
+export const mulish = localFont({
+  src: [
+    {
+      path: '../public/fonts/Mulish-VariableFont_wght.ttf',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-mulish',
+  display: 'swap'
+});
+
 // Define the AvertaStd font family
 export const avertaStd = localFont({
   src: [
@@ -124,5 +148,18 @@ export const timesNewRoman = localFont({
     }
   ],
   variable: '--font-times-new-roman',
+  display: 'swap'
+});
+
+// Define the ShantellSans font family
+export const shantellSans = localFont({
+  src: [
+    {
+      path: '../public/fonts/ShantellSans.ttf',
+      weight: '400',
+      style: 'normal',
+    }
+  ],
+  variable: '--font-shantell-sans',
   display: 'swap'
 });

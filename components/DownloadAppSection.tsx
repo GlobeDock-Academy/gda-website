@@ -13,7 +13,7 @@ const DownloadAppSection = () => {
               Get the learning app
             </h2>
             <p className="text-lg text-white/80 mb-8 max-w-md">
-              Download lessons and learn anytime, anywhere with the Unacademy app
+            Download lessons and learn anytime, anywhere with GlobeDock Academy App
             </p>
             <div className="flex items-center space-x-4">
               <a href="https://apps.apple.com/us/app/globedock-academy/id6459021458" target="_blank" rel="noopener noreferrer" className="hover:opacity-90 transition-opacity">
