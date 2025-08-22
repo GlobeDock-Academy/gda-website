@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -185,38 +185,109 @@ const DonationForm = () => {
   );
 };
 
-const faqs = [
+// Placeholder for fallback FAQ data if API fails
+const fallbackFaqs = [
   {
     question: "What does my donation of ETB 2,500 cover?",
-    answer: "Your donation sponsors one child’s full access to GlobeDock Academy’s platform for an entire year. This includes curriculum-aligned video lessons, interactive quizzes, offline learning access, and parent tracking via the Parent App."
+    answer: "Your donation sponsors one child's full access to GlobeDock Academy's platform for an entire year. This includes curriculum-aligned video lessons, interactive quizzes, offline learning access, and parent tracking via the Parent App."
   },
   {
     question: "Who receives the support?",
     answer: "We work with the Ministry of Innovation and Technology to identify deserving students, especially those from low-income families, rural areas, or schools impacted by conflict or displacement."
   },
   {
-    question: "Do I get updates on the students I support?",
-    answer: "Yes. We send quarterly impact reports showing how your support is helping students — including usage data, learning milestones, and stories from the field when available."
-  },
-  {
-    question: "Can I choose the number of students I want to sponsor?",
-    answer: "Absolutely. You can sponsor 1, 3, 5, 10, or enter your own number. Every student matters — and even one subscription can change a child’s future."
-  },
-  {
     question: "Is my donation tax-deductible?",
     answer: "At this time, donations are not tax-deductible. However, we are actively exploring partnerships and compliance to enable this in the future."
-  },
-  {
-    question: "Can I sponsor as an organization or business?",
-    answer: "Yes. We welcome support from businesses, NGOs, schools, and religious groups. For bulk sponsorships or CSR partnerships, please contact us for a customized package."
-  },
-  {
-    question: "What makes GlobeDock Academy different?",
-    answer: "We offer Ethiopia-specific digital learning that’s accessible on mobile, aligned with the national curriculum, and supported by real teachers. Our platform is competency-based, bilingual, and built for both students and parents."
   }
 ];
 
+// Define FAQ data structure type
+type FaqItem = {
+  question: string;
+  answer: string;
+  id?: string | number; // API might return an ID
+};
+
 const FaqSection = () => {
+  const [faqs, setFaqs] = useState<FaqItem[]>([]);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchFaqs = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch('https://app.gdacademy.et/api/v2/faqs');
+        
+        if (!response.ok) {
+          throw new Error(`API request failed with status ${response.status}`);
+        }
+        
+        const responseJson = await response.json();
+        
+        // The API returns a paginated structure with FAQ items in the 'data' array
+        if (responseJson && responseJson.data && Array.isArray(responseJson.data)) {
+          const formattedFaqs = responseJson.data.map((item: any) => ({
+            question: item.question || '',
+            // Use answer_html if available, otherwise use answer_md or fallback
+            answer: item.answer_html ? 
+              // Strip HTML tags for simple rendering
+              item.answer_html.replace(/<\/?[^>]+(>|$)/g, '') : 
+              item.answer_md || item.answer || '',
+            id: item.id || ''
+          }));
+          
+          setFaqs(formattedFaqs.length > 0 ? formattedFaqs : fallbackFaqs);
+          console.log('FAQs loaded:', formattedFaqs);
+        } else {
+          console.warn('Unexpected API response format:', responseJson);
+          setFaqs(fallbackFaqs);
+        }
+      } catch (err) {
+        console.error('Error fetching FAQs:', err);
+        setError('Failed to load FAQ data');
+        setFaqs(fallbackFaqs); // Use fallback data on error
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    
+    fetchFaqs();
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="bg-white py-20">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <div className="w-full border border-gray-200 rounded-lg bg-white p-12">
+            <div className="animate-pulse flex flex-col space-y-4">
+              <div className="h-6 bg-gray-200 rounded w-3/4 mx-auto mb-4"></div>
+              {[1, 2, 3, 4].map((item) => (
+                <div key={item} className="space-y-2">
+                  <div className="h-4 bg-gray-200 rounded"></div>
+                  <div className="h-4 bg-gray-200 rounded w-5/6"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="bg-white py-20">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <div className="w-full border border-gray-200 rounded-lg bg-white p-8">
+            <h2 className="text-xl text-red-600 mb-2">Error loading FAQ section</h2>
+            <p className="text-gray-700">Please try again later.</p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  
   return (
     <div className="bg-white py-20">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -224,20 +295,26 @@ const FaqSection = () => {
           <div className="px-6 py-6">
             <h2 className="text-2xl font-semibold text-left text-gray-900">Frequently asked questions</h2>
           </div>
-          {faqs.map((faq, index) => (
-            <div key={index} className="border-b border-gray-200 last:border-b-0">
-              <Accordion type="single" collapsible className="w-full">
-                <AccordionItem value={`item-${index}`} className="border-0">
-                  <AccordionTrigger className="flex flex-1 items-center justify-between py-5 px-6 text-left hover:no-underline [&[data-state=open]]:pb-3">
-                    <h3 className="text-lg font-normal text-gray-900 pr-4">{faq.question}</h3>
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-5 pt-0 px-6">
-                    <p className="text-base text-gray-700 leading-normal">{faq.answer}</p>
-                  </AccordionContent>
-                </AccordionItem>
-              </Accordion>
+          {faqs.length > 0 ? (
+            faqs.map((faq, index) => (
+              <div key={faq.id || index} className="border-b border-gray-200 last:border-b-0">
+                <Accordion type="single" collapsible className="w-full">
+                  <AccordionItem value={`item-${faq.id || index}`} className="border-0">
+                    <AccordionTrigger className="flex flex-1 items-center justify-between py-5 px-6 text-left hover:no-underline [&[data-state=open]]:pb-3">
+                      <h3 className="text-lg font-normal text-gray-900 pr-4">{faq.question}</h3>
+                    </AccordionTrigger>
+                    <AccordionContent className="pb-5 pt-0 px-6">
+                      <p className="text-base text-gray-700 leading-normal">{faq.answer}</p>
+                    </AccordionContent>
+                  </AccordionItem>
+                </Accordion>
+              </div>
+            ))
+          ) : (
+            <div className="px-6 py-4 text-center">
+              <p className="text-gray-500">No FAQ items available.</p>
             </div>
-          ))}
+          )}
         </div>
       </div>
     </div>
@@ -285,6 +362,48 @@ export default function DonatePage() {
           </div>
         </div>
       </main>
+      
+      {/* Contact Section */}
+      <div className="bg-white py-16">
+        <div className="container mx-auto px-4 max-w-4xl text-center">
+          <h2 className={`text-2xl font-semibold mb-4 text-gray-900 ${lato.className}`} style={{fontSize: '28px', fontWeight: 700}}>Still have questions?</h2>
+          <p className="text-lg text-gray-700 mb-8">We&apos;re here to help. Reach out to our team anytime.</p>
+          
+          <div className="grid md:grid-cols-3 gap-6 mb-10">
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">📧</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Email</h3>
+              <a href="mailto:support@globedocket.com" className="text-blue-600 hover:underline">support@globedocket.com</a>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">📞</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Phone</h3>
+              <p className="text-gray-700">+251-XXX-XXX-XXX</p>
+            </div>
+            
+            <div className="bg-gray-50 p-6 rounded-lg">
+              <div className="text-3xl mb-3">💬</div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>WhatsApp</h3>
+              <a href="https://wa.me/251XXXXXXXXX" className="text-blue-600 hover:underline">Click to Chat</a>
+            </div>
+          </div>
+          
+          <Button 
+            className={`rounded-lg font-bold ${lato.className}`}
+            style={{
+              fontSize: '18px', 
+              fontWeight: 600,
+              padding: '12px 32px',
+              backgroundColor: '#0B1D53',
+              color: 'white'
+            }}
+          >
+            Contact Us
+          </Button>
+        </div>
+      </div>
+      
       <FaqSection />
       <Footer />
     </div>

@@ -97,7 +97,7 @@ export default function TestimonialsSection() {
           {/* Centered Heading */}
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white">
-              Parents love Tuteria
+            Parents Love GlobeDock Academy
             </h2>
           </div>
 

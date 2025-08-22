@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import Container from '@/components/Container';
 import Image from 'next/image';
-import { LearnersIcon, TimeIcon, CountriesIcon, CoursesIcon } from './StatIcons';
+import { LearnersIcon, TimeIcon, CountriesIcon, CoursesIcon, VideoIcon } from './StatIcons';
 
 // Custom hook for count-up animation
 const useCountUp = (end: number, duration: number = 2000) => {
@@ -91,29 +91,29 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, borderColor, is
 const stats = [
     {
         icon: <LearnersIcon />,
-        value: '36,276+',
+        value: '200,000+',
         label: 'Learners served',
         borderColor: '#3B82F6', // Blue
         isLowered: false,
     },
     {
-        icon: <TimeIcon />,
-        value: '2M+',
-        label: 'Time spent on content',
+        icon: <VideoIcon />,
+        value: '25M+',
+        label: 'Views on YouTube & app',
         borderColor: '#F59E0B', // Orange
         isLowered: true,
     },
     {
-        icon: <CountriesIcon />,
-        value: '18+',
-        label: 'Countries',
+        icon: <TimeIcon />,
+        value: '100M+',
+        label: 'Learning Minutes',
         borderColor: '#10B981', // Green
         isLowered: false,
     },
     {
         icon: <CoursesIcon />,
-        value: '18+',
-        label: 'Courses',
+        value: '5000+',
+        label: 'Video Lessons',
         borderColor: '#EF4444', // Red
         isLowered: true,
     },

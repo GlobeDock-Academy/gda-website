@@ -1,5 +1,5 @@
 import React from 'react';
-import { dailyMemo } from '../../app/fonts';
+import { shantellSans } from '../../app/fonts';
 
 export default function BlogHeader() {
   return (
@@ -14,7 +14,7 @@ export default function BlogHeader() {
         <div className="bg-[#0B1D53] p-8 rounded-[40px] max-w-4xl mx-auto">
           <div className="text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg inline-block">GlobeDock Academy Blog</h1>
-            <p className={`text-lg md:text-xl text-yellow-400 mt-6 drop-shadow-md ${dailyMemo.className}`}>
+            <p className={`text-lg md:text-xl text-yellow-400 mt-6 drop-shadow-md ${shantellSans.className}`}>
               Insights, tips, and resources to help students, parents, and educators excel in their educational journey.
             </p>
           </div>
