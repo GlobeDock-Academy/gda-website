@@ -6,6 +6,8 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Check, Star } from 'lucide-react';
+import { Lato } from 'next/font/google';
+const lato = Lato({ subsets: ['latin'], weight: ['400','700'] });
 
 
 const PricingPage = () => {
