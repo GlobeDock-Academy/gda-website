@@ -17,6 +17,15 @@ export default function GradeGridSection() {
   const [selectedSubject, setSelectedSubject] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
 
+  const handleSubjectClick = (grade: string, subject: string) => {
+    // Convert grade name to number (e.g., 'Grade 7' -> '7')
+    const gradeNumber = grade.replace('Grade ', '');
+    // Encode the subject for URL
+    const encodedSubject = encodeURIComponent(subject);
+    // Redirect to the staging URL
+    window.location.href = `https://staging-stud.gdacademy.et/?guest=true&grade=${gradeNumber}&subject=${encodedSubject}`;
+  };
+
   const toggleItem = (id: string) => {
     setExpandedItems(prev => ({
       ...prev,
@@ -159,11 +168,7 @@ export default function GradeGridSection() {
                 <li 
                   key={index} 
                   className="text-gray-700 cursor-pointer hover:text-primary hover:underline"
-                  onClick={() => {
-                    setSelectedSubject(subject);
-                    setSelectedGrade(item.name);
-                    setDialogOpen(true);
-                  }}
+                  onClick={() => handleSubjectClick(item.name, subject)}
                 >
                   {subject}
                 </li>
@@ -191,7 +196,7 @@ export default function GradeGridSection() {
           </div>
         </div>
         
-        {/* Subject Dialog */}
+        {/* Subject Dialog - Keeping it in case needed for other functionality */}
         <SubjectDialog 
           isOpen={dialogOpen}
           onClose={() => setDialogOpen(false)}
