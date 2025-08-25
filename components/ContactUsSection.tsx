@@ -31,7 +31,7 @@ const contactInfo = [
 
 export default function ContactUsSection() {
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-white overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 bg-white overflow-hidden mb-8 sm:mb-12">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image with decorative background */}

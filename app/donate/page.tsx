@@ -1,14 +1,17 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
+import { Play, GraduationCap, Download, Send } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'next/navigation';
 import Image from 'next/image';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { lato, timesNewRoman } from '../fonts';
 
 const DonationForm = () => {
+  const router = useRouter();
   const [numStudents, setNumStudents] = useState(1);
   const [showOtherInput, setShowOtherInput] = useState(false);
 
@@ -178,35 +181,15 @@ const DonationForm = () => {
           fontSize: '20px',
           fontWeight: 700
         }}
+        onClick={() => router.push('/donate/form')}
       >
-        Continue
+        Donate
       </Button>
     </div>
   );
 };
 
-// Placeholder for fallback FAQ data if API fails
-const fallbackFaqs = [
-  {
-    question: "What does my donation of ETB 2,500 cover?",
-    answer: "Your donation sponsors one child's full access to GlobeDock Academy's platform for an entire year. This includes curriculum-aligned video lessons, interactive quizzes, offline learning access, and parent tracking via the Parent App."
-  },
-  {
-    question: "Who receives the support?",
-    answer: "We work with the Ministry of Innovation and Technology to identify deserving students, especially those from low-income families, rural areas, or schools impacted by conflict or displacement."
-  },
-  {
-    question: "Is my donation tax-deductible?",
-    answer: "At this time, donations are not tax-deductible. However, we are actively exploring partnerships and compliance to enable this in the future."
-  }
-];
-
-// Define FAQ data structure type
-type FaqItem = {
-  question: string;
-  answer: string;
-  id?: string | number; // API might return an ID
-};
+// No fallback FAQs - we'll handle empty state in the UI
 
 const FaqSection = () => {
   const [faqs, setFaqs] = useState<FaqItem[]>([]);
@@ -237,16 +220,16 @@ const FaqSection = () => {
             id: item.id || ''
           }));
           
-          setFaqs(formattedFaqs.length > 0 ? formattedFaqs : fallbackFaqs);
+          setFaqs(formattedFaqs);
           console.log('FAQs loaded:', formattedFaqs);
         } else {
           console.warn('Unexpected API response format:', responseJson);
-          setFaqs(fallbackFaqs);
+          setFaqs([]);
         }
       } catch (err) {
         console.error('Error fetching FAQs:', err);
         setError('Failed to load FAQ data');
-        setFaqs(fallbackFaqs); // Use fallback data on error
+        setFaqs([]); // Don't use fallback data
       } finally {
         setIsLoading(false);
       }
@@ -311,8 +294,9 @@ const FaqSection = () => {
               </div>
             ))
           ) : (
-            <div className="px-6 py-4 text-center">
-              <p className="text-gray-500">No FAQ items available.</p>
+            <div className="px-6 py-8 text-center">
+              <p className="text-gray-500 text-lg">No frequently asked questions are available at the moment.</p>
+              <p className="text-gray-400 mt-2">Please check back later or contact us for more information.</p>
             </div>
           )}
         </div>
@@ -344,18 +328,15 @@ export default function DonatePage() {
 
               ></iframe>
               <div className="mt-12 text-center lg:text-left">
-                <h1 className={`mb-6 text-white ${timesNewRoman.className}`} style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
+                <h1 className="mb-6 text-white font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
                   <p className="text-lg leading-relaxed mb-4 text-white font-normal">
-                    From the very first tap, your support unlocks a full year of learning: expert-taught video lessons, skill-based quizzes, and daily progress tools — all aligned with Ethiopia’s curriculum.
+                    Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia's curriculum.
                   </p>
                   <p className="text-lg leading-relaxed mb-4 text-white font-normal">
-                    Through our partnership with the Ministry of Innovation and Technology, we identify students who need it most. Whether they&apos;re in remote areas or recovering from interrupted schooling, your support means they don&apos;t fall behind.
+                    Partnering with the Ministry of Innovation and Technology, we reach <strong>the most vulnerable students. Donate today</strong>—one subscription can turn an "offline" learner into a <strong>confident, engaged student</strong>.
                   </p>
-                  <p className="text-lg leading-relaxed mb-6 text-white font-normal">
-                    Donate today and help an ‘offline’ learner become an engaged, confident student — one subscription, one future at a time.
-                  </p>
-                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO of GlobeDock Academy</p>
+                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO</p>
                 </div>
               </div>
             </div>
@@ -373,38 +354,32 @@ export default function DonatePage() {
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="text-3xl mb-3">📧</div>
               <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Email</h3>
-              <a href="mailto:support@globedocket.com" className="text-blue-600 hover:underline">support@globedocket.com</a>
+              <a href="mailto:donation@gdacademy.et" className="text-blue-600 hover:underline">donation@gdacademy.et</a>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-lg">
               <div className="text-3xl mb-3">📞</div>
               <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Phone</h3>
-              <p className="text-gray-700">+251-XXX-XXX-XXX</p>
+              <div className="flex flex-col">
+                <a href="tel:7421" className="text-blue-600 hover:text-blue-700 text-xl font-semibold">7421</a>
+                <span className="text-xs text-gray-500 mt-1">(local calls from within Ethiopia only)</span>
+              </div>
             </div>
             
             <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="text-3xl mb-3">💬</div>
-              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>WhatsApp</h3>
-              <a href="https://wa.me/251XXXXXXXXX" className="text-blue-600 hover:underline">Click to Chat</a>
+              <div className="h-12 w-12 mx-auto mb-3 flex items-center justify-center">
+                <Send className="h-8 w-8 text-blue-500" />
+              </div>
+              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Telegram</h3>
+              <a href="https://t.me/globedockacademy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Message Us</a>
             </div>
           </div>
-          
-          <Button 
-            className={`rounded-lg font-bold ${lato.className}`}
-            style={{
-              fontSize: '18px', 
-              fontWeight: 600,
-              padding: '12px 32px',
-              backgroundColor: '#0B1D53',
-              color: 'white'
-            }}
-          >
-            Contact Us
-          </Button>
         </div>
       </div>
       
-      <FaqSection />
+      <div className="mt-4">
+        <FaqSection />
+      </div>
       <Footer />
     </div>
   );
