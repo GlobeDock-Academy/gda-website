@@ -35,11 +35,17 @@ const DonationForm = () => {
 
   const handleOtherClick = () => {
     setShowOtherInput(true);
-    setNumStudents(0); // Reset to 0 or a custom value indicator
+    setNumStudents(0);
+  };
+
+  const handleContinue = () => {
+    if (numStudents > 0) {
+      router.push(`/donate/form?students=${numStudents}&amount=${yearlyFee}&total=${totalSponsorAmount}`);
+    }
   };
 
   return (
-    <div className="bg-white p-8 rounded-[20px] shadow-md w-[420px] h-auto text-gray-800">
+    <div className="bg-white p-6 sm:p-8 rounded-[20px] shadow-md w-full max-w-[420px] mx-auto text-gray-800">
       <h3 className={`text-2xl font-bold mb-6 text-center text-gray-900 ${lato.className}`} style={{fontSize: '24px', fontWeight: 700}}>Support free education</h3>
       
       <div className="space-y-6">
@@ -179,11 +185,14 @@ const DonationForm = () => {
           paddingBottom: '12px',
           paddingLeft: '0px',
           fontSize: '20px',
-          fontWeight: 700
+          fontWeight: 700,
+          opacity: numStudents <= 0 ? 0.7 : 1,
+          cursor: numStudents <= 0 ? 'not-allowed' : 'pointer'
         }}
-        onClick={() => router.push('/donate/form')}
+        onClick={handleContinue}
+        disabled={numStudents <= 0}
       >
-        Donate
+        Continue to Payment
       </Button>
     </div>
   );
@@ -309,13 +318,13 @@ export default function DonatePage() {
   return (
     <div className="min-h-screen bg-white">
       <Navigation />
-      <main className="text-white" style={{backgroundColor: '#0B1D53'}}>
-        <div className="container mx-auto px-12 py-20">
-          <div className="grid lg:grid-cols-2 gap-20 items-start">
-            <div className="flex items-start justify-center w-full">
-              <DonationForm />
-            </div>
-            <div className="relative w-full max-w-2xl -ml-8">
+       <main className="py-12 lg:py-20">
+         <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
+           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+             <div className="flex items-start justify-center w-full">
+               <DonationForm />
+             </div>
+             <div className="relative w-full max-w-2xl mt-12 lg:mt-0 lg:-ml-8 bg-gray-50 p-8 rounded-lg">
               <iframe 
                 width="560" 
                 height="315" 
@@ -328,15 +337,15 @@ export default function DonatePage() {
 
               ></iframe>
               <div className="mt-12 text-center lg:text-left">
-                <h1 className="mb-6 text-white font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
+                <h1 className="mb-6 text-gray-900 font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
-                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                  <p className="text-lg leading-relaxed mb-4 text-gray-800 font-normal">
                     Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia's curriculum.
                   </p>
-                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                  <p className="text-lg leading-relaxed mb-4 text-gray-800 font-normal">
                     Partnering with the Ministry of Innovation and Technology, we reach <strong>the most vulnerable students. Donate today</strong>—one subscription can turn an "offline" learner into a <strong>confident, engaged student</strong>.
                   </p>
-                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO</p>
+                  <p className="text-base font-normal text-gray-800">- Kirubel Akalu, Founder and CEO</p>
                 </div>
               </div>
             </div>
