@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from 'react';
-import { Play, GraduationCap, Download, Send } from 'lucide-react';
+import { Play, GraduationCap, Download, Send, Mail } from 'lucide-react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -45,7 +45,7 @@ const DonationForm = () => {
   };
 
   return (
-    <div className="bg-white p-6 sm:p-8 rounded-[20px] shadow-md w-full max-w-[420px] mx-auto text-gray-800">
+    <div className="bg-white p-8 rounded-[20px] shadow-md w-[420px] h-auto text-gray-800">
       <h3 className={`text-2xl font-bold mb-6 text-center text-gray-900 ${lato.className}`} style={{fontSize: '24px', fontWeight: 700}}>Support free education</h3>
       
       <div className="space-y-6">
@@ -54,119 +54,115 @@ const DonationForm = () => {
           <div className="space-y-2">
             {/* First row: 1 and 3 */}
             <div className="grid grid-cols-2 gap-2">
-              <Button 
-                variant={numStudents === 1 && !showOtherInput ? 'default' : 'outline'}
+              <button 
                 onClick={() => handleStudentSelect(1)}
-                className={`rounded-lg border font-bold ${lato.className} ${
-                  numStudents === 1 && !showOtherInput ? '' : 'hover:bg-gray-50'
+                className={`inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-lg border font-bold ${lato.className} ${
+                  numStudents === 1 && !showOtherInput 
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                    : 'border-input bg-background hover:text-accent-foreground hover:bg-gray-50'
                 }`}
                 style={{
-                  fontSize: '20px', 
+                  fontSize: '20px',
                   fontWeight: 700,
-                  paddingTop: '16px',
-                  paddingRight: '8px',
-                  paddingBottom: '16px',
-                  paddingLeft: '8px',
+                  padding: '16px 8px',
                   height: '62px',
                   width: '100%'
                 }}
               >
                 1
-              </Button>
-              <Button 
-                variant={numStudents === 3 && !showOtherInput ? 'default' : 'outline'}
+              </button>
+              <button 
                 onClick={() => handleStudentSelect(3)}
-                className={`rounded-lg border font-bold ${lato.className} ${
-                  numStudents === 3 && !showOtherInput ? '' : 'hover:bg-gray-50'
+                className={`inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-lg border font-bold ${lato.className} ${
+                  numStudents === 3 && !showOtherInput 
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                    : 'border-input bg-background hover:text-accent-foreground hover:bg-gray-50'
                 }`}
                 style={{
-                  fontSize: '20px', 
+                  fontSize: '20px',
                   fontWeight: 700,
-                  paddingTop: '16px',
-                  paddingRight: '8px',
-                  paddingBottom: '16px',
-                  paddingLeft: '8px',
+                  padding: '16px 8px',
                   height: '62px',
                   width: '100%'
                 }}
               >
                 3
-              </Button>
+              </button>
             </div>
             
             {/* Second row: 5 and 10 */}
             <div className="grid grid-cols-2 gap-2">
-              <Button 
-                variant={numStudents === 5 && !showOtherInput ? 'default' : 'outline'}
+              <button 
                 onClick={() => handleStudentSelect(5)}
-                className={`rounded-lg border font-bold ${lato.className} ${
-                  numStudents === 5 && !showOtherInput ? '' : 'hover:bg-gray-50'
+                className={`inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-lg border font-bold ${lato.className} ${
+                  numStudents === 5 && !showOtherInput 
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                    : 'border-input bg-background hover:text-accent-foreground hover:bg-gray-50'
                 }`}
                 style={{
-                  fontSize: '20px', 
+                  fontSize: '20px',
                   fontWeight: 700,
-                  paddingTop: '16px',
-                  paddingRight: '8px',
-                  paddingBottom: '16px',
-                  paddingLeft: '8px',
+                  padding: '16px 8px',
                   height: '62px',
                   width: '100%'
                 }}
               >
                 5
-              </Button>
-              <Button 
-                variant={numStudents === 10 && !showOtherInput ? 'default' : 'outline'}
+              </button>
+              <button 
                 onClick={() => handleStudentSelect(10)}
-                className={`rounded-lg border font-bold ${lato.className} ${
-                  numStudents === 10 && !showOtherInput ? '' : 'hover:bg-gray-50'
+                className={`inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 rounded-lg border font-bold ${lato.className} ${
+                  numStudents === 10 && !showOtherInput 
+                    ? 'bg-primary text-primary-foreground hover:bg-primary/90' 
+                    : 'border-input bg-background hover:text-accent-foreground hover:bg-gray-50'
                 }`}
                 style={{
-                  fontSize: '20px', 
+                  fontSize: '20px',
                   fontWeight: 700,
-                  paddingTop: '16px',
-                  paddingRight: '8px',
-                  paddingBottom: '16px',
-                  paddingLeft: '8px',
+                  padding: '16px 8px',
                   height: '62px',
                   width: '100%'
                 }}
               >
                 10
-              </Button>
+              </button>
             </div>
             
-            {/* Third row: Full-width input field */}
-            <input
-              type="number"
-              min="1"
-              step="1"
-              placeholder="Other"
-              className={`w-full rounded-lg border border-gray-300 font-bold ${lato.className} focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400`}
-              style={{
-                fontSize: '20px',
-                fontWeight: 700,
-                paddingTop: '16px',
-                paddingRight: '8px',
-                paddingBottom: '16px',
-                paddingLeft: '8px',
-                height: '62px'
-              }}
-              onInput={(e) => {
-                // Remove any non-numeric characters
-                const target = e.target as HTMLInputElement;
-                target.value = target.value.replace(/[^0-9]/g, '');
-              }}
-              onChange={(e) => {
-                const value = Number(e.target.value);
-                setNumStudents(value);
-                setShowOtherInput(value > 0);
-              }}
-            />
+            {/* Other input field */}
+            {showOtherInput ? (
+              <input
+                type="number"
+                min="1"
+                step="1"
+                value={numStudents || ''}
+                onChange={(e) => setNumStudents(parseInt(e.target.value) || 0)}
+                placeholder="Other"
+                className="w-full rounded-lg border border-gray-300 font-bold focus:border-blue-400 focus:outline-none focus:ring-1 focus:ring-blue-400"
+                style={{
+                  fontSize: '20px',
+                  fontWeight: 700,
+                  padding: '16px 8px',
+                  height: '62px',
+                  textAlign: 'center' as const
+                }}
+                autoFocus
+              />
+            ) : (
+              <button 
+                onClick={handleOtherClick}
+                className="inline-flex items-center justify-center whitespace-nowrap text-sm ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full rounded-lg border border-gray-300 bg-white font-bold text-gray-700 hover:bg-gray-50 ${lato.className}"
+                style={{
+                  fontSize: '20px',
+                  fontWeight: 700,
+                  padding: '16px 8px',
+                  height: '62px'
+                }}
+              >
+                Other
+              </button>
+            )}
           </div>
         </div>
-
-
 
         <div className="bg-gray-50 p-4 rounded-md text-center">
           <p className="text-sm text-gray-600 mb-1">Total Donation</p>
@@ -174,29 +170,29 @@ const DonationForm = () => {
         </div>
       </div>
 
-      <Button 
-        className="w-full bg-black text-white hover:bg-gray-800 mt-6"
-        style={{
-          minHeight: '75px',
-          backgroundColor: 'black',
-          borderRadius: '12px',
-          paddingTop: '12px',
-          paddingRight: '0px',
-          paddingBottom: '12px',
-          paddingLeft: '0px',
-          fontSize: '20px',
-          fontWeight: 700,
-          opacity: numStudents <= 0 ? 0.7 : 1,
-          cursor: numStudents <= 0 ? 'not-allowed' : 'pointer'
-        }}
+      <button 
         onClick={handleContinue}
         disabled={numStudents <= 0}
+        className={`inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 px-4 py-2 w-full bg-black text-white hover:bg-gray-800 mt-6 ${lato.className}`}
+        style={{
+          minHeight: '75px',
+          borderRadius: '12px',
+          padding: '12px 0',
+          fontSize: '20px',
+          fontWeight: 700
+        }}
       >
-        Continue to Payment
-      </Button>
+        Continue
+      </button>
     </div>
   );
 };
+
+interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+}
 
 // No fallback FAQs - we'll handle empty state in the UI
 
@@ -316,15 +312,15 @@ const FaqSection = () => {
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: 'rgb(11, 29, 83)' }}>
       <Navigation />
-       <main className="py-12 lg:py-20">
+       <main className="py-12 lg:py-20 text-white">
          <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
            <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
              <div className="flex items-start justify-center w-full">
                <DonationForm />
              </div>
-             <div className="relative w-full max-w-2xl mt-12 lg:mt-0 lg:-ml-8 bg-gray-50 p-8 rounded-lg">
+             <div className="relative w-full max-w-2xl -ml-8">
               <iframe 
                 width="560" 
                 height="315" 
@@ -334,18 +330,20 @@ export default function DonatePage() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowFullScreen
                 className="w-full aspect-video rounded-lg"
-
               ></iframe>
               <div className="mt-12 text-center lg:text-left">
-                <h1 className="mb-6 text-gray-900 font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
+                <h1 className={`mb-6 text-white ${lato.className}`} style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
-                  <p className="text-lg leading-relaxed mb-4 text-gray-800 font-normal">
-                    Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia's curriculum.
+                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                    From the very first tap, your support unlocks a full year of learning: expert-taught video lessons, skill-based quizzes, and daily progress tools — all aligned with Ethiopia's curriculum.
                   </p>
-                  <p className="text-lg leading-relaxed mb-4 text-gray-800 font-normal">
-                    Partnering with the Ministry of Innovation and Technology, we reach <strong>the most vulnerable students. Donate today</strong>—one subscription can turn an "offline" learner into a <strong>confident, engaged student</strong>.
+                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
+                    Through our partnership with the Ministry of Innovation and Technology, we identify students who need it most. Whether they're in remote areas or recovering from interrupted schooling, your support means they don't fall behind.
                   </p>
-                  <p className="text-base font-normal text-gray-800">- Kirubel Akalu, Founder and CEO</p>
+                  <p className="text-lg leading-relaxed mb-6 text-white font-normal">
+                    Donate today and help an 'offline' learner become an engaged, confident student — one subscription, one future at a time.
+                  </p>
+                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO of GlobeDock Academy</p>
                 </div>
               </div>
             </div>
@@ -353,40 +351,51 @@ export default function DonatePage() {
         </div>
       </main>
       
-      {/* Contact Section */}
       <div className="bg-white py-16">
+        {/* Contact Section */}
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className={`text-2xl font-semibold mb-4 text-gray-900 ${lato.className}`} style={{fontSize: '28px', fontWeight: 700}}>Still have questions?</h2>
-          <p className="text-lg text-gray-700 mb-8">We&apos;re here to help. Reach out to our team anytime.</p>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-10">
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="text-3xl mb-3">📧</div>
-              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Email</h3>
-              <a href="mailto:donation@gdacademy.et" className="text-blue-600 hover:underline">donation@gdacademy.et</a>
+          <p className="text-lg text-gray-700 mb-8">We're here to help. Reach out to our team anytime.</p>
+          {/* Contact Options Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            {/* Email */}
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                <Mail className="w-8 h-8 text-blue-600" />
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-lg">Email</h3>
+              <a href="mailto:donation@gdacademy.et" className="text-blue-600 hover:text-blue-800">
+                donation@gdacademy.et
+              </a>
             </div>
             
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="text-3xl mb-3">📞</div>
-              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Phone</h3>
-              <div className="flex flex-col">
-                <a href="tel:7421" className="text-blue-600 hover:text-blue-700 text-xl font-semibold">7421</a>
-                <span className="text-xs text-gray-500 mt-1">(local calls from within Ethiopia only)</span>
+            {/* Phone */}
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="w-16 h-16 mx-auto mb-4 bg-green-100 rounded-full flex items-center justify-center">
+                <svg className="w-8 h-8 text-green-600" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                </svg>
+              </div>
+              <h3 className="font-semibold text-gray-900 mb-2 text-lg">Phone</h3>
+              <div className="text-gray-600">
+                <a href="tel:7421" className="font-medium text-base hover:text-blue-600">7421</a>
+                <div className="text-xs text-gray-500 mt-1">(local calls from within Ethiopia only)</div>
               </div>
             </div>
             
-            <div className="bg-gray-50 p-6 rounded-lg">
-              <div className="h-12 w-12 mx-auto mb-3 flex items-center justify-center">
-                <Send className="h-8 w-8 text-blue-500" />
+            {/* Telegram */}
+            <div className="text-center p-6 bg-gray-50 rounded-lg">
+              <div className="w-16 h-16 mx-auto mb-4 bg-blue-100 rounded-full flex items-center justify-center">
+                <Send className="w-8 h-8 text-blue-500" />
               </div>
-              <h3 className={`text-lg font-medium mb-2 ${lato.className}`}>Telegram</h3>
-              <a href="https://t.me/globedockacademy" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Message Us</a>
+              <h3 className="font-semibold text-gray-900 mb-2 text-lg">Telegram</h3>
+              <a href="https://t.me/globedock" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+                Click to Chat
+              </a>
             </div>
           </div>
         </div>
-      </div>
-      
-      <div className="mt-4">
+        
         <FaqSection />
       </div>
       <Footer />

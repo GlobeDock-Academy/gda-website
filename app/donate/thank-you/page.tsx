@@ -1,11 +1,38 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { CheckCircle } from 'lucide-react';
 
 export default function ThankYouPage() {
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const name = searchParams.get('name');
+    const email = searchParams.get('email');
+
+    if (name && email) {
+      fetch('/api/send-donation-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ name, email }),
+      })
+      .then(response => {
+        if (!response.ok) {
+          console.error('Failed to send thank you email.');
+        } else {
+          console.log('Thank you email sent successfully.');
+        }
+      })
+      .catch(error => {
+        console.error('Error sending thank you email:', error);
+      });
+    }
+  }, [searchParams]);
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
@@ -31,13 +58,6 @@ export default function ThankYouPage() {
             Return to Home
           </Button>
           
-          <Button 
-            variant="outline" 
-            onClick={() => router.push('/about')}
-            className="w-full"
-          >
-            Learn More About Our Work
-          </Button>
         </div>
       </div>
     </div>

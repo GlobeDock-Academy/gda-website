@@ -16,6 +16,7 @@ export default function DonationFormPage() {
     
     return {
       name: '',
+      email: '',
       phone: '',
       // These are read from URL and not editable
       numberOfStudents: students,
@@ -26,14 +27,18 @@ export default function DonationFormPage() {
   
   const [errors, setErrors] = useState({
     name: '',
+    email: '',
     phone: ''
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const newErrors = {
       name: !formData.name ? 'Name is required' : '',
+      email: !formData.email ? 'Email is required' : 
+             !emailRegex.test(formData.email) ? 'Please enter a valid email' : '',
       phone: !formData.phone ? 'Phone number is required' : ''
     };
     setErrors(newErrors);
@@ -48,13 +53,51 @@ export default function DonationFormPage() {
     }));
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     if (validateForm()) {
       setIsSubmitting(true);
-      // Handle form submission here
-      console.log('Form submitted:', formData);
-      // router.push('/success'); // Uncomment to redirect on success
+      try {
+        const response = await fetch('https://app.gdacademy.et/api/v2/donor/chapa/pay_start?donation=true', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify({
+            name: formData.name.trim(),
+            number_of_students: formData.numberOfStudents,
+            amount: formData.total,
+            phone: formData.phone.trim(),
+            // Include any additional required fields that the API might need
+            email: formData.email.trim(),
+            currency: 'ETB',
+            tx_ref: `donation-${Date.now()}`,
+            return_url: `${window.location.origin}/donate/thank-you?name=${encodeURIComponent(formData.name.trim())}&email=${encodeURIComponent(formData.email.trim())}`,
+          }),
+        });
+
+        const responseData = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(responseData.message || 'Failed to process payment');
+        }
+
+        console.log('API Response:', responseData);
+        
+        // If the API returns a redirect URL, navigate to it
+        if (responseData.data && responseData.data.checkout_url) {
+          window.location.href = responseData.data.checkout_url;
+        } else {
+          // If no redirect URL, go to thank you page
+          router.push('/donate/thank-you');
+        }
+      } catch (error) {
+        console.error('Payment Error:', error);
+        alert(error instanceof Error ? error.message : 'Failed to process payment. Please try again.');
+      } finally {
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -99,6 +142,23 @@ export default function DonationFormPage() {
                 {errors.name && <p className="mt-1 text-sm text-red-600">{errors.name}</p>}
               </div>
 
+              {/* Email Field */}
+              <div>
+                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
+                  Email Address *
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className={`w-full px-3 py-2 border ${errors.email ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-blue-500 focus:border-blue-500`}
+                  placeholder="Enter your email address"
+                />
+                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+              </div>
+
               {/* Phone Number Field */}
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
@@ -109,7 +169,7 @@ export default function DonationFormPage() {
                   id="phone"
                   name="phone"
                   value={formData.phone}
-                  onChange={(e) => setFormData({...formData, phone: e.target.value})}
+                  onChange={handleInputChange}
                   className={`w-full px-3 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-md focus:ring-blue-500 focus:border-blue-500`}
                   placeholder="Enter your phone number"
                 />
