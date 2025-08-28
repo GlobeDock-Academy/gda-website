@@ -1,29 +1,35 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import Container from '@/components/Container';
 import SubjectDialog from '@/components/SubjectDialog';
-
-interface GradeItem {
-  id: string;
-  name: string;
-  icon: string;
-  iconBgColor: string;
-}
+import { fetchGrades, Grade } from '@/lib/api';
 
 export default function GradeGridSection() {
+ const [grades, setGrades] = useState<Grade[]>([]);
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>({});
   const [dialogOpen, setDialogOpen] = useState(false);
-  const [selectedSubject, setSelectedSubject] = useState('');
-  const [selectedGrade, setSelectedGrade] = useState('');
+  const [selectedSubject] = useState('');
+  const [selectedGrade] = useState('');
+  const [loading, setLoading] = useState(true);
 
-  const handleSubjectClick = (grade: string, subject: string) => {
-    // Convert grade name to number (e.g., 'Grade 7' -> '7')
-    const gradeNumber = grade.replace('Grade ', '');
-    // Encode the subject for URL
-    const encodedSubject = encodeURIComponent(subject);
-    // Redirect to the staging URL
-    window.location.href = `https://staging-stud.gdacademy.et/?guest=true&grade=${gradeNumber}&subject=${encodedSubject}`;
+    useEffect(() => {
+    async function loadGrades() {
+      setLoading(true);
+      try {
+        const data = await fetchGrades();
+        if (data && data.result) setGrades(data.result);
+      } catch (err) {
+        console.error('Failed to fetch grades', err);
+      } finally {
+        setLoading(false);
+      }
+    }
+    loadGrades();
+  }, []);
+
+  const handleSubjectClick = (grade: string) => {
+    window.location.href = `https://staging-stud.gdacademy.et/?guest=true&grade=${grade}`;
   };
 
   const toggleItem = (id: string) => {
@@ -33,101 +39,26 @@ export default function GradeGridSection() {
     }));
   };
 
-  const leftColumnGrades: GradeItem[] = [
-    {
-      id: 'grade7',
-      name: 'Grade 7',
-      icon: '7',
-      iconBgColor: '#FFB900'
-    },
-    {
-      id: 'grade9',
-      name: 'Grade 9',
-      icon: '9',
-      iconBgColor: '#FFB900'
-    },
-    {
-      id: 'grade11',
-      name: 'Grade 11',
-      icon: '11',
-      iconBgColor: '#FFB900'
-    }
-  ];
+  if (loading) {
+    return <div className="text-center py-8">Loading grades...</div>;
+  }
 
-  const rightColumnGrades: GradeItem[] = [
-    {
-      id: 'grade8',
-      name: 'Grade 8',
-      icon: '8',
-      iconBgColor: '#FFB900'
-    },
-    {
-      id: 'grade10',
-      name: 'Grade 10',
-      icon: '10',
-      iconBgColor: '#FFB900'
-    },
-    {
-      id: 'grade12',
-      name: 'Grade 12',
-      icon: '12',
-      iconBgColor: '#FFB900'
-    }
-  ];
+  const midpoint = Math.ceil(grades.length / 2);
+  const leftColumnGrades = grades.slice(0, midpoint);
+  const rightColumnGrades = grades.slice(midpoint);
 
-  // Define subjects for each grade
   const gradeSubjects: Record<string, string[]> = {
-    'grade7': [
-      'Social Studies',
-      'Citizenship',
-      'Math',
-      'General Science'
-    ],
-    'grade8': [
-      'Math',
-      'General Science',
-      'Citizenship',
-      'Social Studies'
-    ],
-    'grade9': [
-      'Chemistry',
-      'Geography',
-      'Math',
-      'Biology',
-      'Physics',
-      'Citizenship',
-      'Economics'
-    ],
-    'grade10': [
-      'Geography',
-      'Physics',
-      'Math',
-      'Economics',
-      'Biology',
-      'Citizenship',
-      'Chemistry'
-    ],
-    'grade11': [
-      'Chemistry',
-      'Geography',
-      'Economics',
-      'Math',
-      'Biology',
-      'Physics'
-    ],
-    'grade12': [
-      'Geography',
-      'Physics',
-      'Math',
-      'Biology',
-      'Economics',
-      'Chemistry'
-    ]
+    'Grade 7': ['Social Studies', 'Citizenship', 'Math', 'General Science'],
+    'Grade 8': ['Math', 'General Science', 'Citizenship', 'Social Studies'],
+    'Grade 9': ['Chemistry', 'Geography', 'Math', 'Biology', 'Physics', 'Citizenship', 'Economics'],
+    'Grade 10': ['Geography', 'Physics', 'Math', 'Economics', 'Biology', 'Citizenship', 'Chemistry'],
+    'Grade 11': ['Chemistry', 'Geography', 'Economics', 'Math', 'Biology', 'Physics'],
+    'Grade 12': ['Geography', 'Physics', 'Math', 'Biology', 'Economics', 'Chemistry']
   };
 
-  const renderGradeItem = (item: GradeItem) => {
+  const renderGradeItem = (item: Grade) => {
     const isExpanded = expandedItems[item.id] || false;
-    const subjects = gradeSubjects[item.id] || [];
+    const subjects = gradeSubjects[item.name] || [];
     
     return (
       <div key={item.id} className="border-b border-gray-300 last:border-b-0">
@@ -139,9 +70,9 @@ export default function GradeGridSection() {
           <div className="flex items-center">
             <div 
               className="w-12 h-12 rounded-full flex items-center justify-center mr-4 text-white font-bold text-lg"
-              style={{ backgroundColor: item.iconBgColor }}
+              style={{ backgroundColor: '#FFB900' }}
             >
-              {item.icon}
+              {item.grade_level}
             </div>
             <span className="text-lg font-medium text-gray-900">{item.name}</span>
           </div>
@@ -160,7 +91,6 @@ export default function GradeGridSection() {
             <path d="m6 9 6 6 6-6"/>
           </svg>
         </button>
-        
         {isExpanded && (
           <div className="py-4 px-16 bg-white">
             <ul className="space-y-2">
@@ -168,7 +98,7 @@ export default function GradeGridSection() {
                 <li 
                   key={index} 
                   className="text-gray-700 cursor-pointer hover:text-primary hover:underline"
-                  onClick={() => handleSubjectClick(item.name, subject)}
+                  onClick={() => handleSubjectClick(item.id)}
                 >
                   {subject}
                 </li>

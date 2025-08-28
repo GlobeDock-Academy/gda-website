@@ -15,6 +15,28 @@ export interface BlogPost {
   _raw?: any;
 }
 
+export interface Grade {
+  id: string;
+  name: string;
+  grade_level: number;
+  year: number;
+  description: string;
+  duration_years: number;
+  image_path: string;
+  image_path_2: string;
+  type: number;
+  organization_id: string | null;
+  created_by: string;
+  created_at: string; 
+  updated_at: string; 
+}
+
+export interface GradesResponse {
+  status: string;
+  result: Grade[];
+}
+
+
 const API_BASE_URL = 'https://app.gdacademy.et/api/v2';
 
 // Helper function to log API requests and responses
@@ -190,6 +212,17 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
     };
   } catch (error) {
     console.error(`Error fetching blog post ${slug}:`, error);
+    return null;
+  }
+}
+
+export async function fetchGrades(): Promise<GradesResponse | null> {
+  try {
+    const response = await fetchWithTimeout(`${API_BASE_URL}/anonymous/batches`);
+    if (!response) return null;
+    return response
+  } catch (error) {
+    console.error(`Error fetching grades:`, error);
     return null;
   }
 }
