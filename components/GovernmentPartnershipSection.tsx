@@ -24,7 +24,7 @@ export default function GovernmentPartnershipSection() {
                 Are you interested in making a change with GlobeDock? GlobeDock partners with government bodies to foster initiatives that contribute to societal impact through education.
               </p>
               <div className="flex justify-center mt-4">
-                <a href="mailto:info@globedock.et">
+                <a href="mailto:info@gdacademy.et">
                   <Button 
                     variant="outline" 
                     className="bg-white text-[#141E33] hover:bg-white/90 hover:text-[#141E33] font-medium rounded-full px-8 py-2"

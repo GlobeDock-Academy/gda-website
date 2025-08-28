@@ -202,28 +202,21 @@ const PricingPage = () => {
                       </p>
                     </div>
                     
-                    <div className="mt-auto">
-                      <button className={`w-full py-4 px-6 rounded-full text-lg font-semibold transition-transform duration-300 transform hover:scale-105 ${
-                        plan.popular 
-                          ? 'bg-[rgb(123,127,218)] text-white font-bold shadow-lg' 
-                          : 'bg-[rgb(123,127,218)] text-white font-bold shadow-lg'
-                      }`}>
+                    <div className="mt-8">
+                      <a 
+                        href="https://staging-stud.gdacademy.et/auth/signin"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="block w-full py-4 px-6 rounded-full text-lg font-semibold transition-transform duration-300 transform hover:scale-105 bg-[rgb(123,127,218)] text-white font-bold shadow-lg text-center"
+                      >
                         BUY NOW
-                      </button>
+                      </a>
                     </div>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="text-center mt-8">
-              <p className={`text-lg text-gray-600 ${mulish.className} flex items-center justify-center gap-2`}>
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15.2467 16.11L16.9267 14.43C17.153 14.2066 17.4393 14.0536 17.7508 13.9897C18.0624 13.9258 18.3858 13.9537 18.6817 14.07L20.7292 14.8875C21.0284 15.0089 21.2848 15.2162 21.4663 15.4831C21.6479 15.75 21.7463 16.0647 21.7492 16.3875V20.1375C21.7475 20.3571 21.7013 20.5741 21.6135 20.7754C21.5257 20.9766 21.3981 21.1581 21.2384 21.3087C21.0786 21.4594 20.89 21.5761 20.6839 21.652C20.4778 21.7278 20.2586 21.7612 20.0392 21.75C5.69175 20.8575 2.79675 8.70753 2.24925 4.05753C2.22383 3.82918 2.24705 3.59804 2.31738 3.37931C2.38771 3.16058 2.50356 2.95923 2.6573 2.78848C2.81104 2.61774 2.99918 2.48148 3.20936 2.38868C3.41954 2.29587 3.64699 2.24862 3.87675 2.25003H7.49925C7.8225 2.25099 8.13808 2.34863 8.40539 2.5304C8.6727 2.71217 8.87952 2.96976 8.99925 3.27003L9.81675 5.31753C9.93694 5.61233 9.9676 5.93601 9.90491 6.24814C9.84222 6.56027 9.68895 6.847 9.46425 7.07253L7.78425 8.75253C7.78425 8.75253 8.75175 15.3 15.2467 16.11Z" fill="#EA7052"></path>
-                </svg>
-                Call us on <a href="tel:7421" className="text-blue-600 hover:underline">7421</a> to subscribe
-              </p>
-            </div>
           </div>
         </section>
 

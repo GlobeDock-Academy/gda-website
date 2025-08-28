@@ -15,7 +15,7 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6 text-slate-700" />,
     title: 'Email Us',
-    lines: [<span key="email" className="text-[24px] font-semibold">info@globedock.et</span>, <a key="mail-link" href="mailto:'info@globedock.et'" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
+    lines: [<span key="email" className="text-[24px] font-semibold">info@gdacademy.et</span>, <a key="mail-link" href="mailto:info@gdacademy.et" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
   },
   {
     icon: <Phone className="w-6 h-6 text-slate-700" />,
@@ -31,7 +31,7 @@ const contactInfo = [
 
 export default function ContactUsSection() {
   return (
-    <section id="contact" className="py-16 sm:py-20 bg-white overflow-hidden">
+    <section id="contact" className="py-16 sm:py-20 bg-white overflow-hidden mb-8 sm:mb-12">
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left Column: Image with decorative background */}
