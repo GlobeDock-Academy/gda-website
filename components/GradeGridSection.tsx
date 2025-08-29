@@ -113,8 +113,8 @@ export default function GradeGridSection() {
   return (
     <section className="bg-white pt-0 pb-8 md:pb-12" id="grade-grid-section">
       <Container>
-                <div className="bg-white rounded-[2rem] overflow-hidden py-8 px-6 md:px-10 lg:px-16">
-          <div className="max-w-5xl mx-auto bg-white rounded-2xl overflow-hidden">
+                <div className="bg-[#f5f5f5] rounded-[2rem] overflow-hidden py-8 px-6 md:px-10 lg:px-16">
+          <div className="max-w-5xl mx-auto bg-[#f5f5f5] rounded-2xl overflow-hidden">
             <div className="grid md:grid-cols-2 md:divide-x divide-gray-200">
               <div>
                 {leftColumnGrades.map(renderGradeItem)}
