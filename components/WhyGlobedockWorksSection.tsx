@@ -2,52 +2,43 @@ import React from 'react';
 import Image from 'next/image';
 import Container from '@/components/Container';
 
+import { Play, GraduationCap, Download } from 'lucide-react';
+
 const features = [
   {
-    iconSrc: '/images/personalized.png',
-    title: 'Personalized Learning Paths',
-    description: 'Tailored educational journeys that adapt to each student\'s pace and learning style, ensuring understanding.',
+    icon: <Play className="h-8 w-8 text-primary" strokeWidth={2.5} />,
+    title: 'Engaging Video Lessons',
+    description: 'Fun, expert-led video lessons that make every concept simple and enjoyable.',
   },
   {
-    iconSrc: '/images/trusted-content.png',
-    title: 'Expert-Crafted Content',
-    description: 'Access a rich library of lessons and resources, all created by subject matter experts and educators.',
+    icon: <GraduationCap className="h-8 w-8 text-primary" strokeWidth={2} />,
+    title: 'Competency-Based Learning',
+    description: 'Students advance by mastering skills and concepts, ensuring true understanding before moving forward.',
   },
   {
-    iconSrc: '/images/tools.png',
-    title: 'Tools for Success',
-    description: 'Interactive tools and analytics to help students track progress and educators to support learning effectively.',
+    icon: <Download className="h-8 w-8 text-primary" strokeWidth={2.5} />,
+    title: 'Learning Anywhere, Anytime',
+    description: 'Download lessons and learn at your own pace, online or offline.',
   },
 ];
 
 export default function WhyGlobedockWorksSection() {
   return (
-    <section className="py-16 sm:py-20 relative overflow-hidden bg-white">
-      {/* Tilted background */}
-      <div className="absolute inset-0 bg-gray-50 -skew-y-2 transform origin-top-right z-0" />
-      
-      <Container className="relative z-10">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-slate-800">
-            Why Globedock Academy works
-          </h2>
-        </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 sm:gap-y-16">
+    <section className="py-16 bg-gray-50">
+      <Container>
+        <h2 className="text-[2rem] font-bold text-center mb-12 text-[#212121] tracking-[-0.02em] leading-[1.2]">
+          Why GlobeDock Academy works
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-12 max-w-5xl mx-auto">
           {features.map((feature, index) => (
-            <div key={index} className="text-center">
-              <div className="h-[70px] w-[70px] mb-4 mx-auto relative">
-                <Image 
-                  src={feature.iconSrc}
-                  alt={feature.title}
-                  width={70}
-                  height={70}
-                  className="object-contain"
-                />
+            <div key={index} className="text-center px-4">
+              <div className="h-[72px] w-[72px] mb-6 mx-auto flex items-center justify-center bg-gray-50 rounded-full shadow-sm">
+                {feature.icon}
               </div>
-              <h3 className="text-xl font-semibold text-slate-700 mb-2">
+              <h3 className="text-[1.125rem] font-bold text-[#212121] mb-3 leading-tight">
                 {feature.title}
               </h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
+              <p className="text-[#5F6368] text-[1rem] leading-[1.6] tracking-[-0.1px] max-w-[300px] mx-auto">
                 {feature.description}
               </p>
             </div>
