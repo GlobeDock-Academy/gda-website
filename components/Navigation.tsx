@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Image from 'next/image';
 import Container from '@/components/Container';
 import Link from 'next/link';
-// Simplified navigation per request: logo on left, subscribe button on right
+import { HeartHandshake, CreditCard, BookOpen } from 'lucide-react';
 
 export default function Navigation() {
     return (
@@ -14,26 +14,63 @@ export default function Navigation() {
                     background-color: rgba(113, 44, 148, 0.1) !important;
                 }
             `}</style>
-            {/* Purple-toned background like uLesson header; simplified bar */}
-            <nav className="bg-[#F4F2FB] z-40">
+            <nav className="bg-[#FCFCFC] border-b border-gray-200 sticky top-0 z-50">
             <Container>
-                <div className="flex justify-between items-center h-20">
-                    {/* Left: Logo */}
+                <div className="flex justify-between items-center h-16">
                     <div className="flex items-center">
-                        <Link href="/" aria-label="GlobeDock Academy Home">
+                        {/* Assumes your logo 'image.png' is in the /public directory */}
+                        <Link href="/">
                             <Image src="/images/logo.png" alt="GlobeDock Academy Logo" width={161} height={40} className="h-12 w-auto" />
                         </Link>
                     </div>
-
-                    {/* Right: Subscribe button */}
-                    <div className="flex items-center">
-                        <Button
-                            asChild
-                            className="rounded-md px-5 h-10 text-white font-semibold"
-                            style={{ backgroundColor: '#F57143' }}
-                        >
-                            <a href="/blog#subscribe">Subscribe</a>
-                        </Button>
+                    <div className="hidden md:flex items-center space-x-6"> {/* Adjusted spacing for nav items and new button group */}
+                        {/* New Button Group - Links removed as per user request */}
+                        <div className="flex items-center space-x-2" style={{ display: 'flex' }}>
+                            <Button variant="ghost" asChild>
+                                <Link href="/blog"><BookOpen className="mr-2 h-4 w-4" /> Blog</Link>
+                            </Button>
+                            <Button variant="ghost" asChild>
+                                <Link href="/pricing"><CreditCard className="mr-2 h-4 w-4" /> Pricing</Link>
+                            </Button>
+                            <Button variant="ghost" asChild>
+                                <Link href="/donate"><HeartHandshake className="mr-2 h-4 w-4" /> Donate</Link>
+                            </Button>
+                            <Button 
+                                variant="outline" 
+                                className="rounded-md px-4 login-button" 
+                                style={{
+                                    color: '#712C94',
+                                    borderColor: '#712C94',
+                                    backgroundColor: 'transparent',
+                                    fontFamily: 'inherit',
+                                    fontSize: '14px',
+                                    fontWeight: 600,
+                                    width: '104px',
+                                    height: '40px',
+                                    minWidth: '100px',
+                                    transition: 'all 0.2s ease-in-out'
+                                }}
+                                asChild
+                            >
+                                <a href="https://app.gdacademy.et/login">Log in</a>
+                            </Button>
+                            <Button 
+                                className="rounded-md px-4" 
+                                style={{
+                                    background: '#3C4852',
+                                    color: '#FFFFFF',
+                                    border: '1px solid #3C4852',
+                                    fontSize: '14px',
+                                    fontWeight: 600,
+                                    width: '104px',
+                                    height: '40px',
+                                    minWidth: '100px'
+                                }}
+                                asChild
+                            >
+                                <a href="https://app.gdacademy.et/register">Join for free</a>
+                            </Button>
+                        </div>
                     </div>
                 </div>
             </Container>
