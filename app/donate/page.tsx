@@ -324,7 +324,6 @@ const FaqSection = () => {
 export default function DonatePage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
       <main className="text-white" style={{backgroundColor: '#0B1D53'}}>
         <div className="container mx-auto px-12 py-20">
           <div className="grid lg:grid-cols-2 gap-20 items-start">

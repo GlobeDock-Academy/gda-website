@@ -16,7 +16,6 @@ import Footer from '@/components/Footer';
 export default function HomePage() {
     return (
         <div className="min-h-screen bg-gradient-to-br from-secondary/10 via-white to-primary/10">
-            <Navigation />
             <HeroSection />
             <GradeGridSection /> {/* Added new grade grid section */}
             <WhyGlobedockWorksSection /> {/* Added new section here */}
