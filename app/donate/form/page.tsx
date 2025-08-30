@@ -86,8 +86,8 @@ export default function DonationFormPage() {
         console.log('API Response:', responseData);
         
         // If the API returns a redirect URL, navigate to it
-        if (responseData.data && responseData.data.checkout_url) {
-          window.location.href = responseData.data.checkout_url;
+        if (responseData.checkout_url) {
+          window.location.href = responseData.checkout_url;
         } else {
           // If no redirect URL, go to thank you page
           router.push('/donate/thank-you');
@@ -183,7 +183,7 @@ export default function DonationFormPage() {
                   className="w-full bg-blue-600 text-white hover:bg-blue-700 h-12 text-base font-medium rounded-lg"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Submit Donation'}
+                  {isSubmitting ? 'Submitting...' : 'Continue to options'}
                 </Button>
               </div>
             </form>
@@ -198,33 +198,40 @@ export default function DonationFormPage() {
         </div>
 
         {/* Right Column: Order Summary */}
-        <div className="hidden lg:block lg:w-1/2 bg-gray-50 p-8 border-l border-gray-200">
+        <div className="hidden lg:block lg:w-96 px-6 py-8">
           <div className="sticky top-0 pt-8">
             <h2 className="text-xl font-semibold mb-6">Donation Summary</h2>
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <div className="space-y-4">
-                <div className="flex justify-between">
-                  <span className="text-gray-600">Number of Students</span>
-                  <span className="font-medium">{formData.numberOfStudents || '0'}</span>
+            <div className="p-0">
+              <div className="space-y-6">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                    ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}
+                  </h3>
+                  <div className="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-gray-100 text-gray-800">
+                    <span className="text-sm font-medium">One-Time</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-4 h-4 ml-2 text-gray-600">
+                      <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                      <line x1="16" y1="2" x2="16" y2="6"></line>
+                      <line x1="8" y1="2" x2="8" y2="6"></line>
+                      <line x1="3" y1="10" x2="21" y2="10"></line>
+                    </svg>
+                  </div>
                 </div>
-                <div className="flex justify-between text-lg font-medium">
-                  <span>Amount per Student</span>
-                  <span>ETB {parseInt(formData.amount || '0').toLocaleString()}</span>
-                </div>
-                <div className="border-t border-gray-200 my-4"></div>
-                <div className="flex justify-between text-xl font-bold">
-                  <span>Total</span>
-                  <span>ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}</span>
+                
+                <div className="space-y-4">
+                  <div className="flex justify-between text-base mb-4">
+                    <span className="text-gray-600">Donation One-Time</span>
+                    <span className="text-gray-900">ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}</span>
+                  </div>
+                  
+                  <hr className="border-gray-200 my-4" />
+                  
+                  <div className="flex justify-between text-lg font-bold">
+                    <span>Total</span>
+                    <span>ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}</span>
+                  </div>
                 </div>
               </div>
-            </div>
-            
-            <div className="mt-8 p-6 bg-blue-50 rounded-lg">
-              <h3 className="font-medium text-blue-800 mb-2">Your donation helps</h3>
-              <p className="text-sm text-blue-700">
-                Your generous contribution will help provide quality education to students in need. 
-                Thank you for supporting our cause!
-              </p>
             </div>
           </div>
         </div>
