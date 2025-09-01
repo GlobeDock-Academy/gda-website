@@ -13,23 +13,17 @@ export const metadata = {
 
 export default function BlogPage() {
   return (
-    <div className="min-h-screen bg-white">
-      <main>
-        {/* Blog Header Section */}
-        <BlogHeader />
-        
+    <div className="min-h-screen bg-white flex flex-col">
+      <Navigation />
+      <main className="flex-grow">
         {/* Categories Navigation */}
         <BlogCategoriesNav />
         
         {/* Main Content */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          
-          {/* Blog Posts Grid */}
           <BlogPostGrid />
         </div>
-
       </main>
-      
       <Footer />
     </div>
   );
