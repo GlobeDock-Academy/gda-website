@@ -5,6 +5,12 @@ import { Button } from '@/components/ui/button';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
 import { lato } from '../../fonts';
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function DonationFormPage() {
   const router = useRouter();
@@ -34,7 +40,7 @@ export default function DonationFormPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const validateForm = () => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex = /^[^\s@]+@[\s@]+\.[^\s@]+$/;
     const newErrors = {
       name: !formData.name ? 'Name is required' : '',
       email: !formData.email ? 'Email is required' : 
@@ -88,6 +94,8 @@ export default function DonationFormPage() {
         // If the API returns a redirect URL, navigate to it
         if (responseData.checkout_url) {
           window.location.href = responseData.checkout_url;
+        } else if (responseData.data && responseData.data.checkout_url) { // Keep old logic as a fallback
+          window.location.href = responseData.data.checkout_url;
         } else {
           // If no redirect URL, go to thank you page
           router.push('/donate/thank-you');
@@ -109,14 +117,49 @@ export default function DonationFormPage() {
             <Image
               alt="GlobeDock Academy Logo" 
               src="/images/logo.png"
-              className="h-12 w-auto"
-              height="600"
-              width="600"
+              className="w-[180px] h-[67px]"
+              width={240}
+              height={57}
               priority
             />
           </a>
         </div>
       </header>
+
+      <div className="lg:hidden bg-white p-4 border-b border-gray-200">
+        <Accordion type="single" collapsible>
+          <AccordionItem value="item-1" className="border-b-0">
+            <AccordionTrigger className="flex justify-between w-full text-lg font-medium py-2">
+              <span className="text-gray-600">View summary</span>
+              <span className="font-bold text-gray-900">
+                ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}
+              </span>
+            </AccordionTrigger>
+            <AccordionContent>
+              <div className="pt-4">
+                <h2 className="text-xl font-semibold mb-6">Donation Summary</h2>
+                <div className="bg-white p-6 rounded-lg shadow-sm border">
+                  <div className="space-y-4">
+                    <div className="flex justify-between">
+                      <span className="text-gray-600">Number of Students</span>
+                      <span className="font-medium">{formData.numberOfStudents || '0'}</span>
+                    </div>
+                    <div className="flex justify-between text-lg font-medium">
+                      <span>Amount per Student</span>
+                      <span>ETB {parseInt(formData.amount || '0').toLocaleString()}</span>
+                    </div>
+                    <div className="border-t border-gray-200 my-4"></div>
+                    <div className="flex justify-between text-xl font-bold">
+                      <span>Total</span>
+                      <span>ETB {(parseInt(formData.amount || '0') * parseInt(formData.numberOfStudents || '0')).toLocaleString()}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </div>
 
       <main className="lg:flex lg:min-h-[calc(100vh-49px)]">
         {/* Left Column: Payment Form */}
@@ -199,7 +242,7 @@ export default function DonationFormPage() {
 
         {/* Right Column: Order Summary */}
         <div className="hidden lg:block lg:w-96 px-6 py-8">
-          <div className="sticky top-0 pt-8">
+          <div className="sticky top-8">
             <h2 className="text-xl font-semibold mb-6">Donation Summary</h2>
             <div className="p-0">
               <div className="space-y-6">

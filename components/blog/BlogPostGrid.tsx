@@ -129,7 +129,7 @@ export default function BlogPostGrid() {
           <div className="ml-3">
             <h3 className="text-lg font-medium text-red-800">Error Loading Blog Posts</h3>
             <div className="mt-2 text-sm text-red-700">
-              <p>We couldn't load the blog posts. This might be due to a network issue or the blog service being temporarily unavailable.</p>
+              <p>We couldn`t load the blog posts. This might be due to a network issue or the blog service being temporarily unavailable.</p>
               <div className="mt-4">
                 <button
                   onClick={() => window.location.reload()}
@@ -155,7 +155,7 @@ export default function BlogPostGrid() {
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
         <h3 className="mt-4 text-lg font-medium text-gray-900">No blog posts yet</h3>
-        <p className="mt-2 text-sm text-gray-500 max-w-md mx-auto">We couldn't find any blog posts. Please check back later or contact support if this issue persists.</p>
+        <p className="mt-2 text-sm text-gray-500 max-w-md mx-auto">We couldn`t find any blog posts. Please check back later or contact support if this issue persists.</p>
         <div className="mt-6">
           <button
             onClick={() => window.location.reload()}
