@@ -182,7 +182,7 @@ const DonationForm = () => {
           fontWeight: 700
         }}
       >
-        Continue
+        Donate
       </button>
     </div>
   );
@@ -388,7 +388,7 @@ export default function DonatePage() {
                 <Send className="w-8 h-8 text-blue-500" />
               </div>
               <h3 className="font-semibold text-gray-900 mb-2 text-lg">Telegram</h3>
-              <a href="https://t.me/globedock" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
+              <a href="https://t.me/globedock_academy_support_bot" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800">
                 Click to Chat
               </a>
             </div>

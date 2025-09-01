@@ -86,7 +86,9 @@ export default function DonationFormPage() {
         console.log('API Response:', responseData);
         
         // If the API returns a redirect URL, navigate to it
-        if (responseData.data && responseData.data.checkout_url) {
+        if (responseData.checkout_url) {
+          window.location.href = responseData.checkout_url;
+        } else if (responseData.data && responseData.data.checkout_url) { // Keep old logic as a fallback
           window.location.href = responseData.data.checkout_url;
         } else {
           // If no redirect URL, go to thank you page
