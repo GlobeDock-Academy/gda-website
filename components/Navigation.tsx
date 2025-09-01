@@ -6,7 +6,12 @@ import Container from '@/components/Container';
 import Link from 'next/link';
 import { HeartHandshake, CreditCard, BookOpen } from 'lucide-react';
 
-export default function Navigation() {
+interface NavigationProps {
+  hidden?: boolean;
+}
+
+export default function Navigation({ hidden = false }: NavigationProps) {
+  if (hidden) return null;
     return (
         <>
             <style jsx>{`

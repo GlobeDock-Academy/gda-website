@@ -4,6 +4,7 @@ import { useState, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import Navigation from '@/components/Navigation';
 import { lato } from '../../fonts';
 
 export default function DonationFormPage() {
@@ -104,7 +105,8 @@ export default function DonationFormPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50" style={{ minWidth: '350px' }}>
+    <div className="min-h-screen bg-gray-50">
+      <Navigation hidden />
       <header className="bg-white border-b border-gray-200">
         <div className="px-4 sm:px-6 lg:px-8 py-4">
           <a href="/" className="flex items-center">
