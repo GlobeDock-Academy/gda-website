@@ -18,6 +18,7 @@ export default function HomePage() {
             <HeroSection />
             <GradeGridSection />
             <WhyGlobedockWorksSection />
+            <StatsSection /> 
             <DownloadAppSection />
             <FactsSection />
             {/* ContentTypesSection hidden but code preserved */}
@@ -26,7 +27,7 @@ export default function HomePage() {
             <TestimonialsSection />
             <GovernmentPartnershipSection />
             <ContactUsSection />
-            <StatsSection /> {/* Moved StatsSection below ContactUsSection */}
+            {/* Moved StatsSection below ContactUsSection */}
             <Footer />
         </div>
     );

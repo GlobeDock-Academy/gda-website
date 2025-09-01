@@ -19,7 +19,7 @@ import FooterContainer from '@/components/FooterContainer';
 
 export default function Footer() {
     return (
-        <footer className="bg-white text-gray-800 py-12 border-t border-gray-200">
+        <footer className="bg-white text-gray-800 py-48 border-t border-gray-200">
             <FooterContainer>
                 {/* Main content area */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">

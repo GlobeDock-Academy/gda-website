@@ -330,19 +330,13 @@ export default function DonatePage() {
                 allowFullScreen
                 className="w-full aspect-video rounded-lg"
               ></iframe>
-              <div className="mt-12 text-center lg:text-left">
-                <h1 className={`mb-6 text-white ${lato.className}`} style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
+              <div className="mt-12 text-center lg:text-left font-sans">
+                <h1 className="mb-6 text-white font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
-                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
-                    From the very first tap, your support unlocks a full year of learning: expert-taught video lessons, skill-based quizzes, and daily progress tools — all aligned with Ethiopia's curriculum.
-                  </p>
-                  <p className="text-lg leading-relaxed mb-4 text-white font-normal">
-                    Through our partnership with the Ministry of Innovation and Technology, we identify students who need it most. Whether they're in remote areas or recovering from interrupted schooling, your support means they don't fall behind.
-                  </p>
                   <p className="text-lg leading-relaxed mb-6 text-white font-normal">
-                    Donate today and help an 'offline' learner become an engaged, confident student — one subscription, one future at a time.
+                    Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia’s curriculum. Partnering with the Ministry of Innovation and Technology, we reach the most vulnerable students. Donate today—one subscription can turn an “offline” learner into a confident, engaged student.
                   </p>
-                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO of GlobeDock Academy</p>
+                  <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO</p>
                 </div>
               </div>
             </div>
