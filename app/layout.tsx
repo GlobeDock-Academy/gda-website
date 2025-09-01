@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { avertaStd, dailyMemo } from './fonts';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
+import NavigationWrapper from '@/components/NavigationWrapper';
+
 export const metadata: Metadata = {
     title: 'GlobeDock Academy',
     description: 'Access a rich library of lessons and resources, all created by subject matter experts and educators.',
@@ -15,11 +17,13 @@ export const metadata: Metadata = {
         shortcut: ['/images/favicon.png'],
     },
 };
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en" className={`${avertaStd.variable} ${dailyMemo.variable}`}>
             <body className="font-averta">
                 <GoogleAnalytics />  {/* Google Analytics integration */}
+                <NavigationWrapper />
                 {children}
             </body>
         </html>

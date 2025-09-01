@@ -113,8 +113,6 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
 
   return (
     <div className="min-h-screen bg-white">
-      <Navigation />
-      
       <main>
         {/* Blog Post Header */}
         <div className="bg-primary/10 py-16">

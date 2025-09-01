@@ -45,7 +45,7 @@ export default function ContactUsSection() {
               }}
             />
             {/* Taller image container */}
-            <div className="absolute inset-x-4 sm:inset-x-8 -top-12 -bottom-12 sm:-top-16 sm:-bottom-16 lg:left-12 lg:right-0 bg-pink-100/50 rounded-3xl z-10 overflow-hidden">
+            <div className="absolute inset-x-4 sm:inset-x-8 -top-12 -bottom-12 sm:-top-16 sm:-bottom-16 lg:left-12 lg:right-0 rounded-3xl z-10 overflow-hidden">
               <div className="relative w-full h-full">
                 <Image
                   src="/images/Contactusimg.png"

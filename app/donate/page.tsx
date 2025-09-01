@@ -312,15 +312,14 @@ const FaqSection = () => {
 
 export default function DonatePage() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: 'rgb(11, 29, 83)' }}>
-      <Navigation />
-       <main className="py-12 lg:py-20 text-white">
-         <div className="container mx-auto px-4 sm:px-6 lg:px-12 py-12 lg:py-20">
-           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-             <div className="flex items-start justify-center w-full">
-               <DonationForm />
-             </div>
-             <div className="relative w-full max-w-2xl -ml-8">
+    <div className="min-h-screen bg-white">
+      <main className="text-white" style={{backgroundColor: '#0B1D53'}}>
+        <div className="container mx-auto px-12 py-20">
+          <div className="grid lg:grid-cols-2 gap-20 items-start">
+            <div className="flex items-start justify-center w-full">
+              <DonationForm />
+            </div>
+            <div className="relative w-full max-w-2xl -ml-8">
               <iframe 
                 width="560" 
                 height="315" 

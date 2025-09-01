@@ -3,23 +3,41 @@ import { shantellSans } from '../../app/fonts';
 
 export default function BlogHeader() {
   return (
-    <div 
-      className="relative py-24 bg-cover bg-center bg-no-repeat"
+    <section
+      className="relative overflow-hidden flex items-center justify-center"
       style={{
-        backgroundImage: 'url(/images/blog_bg.png)'
+        backgroundColor: '#F4F2FB',
+        width: '1839px',
+        height: '670px',
+        margin: '0 auto'
       }}
     >
-      <div className="absolute inset-0 bg-primary/20"></div>
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="bg-[#0B1D53] p-8 rounded-[40px] max-w-4xl mx-auto">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4 text-white drop-shadow-lg inline-block">GlobeDock Academy Blog</h1>
-            <p className={`text-lg md:text-xl text-yellow-400 mt-6 drop-shadow-md ${shantellSans.className}`}>
-              Insights, tips, and resources to help students, parents, and educators excel in their educational journey.
-            </p>
+      {/* Pattern background like uLesson */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-16 md:h-28 lg:h-36"
+        style={{
+          backgroundImage: "url(/images/Patternuv.png)",
+          backgroundRepeat: 'repeat-x',
+          backgroundSize: 'auto 100%',
+          backgroundPosition: 'center bottom',
+          opacity: 0.6,
+        }}
+      />
+
+      <div className="w-full px-4 relative z-10">
+        <div className="text-center">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#2A1B4C]">GlobeDock Academy Blog</h1>
+          <div className="mx-auto mt-6 flex items-center justify-center gap-2">
+            <span className="h-1 w-24 rounded-full bg-[#CFCAFF]"></span>
+            <span className="h-2 w-2 rounded-full bg-[#CFCAFF]"></span>
+            <span className="h-1 w-24 rounded-full bg-[#CFCAFF]"></span>
           </div>
+          <p className={`mt-6 text-base md:text-lg text-[#6B6B8A] ${shantellSans.className}`}>
+            Insights, tips, and resources to help students, parents, and educators excel in their educational journey.
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

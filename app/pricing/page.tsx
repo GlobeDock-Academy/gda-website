@@ -109,8 +109,6 @@ const PricingPage = () => {
 
   return (
     <div style={{ backgroundColor: '#F2F2FB' }}>
-      <Navigation />
-      
       <main className="pt-8">
         {/* Hero Section */}
         <section className="py-8 px-4 overflow-hidden">
