@@ -6,8 +6,8 @@ import Navigation from '@/components/Navigation';
 export default function NavigationWrapper() {
   const pathname = usePathname();
   
-  // Don't render Navigation on the donate page
-  if (pathname === '/donate' || pathname?.startsWith('/donate/')) {
+  // Don't render Navigation on blog pages
+  if (pathname === '/blog' || pathname?.startsWith('/blog/')) {
     return null;
   }
   

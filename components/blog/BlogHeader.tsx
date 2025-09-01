@@ -4,8 +4,13 @@ import { shantellSans } from '../../app/fonts';
 export default function BlogHeader() {
   return (
     <section
-      className="relative w-full overflow-hidden"
-      style={{ backgroundColor: '#F4F2FB' }}
+      className="relative overflow-hidden flex items-center justify-center"
+      style={{
+        backgroundColor: '#F4F2FB',
+        width: '1839px',
+        height: '670px',
+        margin: '0 auto'
+      }}
     >
       {/* Pattern background like uLesson */}
       <div
@@ -20,7 +25,7 @@ export default function BlogHeader() {
         }}
       />
 
-      <div className="container mx-auto px-4 py-14 md:py-20 lg:py-24 relative z-10">
+      <div className="w-full px-4 relative z-10">
         <div className="text-center">
           <h1 className="text-4xl md:text-5xl font-bold text-[#2A1B4C]">GlobeDock Academy Blog</h1>
           <div className="mx-auto mt-6 flex items-center justify-center gap-2">

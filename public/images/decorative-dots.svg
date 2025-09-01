@@ -1,0 +1,21 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <circle cx="8" cy="8" r="4" fill="#7B61FF" />
+  <circle cx="24" cy="8" r="4" fill="#7B61FF" />
+  <circle cx="40" cy="8" r="4" fill="#7B61FF" />
+  <circle cx="56" cy="8" r="4" fill="#7B61FF" />
+  
+  <circle cx="8" cy="24" r="4" fill="#7B61FF" />
+  <circle cx="24" cy="24" r="4" fill="#7B61FF" />
+  <circle cx="40" cy="24" r="4" fill="#7B61FF" />
+  <circle cx="56" cy="24" r="4" fill="#7B61FF" />
+  
+  <circle cx="8" cy="40" r="4" fill="#7B61FF" />
+  <circle cx="24" cy="40" r="4" fill="#7B61FF" />
+  <circle cx="40" cy="40" r="4" fill="#7B61FF" />
+  <circle cx="56" cy="40" r="4" fill="#7B61FF" />
+  
+  <circle cx="8" cy="56" r="4" fill="#7B61FF" />
+  <circle cx="24" cy="56" r="4" fill="#7B61FF" />
+  <circle cx="40" cy="56" r="4" fill="#7B61FF" />
+  <circle cx="56" cy="56" r="4" fill="#7B61FF" />
+</svg>

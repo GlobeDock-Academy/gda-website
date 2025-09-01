@@ -3,6 +3,7 @@ import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import BlogHeader from '@/components/blog/BlogHeader';
 import BlogCategories from '@/components/blog/BlogCategories';
+import BlogCategoriesNav from '@/components/blog/BlogCategoriesNav';
 import BlogPostGrid from '@/components/blog/BlogPostGrid';
 
 export const metadata = {
@@ -17,14 +18,11 @@ export default function BlogPage() {
         {/* Blog Header Section */}
         <BlogHeader />
         
+        {/* Categories Navigation */}
+        <BlogCategoriesNav />
+        
         {/* Main Content */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          {/* Categories Horizontal List */}
-          <div className="mb-8 overflow-x-auto">
-            <div className="flex space-x-2 pb-2">
-              <BlogCategories />
-            </div>
-          </div>
           
           {/* Blog Posts Grid */}
           <BlogPostGrid />
