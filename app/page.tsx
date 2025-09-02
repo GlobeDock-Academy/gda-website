@@ -20,11 +20,11 @@ export default function HomePage() {
             <WhyGlobedockWorksSection />
             <StatsSection /> 
             <DownloadAppSection />
-            <FactsSection />
             {/* ContentTypesSection hidden but code preserved */}
             {/* <ContentTypesSection /> */}
             <ParentFeaturesSection />
             <TestimonialsSection />
+            <FactsSection />
             <GovernmentPartnershipSection />
             <ContactUsSection />
             {/* Moved StatsSection below ContactUsSection */}
