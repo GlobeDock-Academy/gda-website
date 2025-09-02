@@ -19,11 +19,11 @@ export default function HomePage() {
             <GradeGridSection />
             <WhyGlobedockWorksSection />
             <DownloadAppSection />
-            <FactsSection />
             {/* ContentTypesSection hidden but code preserved */}
             {/* <ContentTypesSection /> */}
             <ParentFeaturesSection />
             <TestimonialsSection />
+            <FactsSection />
             <GovernmentPartnershipSection />
             <ContactUsSection />
             <StatsSection /> {/* Moved StatsSection below ContactUsSection */}
