@@ -33,7 +33,7 @@ export default function HeroSection() {
                         An eLearning App for  <span style={{ color: '#FFB900' }}>Grades 7–12.</span>
                         </h1>
                         <p className="text-slate-600 mb-8 font-semibold" style={{ fontSize: '16px' }}>
-                        Video Lessons, Practice Quizzes, and Progress Tracking <span className="text-[#6D3D94] font-bold">Anytime, Anywhere.</span>
+                        Video Lessons, Practice Quizze, and Progress Tracking <span className="text-[#6D3D94] font-bold">Anytime, Anywhere.</span>
                         </p>
                         <div style={{ maxWidth: '520px' }}>
                             <TextField
