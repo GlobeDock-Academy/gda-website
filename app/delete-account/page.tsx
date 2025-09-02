@@ -43,7 +43,7 @@ export default function DeleteAccountPage() {
             <div className="text-center">
               <CheckCircle className="mx-auto h-12 w-12 text-green-500 mb-4" />
               <p className="text-gray-700 mb-6">
-                We've received your request to delete your account. Our team will contact you within 24 hours to process your request.
+                We`ve received your request to delete your account. Our team will contact you within 24 hours to process your request.
               </p>
               <button
                 onClick={() => router.push('/')}
@@ -71,7 +71,7 @@ export default function DeleteAccountPage() {
                   />
                 </div>
                 <p className="mt-2 text-sm text-gray-500">
-                  We'll contact you to verify your identity before proceeding with account deletion.
+                  We`ll contact you to verify your identity before proceeding with account deletion.
                 </p>
               </div>
 

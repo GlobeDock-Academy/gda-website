@@ -1,38 +1,12 @@
 "use client";
 
 import { Button } from '@/components/ui/button';
-import { useEffect } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { CheckCircle } from 'lucide-react';
 
 export default function ThankYouPage() {
   const router = useRouter();
-  const searchParams = useSearchParams();
-
-  useEffect(() => {
-    const name = searchParams.get('name');
-    const email = searchParams.get('email');
-
-    if (name && email) {
-      fetch('/api/send-donation-email', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ name, email }),
-      })
-      .then(response => {
-        if (!response.ok) {
-          console.error('Failed to send thank you email.');
-        } else {
-          console.log('Thank you email sent successfully.');
-        }
-      })
-      .catch(error => {
-        console.error('Error sending thank you email:', error);
-      });
-    }
-  }, [searchParams]);
+  
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
@@ -47,7 +21,7 @@ export default function ThankYouPage() {
         
         <p className="text-gray-600 mb-8">
           Your generous contribution will help provide quality education to students in need. 
-          You'll receive a confirmation email with your donation details shortly.
+          You`ll receive a confirmation email with your donation details shortly.
         </p>
         
         <div className="space-y-4">

@@ -1,14 +1,15 @@
 'use client';
 
-import { useState, FormEvent } from 'react';
+import { useState, FormEvent, Suspense } from 'react';
 import { Button } from '@/components/ui/button';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Image from 'next/image';
+import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { lato } from '../../fonts';
 import { Calendar, ShieldCheck, ChevronDown, CreditCard } from 'lucide-react';
 
-export default function DonationFormPage() {
+function DonationFormPageInner() {
   const router = useRouter();
   const searchParams = useSearchParams();
   // Test mode: enable by appending ?test=1 or ?test=true to the URL
@@ -80,7 +81,7 @@ export default function DonationFormPage() {
             email: formData.email.trim(),
             currency: 'ETB',
             tx_ref: `donation-${Date.now()}`,
-            return_url: `${window.location.origin}/donate/thank-you?name=${encodeURIComponent(formData.name.trim())}&email=${encodeURIComponent(formData.email.trim())}`,
+            return_url: `${window.location.origin}/`,
           }),
         });
 
@@ -97,9 +98,6 @@ export default function DonationFormPage() {
           window.location.href = responseData.checkout_url;
         } else if (responseData.data && responseData.data.checkout_url) { // Keep old logic as a fallback
           window.location.href = responseData.data.checkout_url;
-        } else {
-          // If no redirect URL, go to thank you page
-          router.push('/donate/thank-you');
         }
       } catch (error) {
         console.error('Payment Error:', error);
@@ -122,7 +120,7 @@ export default function DonationFormPage() {
       <Navigation hidden />
       <header className="bg-white border-b border-gray-200">
         <div className="px-4 sm:px-6 lg:px-8 py-4">
-          <a href="/" className="flex items-center">
+          <Link href="/" className="flex items-center">
             <Image
               alt="GlobeDock Academy Logo" 
               src="/images/logo.png"
@@ -131,7 +129,7 @@ export default function DonationFormPage() {
               width="600"
               priority
             />
-          </a>
+          </Link>
         </div>
       </header>
 
@@ -335,5 +333,13 @@ export default function DonationFormPage() {
         }
       `}</style>
     </div>
+  );
+}
+
+export default function DonationFormPage() {
+  return (
+    <Suspense>
+      <DonationFormPageInner />
+    </Suspense>
   );
 }

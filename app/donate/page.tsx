@@ -334,7 +334,7 @@ export default function DonatePage() {
                 <h1 className="mb-6 text-white font-sans" style={{fontSize: '40px', fontWeight: 700}}>Help us do more</h1>
                 <div className="max-w-xl mx-auto lg:mx-0">
                   <p className="text-lg leading-relaxed mb-6 text-white font-normal">
-                    Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia’s curriculum. Partnering with the Ministry of Innovation and Technology, we reach the most vulnerable students. Donate today—one subscription can turn an “offline” learner into a confident, engaged student.
+                    Your support unlocks a year of expert lessons, skill-based quizzes, and progress tools aligned with Ethiopia`s curriculum. Partnering with the Ministry of Innovation and Technology, we reach the most vulnerable students. Donate today—one subscription can turn an “offline” learner into a confident, engaged student.
                   </p>
                   <p className="text-base font-normal text-white">- Kirubel Akalu, Founder and CEO</p>
                 </div>
@@ -348,7 +348,7 @@ export default function DonatePage() {
         {/* Contact Section */}
         <div className="container mx-auto px-4 max-w-4xl text-center">
           <h2 className={`text-2xl font-semibold mb-4 text-gray-900 ${lato.className}`} style={{fontSize: '28px', fontWeight: 700}}>Still have questions?</h2>
-          <p className="text-lg text-gray-700 mb-8">We're here to help. Reach out to our team anytime.</p>
+          <p className="text-lg text-gray-700 mb-8">We`re here to help. Reach out to our team anytime.</p>
           {/* Contact Options Grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
             {/* Email */}
