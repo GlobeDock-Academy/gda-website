@@ -174,7 +174,7 @@ export default function BlogPostGrid() {
 
   return (
     <div>
-      <div className="flex items-center justify-between mb-8">
+      <div className="flex flex-col items-center mb-8">
         <h2
           className="text-[56px] leading-[56px] font-semibold text-[#171717]"
           style={{
@@ -186,20 +186,20 @@ export default function BlogPostGrid() {
         </h2>
       </div>
 
-      <div className="flex flex-wrap justify-center gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-[1320px]">
         {posts.map((post, index) => (
-          <div 
+          <Link 
             key={post.id} 
-            ref={(el) => { cardRefs.current[index] = el; }}
-            className={`blog-card ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            href={`/blog/${encodeURIComponent(post.slug)}`}
+            className={`blog-card block ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ 
               transitionDelay: `${index * 100}ms`,
-              width: '424px',
               height: '492.75px',
-              margin: '0 auto',
+              margin: 0,
               transition: 'all 0.5s ease',
               transform: visibleCards[index] ? 'translateY(0)' : 'translateY(10px)',
             }}
+            ref={(el) => { cardRefs.current[index] = el as HTMLAnchorElement; }}
           >
             <div 
               className="card h-100"
@@ -243,8 +243,15 @@ export default function BlogPostGrid() {
               </div>
               <div className="card-body" style={{ padding: '1rem', flex: '1 1 auto' }}>
                 <div>
-                  <div className="text-muted small text-uppercase">
-                    <span>{post.categories && post.categories.length > 0 ? post.categories[0] : 'GENERAL INFO'}</span>
+                  <div className="small text-uppercase">
+                    <span style={{
+                      fontSize: '16px',
+                      fontStyle: 'normal',
+                      fontWeight: 420,
+                      fontFamily: 'Montserrat, InterVariable, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
+                      color: 'rgb(0, 0, 0)',
+                      textDecoration: 'underline solid rgb(0, 0, 0)'
+                    }}>{post.categories && post.categories.length > 0 ? post.categories[0] : 'GENERAL INFO'}</span>
                   </div>
                   <h5 className="mt-1">
                     <span className="text-dark">
@@ -263,9 +270,8 @@ export default function BlogPostGrid() {
                   </span>
                 </div>
               </div>
-              <Link href={`/blog/${encodeURIComponent(post.slug)}`} className="stretched-link" aria-label={post.title}></Link>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
 
