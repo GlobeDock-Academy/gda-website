@@ -151,9 +151,9 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
         slug: String(post.slug || post.id || '').toLowerCase().replace(/\s+/g, '-'),
         publishedAt: new Date(post.published_at || post.created_at || new Date()).toISOString(),
         categories: Array.isArray(post.categories) 
-          ? post.categories 
+          ? post.categories.map((cat: any) => typeof cat === 'object' ? cat.name || String(cat) : String(cat))
           : post.category 
-            ? [post.category].filter(Boolean)
+            ? [typeof post.category === 'object' ? post.category.name || String(post.category) : String(post.category)].filter(Boolean)
             : [],
         _raw: process.env.NODE_ENV === 'development' ? post : undefined,
       };

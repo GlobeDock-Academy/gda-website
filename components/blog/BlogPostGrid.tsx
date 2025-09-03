@@ -11,6 +11,7 @@ export default function BlogPostGrid() {
   const [error, setError] = useState<string | null>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = useState<boolean[]>([]);
+  const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
   useEffect(() => {
     const loadPosts = async () => {
@@ -96,7 +97,7 @@ export default function BlogPostGrid() {
             </button>
           </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="flex flex-wrap justify-center gap-6" style={{ fontFamily: 'Montserrat, InterVariable, Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif' }}>
           {[1, 2, 3].map((i) => (
             <div key={i} className="bg-white rounded-lg shadow-md overflow-hidden animate-pulse">
               <div className="h-48 bg-gray-200"></div>
@@ -174,121 +175,101 @@ export default function BlogPostGrid() {
   return (
     <div>
       <div className="flex items-center justify-between mb-8">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800">Latest Articles</h2>
-        <div className="flex items-center space-x-2">
-          <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
-          <button className="p-2 rounded-full bg-primary text-white hover:bg-primary/90">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
+        <h2
+          className="text-[56px] leading-[56px] font-semibold text-[#171717]"
+          style={{
+            fontFamily:
+              'Montserrat, InterVariable, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+          }}
+        >
+          Blog
+        </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div className="flex flex-wrap justify-center gap-6">
         {posts.map((post, index) => (
           <div 
             key={post.id} 
             ref={(el) => { cardRefs.current[index] = el; }}
-            className={`bg-white rounded-lg shadow-md overflow-hidden transition-all duration-500 hover:-translate-y-1 hover:shadow-lg ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
-            style={{ transitionDelay: `${index * 100}ms` }}
+            className={`blog-card ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            style={{ 
+              transitionDelay: `${index * 100}ms`,
+              width: '424px',
+              height: '492.75px',
+              margin: '0 auto',
+              transition: 'all 0.5s ease',
+              transform: visibleCards[index] ? 'translateY(0)' : 'translateY(10px)',
+            }}
           >
-            <div className="relative h-48 w-full bg-gray-100">
-              <div className="relative h-full w-full bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center overflow-hidden">
-                <div className="relative w-full h-full">
-                  <Image
-                    src={post.imageUrl}
-                    alt={post.title}
-                    fill
-                    className="object-cover transition-opacity duration-300"
-                    onLoad={(e) => {
-                      console.log(`✅ Image loaded: ${post.title}`);
-                      const target = e.target as HTMLImageElement;
-                      target.classList.add('opacity-100');
-                    }}
-                    onError={(e) => {
-                      console.error(`❌ Error loading image for ${post.title}`);
-                      const target = e.target as HTMLImageElement;
-                      target.src = `https://placehold.co/800x450/2563eb/white?text=${encodeURIComponent(post.title.substring(0, 10))}`;
-                      target.onerror = null;
-                      target.classList.add('opacity-100');
-                    }}
-                    unoptimized={post.imageUrl.startsWith('http')}
-                    priority={index < 3}
-                    style={{ opacity: 0 }} // Start with 0 opacity, will be set to 1 on load
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  <div className="absolute bottom-0 left-0 right-0 p-4 text-white">
-                    <h3 className="text-lg font-bold line-clamp-2">{post.title}</h3>
-                    <div className="flex items-center mt-1 text-sm text-white/80">
-                      <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
-                      {post.categories?.[0] && (
-                        <>
-                          <span className="mx-2">•</span>
-                          <span className="font-medium">{post.categories[0]}</span>
-                        </>
-                      )}
-                    </div>
-                  </div>
-                </div>
-                <div className="absolute top-2 right-2 bg-black/70 text-white text-xs px-2 py-1 rounded-full">
+            <div 
+              className="card h-100"
+              style={{
+                textShadow: 'none',
+                boxShadow: 'none',
+                border: '1px solid var(--border-color, #e2e8f0)',
+                position: 'relative',
+                display: 'flex',
+                flexDirection: 'column',
+                minWidth: '0px',
+                overflowWrap: 'break-word',
+                backgroundColor: 'rgb(255, 255, 255)',
+                backgroundClip: 'border-box',
+                borderRadius: '0.75rem',
+                height: '100%',
+                boxSizing: 'border-box',
+                color: '#525252',
+                fontSize: '16px',
+                lineHeight: '24px',
+                fontWeight: 420,
+                letterSpacing: '0.32px',
+              }}
+            >
+              <div className="card-img-top" style={{ height: '200px', position: 'relative' }}>
+                <Image
+                  src={post.imageUrl}
+                  alt={`${post.title} - Cover Image`}
+                  fill
+                  className="object-cover"
+                  onLoad={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.style.opacity = '1';
+                    setLoadedImages(prev => new Set([...prev, post.id]));
+                  }}
+                  style={{ opacity: 0 }} // Start with 0 opacity, will be set to 1 on load
+                />
+                <div className="absolute top-2 right-2 bg-gray-800 text-white text-xs px-2 py-1 rounded-sm">
                   {index + 1}/{posts.length}
                 </div>
               </div>
-            </div>
-            <div className="p-6">
-              <div className="flex items-center mb-2">
-                {post.categories && post.categories.length > 0 && (
-                  <>
-                    <span className="text-sm text-primary font-medium">
-                      {post.categories[0]}
+              <div className="card-body" style={{ padding: '1rem', flex: '1 1 auto' }}>
+                <div>
+                  <div className="text-muted small text-uppercase">
+                    <span>{post.categories && post.categories.length > 0 ? post.categories[0] : 'GENERAL INFO'}</span>
+                  </div>
+                  <h5 className="mt-1">
+                    <span className="text-dark">
+                      {post.title}
                     </span>
-                    <span className="mx-2 text-gray-300">•</span>
-                  </>
-                )}
-                <span className="text-sm text-gray-500">
-                  {new Date(post.publishedAt).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric'
-                  })}
-                </span>
+                  </h5>
+                  <p className="post-description text-muted line-clamp-2">{post.excerpt}</p>
+                </div>
+                <div className="mt-3">
+                  <span>
+                    {new Date(post.publishedAt).toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric'
+                    })}
+                  </span>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-2 text-gray-800 line-clamp-2">
-                <Link href={`/blog/${encodeURIComponent(post.slug)}`} className="hover:text-primary transition-colors">
-                  {post.title}
-                </Link>
-              </h3>
-              <p className="text-gray-600 mb-4 line-clamp-3">{post.excerpt}</p>
-              <Link
-                href={`/blog/${encodeURIComponent(post.slug)}`}
-                className="text-primary font-medium hover:underline"
-              >
-                Read More
-              </Link>
+              <Link href={`/blog/${encodeURIComponent(post.slug)}`} className="stretched-link" aria-label={post.title}></Link>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="mt-10 flex justify-center">
-        <div className="flex items-center space-x-2">
-          <button className="w-10 h-10 rounded-full bg-primary text-white flex items-center justify-center">1</button>
-          <button className="w-10 h-10 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center hover:bg-gray-200">2</button>
-          <button className="w-10 h-10 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center hover:bg-gray-200">3</button>
-          <span className="px-2">...</span>
-          <button className="w-10 h-10 rounded-full bg-gray-100 text-gray-700 flex items-center justify-center hover:bg-gray-200">10</button>
-          <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path fillRule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clipRule="evenodd" />
-            </svg>
-          </button>
-        </div>
-      </div>
+      {/* Pagination removed as requested */}
     </div>
   );
 }
