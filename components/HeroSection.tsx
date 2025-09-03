@@ -6,11 +6,13 @@ import React, { useState } from 'react';
 import { TextField, InputAdornment, MenuItem, Select } from '@mui/material';
 import ReactCountryFlag from 'react-country-flag';
 import Container from '@/components/Container';
-
+import { verifyPhoneNumber } from '@/lib/api';
 export default function HeroSection() {
-    const [phoneNumber, setPhoneNumber] = useState<string>(''); // State for the phone number
-    const [countryCode, setCountryCode] = useState<string>('+251'); // Default to Ethiopia
-    const [error, setError] = useState<boolean>(false); // State to track validation errors
+    const [phoneNumber, setPhoneNumber] = useState<string>(''); 
+    const [countryCode, setCountryCode] = useState<string>('+251');
+    const [error, setError] = useState<boolean>(false);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string>('');
 
     // Helper function to get country code for flag display
     const getCountryCodeForFlag = (phoneCode: string) => {
@@ -22,6 +24,40 @@ export default function HeroSection() {
             default: return 'ET';
         }
     };
+const handleJoinForFree = async (e: React.MouseEvent) => {
+    e.preventDefault();
+
+    if (!phoneNumber.trim()) {
+        setError(true);
+        setErrorMessage('Phone number is required');
+        return;
+    }
+
+    setIsLoading(true);
+    setError(false);
+    setErrorMessage('');
+
+    try {
+        const fullPhoneNumber = `${countryCode}${phoneNumber}`;
+        const response = await verifyPhoneNumber(fullPhoneNumber);
+
+        if (response.status === "ok") {
+            window.location.href = `https://staging-stud.gdacademy.et/auth/otp-verification?phone=${encodeURIComponent(fullPhoneNumber)}&action=new`;
+        } else if (response.status === "error" && response.exist) {
+            window.location.href = `https://staging-stud.gdacademy.et/auth/signin?phone=${encodeURIComponent(fullPhoneNumber)}`;
+        }
+        else {
+            setError(true);
+            setErrorMessage(response.result.error || "Something went wrong.");
+        }
+    }
+    catch (error: any) {
+            console.log("Unexpected error:", error.result);
+    }
+    finally {
+        setIsLoading(false);
+    }
+};
 
     return (
         <>
@@ -160,18 +196,9 @@ export default function HeroSection() {
                                 width: '100%',
                                 maxWidth: '520px'
                             }}
-                            onClick={(e) => {
-                                // Validate phone number
-                                if (!phoneNumber.trim()) {
-                                    e.preventDefault();
-                                    setError(true);
-                                }
-                                // For production, add more sophisticated validation if needed
-                                // e.g., check if phone number follows expected format
-                            }}
-                            asChild
-                        >
-                            <a href="https://app.gdacademy.et/register">Join for free</a>
+                           onClick={handleJoinForFree}
+                            disabled={isLoading}
+                        >    {isLoading ? 'Checking...' : 'Join for free'}
                         </Button>
                     </div>
                     <div className="relative">

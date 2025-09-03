@@ -226,3 +226,34 @@ export async function fetchGrades(): Promise<GradesResponse | null> {
     return null;
   }
 }
+
+export async function verifyPhoneNumber(phone: string): Promise<{
+  exist?: boolean;
+  status: string;
+  result: { message?: string; error?: string };
+}> {
+  try {
+    const data = await fetchWithTimeout(`${API_BASE_URL}/otp/request`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone }),
+    });
+    return data; 
+  } catch (error: any) {
+    if (error.message?.includes('422')) {
+      const response = await fetch(`${API_BASE_URL}/otp/request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone }),
+      });
+
+      const data = await response.json();
+      return data; 
+    }
+
+    throw error; 
+  }
+}
+
+
+
