@@ -77,11 +77,7 @@ function DonationFormPageInner() {
             number_of_students: formData.numberOfStudents,
             amount: formData.total,
             phone: formData.phone.trim(),
-            // Include any additional required fields that the API might need
             email: formData.email.trim(),
-            currency: 'ETB',
-            tx_ref: `donation-${Date.now()}`,
-            return_url: `${window.location.origin}/`,
           }),
         });
 
