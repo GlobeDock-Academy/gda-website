@@ -50,6 +50,16 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     return fallbacks[0] || '';
   })();
 
+  // Compute a short description from API 'intro' field (preferred)
+  const resolvedDescription = (() => {
+    const raw: any = (post as any)._raw || {};
+    const intro = typeof raw.intro === 'string' ? raw.intro.trim() : '';
+    if (intro.length > 0) return intro;
+    // Fallback to excerpt only if intro is missing
+    const ex = (post.excerpt || '').trim();
+    return ex;
+  })();
+
   // Fetch related posts (most recent 2 posts)
   const allPosts = await fetchBlogPosts();
   const relatedPosts = allPosts
@@ -60,10 +70,13 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     <div className="min-h-screen bg-white">
       <Navigation />
       <main>
-        {/* Blog Post Header */}
-        <div className="bg-primary/10 py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto">
+        {/* Header section removed; header moved below into the content container */}
+        
+        {/* Blog Post Content */}
+        <div className="container mx-auto px-4 py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Post Header (moved above image) */}
+            <div className="mb-6">
               <div className="mb-4">
                 <Link href="/blog" className="text-primary hover:underline flex items-center">
                   <svg className="h-4 w-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -72,7 +85,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                   Back to Blog
                 </Link>
               </div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
+              {/* Breadcrumb: Blog / {Category} */}
+              <div className="mb-2 flex items-center text-base md:text-lg">
+                <span className="font-bold text-gray-900">Blog</span>
+                <span className="mx-2 text-gray-400">/</span>
+                <span className="capitalize text-gray-600">{post.categories && post.categories.length > 0 ? post.categories[0] : 'General Info'}</span>
+              </div>
+              <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-3 leading-tight">{post.title}</h1>
+              {/* Intro placed directly under the title */}
+              {resolvedDescription && (
+                <p className="text-gray-700 mb-3">{resolvedDescription}</p>
+              )}
               <div className="flex items-center text-sm">
                 <span className="text-primary font-medium">
                   {post.categories && post.categories.length > 0 ? post.categories[0] : 'GENERAL INFO'}
@@ -87,12 +110,6 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 </span>
               </div>
             </div>
-          </div>
-        </div>
-        
-        {/* Blog Post Content */}
-        <div className="container mx-auto px-4 py-12">
-          <div className="max-w-4xl mx-auto">
             {/* Featured Image */}
             <div className="relative h-80 w-full mb-8 rounded-lg overflow-hidden">
               <Image 
@@ -103,6 +120,8 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 priority
               />
             </div>
+
+            
             
             {/* Author Info */}
             <div className="flex items-center mb-8">
