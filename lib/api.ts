@@ -50,7 +50,8 @@ async function fetchWithLogging(url: string, options?: RequestInit) {
         'Content-Type': 'application/json',
         ...(options?.headers || {})
       },
-      next: { revalidate: 60 } // Cache for 60 seconds
+      next: options?.next ?? { revalidate: 60 },
+      cache: options?.cache,
     });
 
     console.log(`🔔 API Response Status: ${response.status} ${response.statusText}`, {
@@ -92,7 +93,8 @@ async function fetchWithTimeout(resource: string, options: RequestInit = {}) {
         'Cache-Control': 'no-cache',
         ...options.headers
       },
-      next: { revalidate: 60 }
+      next: (options as any)?.next ?? { revalidate: 60 },
+      cache: options.cache as RequestCache | undefined,
     });
     
     clearTimeout(id);
@@ -110,7 +112,7 @@ async function fetchWithTimeout(resource: string, options: RequestInit = {}) {
 export async function fetchBlogPosts(): Promise<BlogPost[]> {
   try {
     console.log('📡 Fetching blog posts...');
-    const data = await fetchWithLogging(`${API_BASE_URL}/blogs/all`);
+    const data = await fetchWithLogging(`${API_BASE_URL}/blogs/all`, { cache: 'no-store' });
     
     // Handle different API response formats
     const posts = Array.isArray(data) 
@@ -147,13 +149,29 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
         id: String(post.id || ''),
         title: String(post.title || 'Untitled Post'),
         excerpt: String(post.excerpt || post.summary || ''),
-        content: String(post.content || ''),
+        content: String(
+          post.content ||
+          post.content_html ||
+          post.html ||
+          post.body ||
+          post.body_html ||
+          post.description ||
+          post.details ||
+          post.detail ||
+          post.intro ||
+          post.excerpt ||
+          ''
+        ),
         slug: String(post.slug || post.id || '').toLowerCase().replace(/\s+/g, '-'),
         publishedAt: new Date(post.published_at || post.created_at || new Date()).toISOString(),
-        categories: Array.isArray(post.categories) 
-          ? post.categories 
-          : post.category 
-            ? [post.category].filter(Boolean)
+        // Normalize categories to an array of strings
+        categories: Array.isArray(post.categories)
+          ? post.categories
+              .map((c: any) => (typeof c === 'string' ? c : c?.name || c?.slug || ''))
+              .filter((c: string) => Boolean(c))
+          : post.category
+            ? [typeof post.category === 'string' ? post.category : (post.category?.name || post.category?.slug || '')]
+                .filter((c: string) => Boolean(c))
             : [],
         _raw: process.env.NODE_ENV === 'development' ? post : undefined,
       };
@@ -191,28 +209,118 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
 
 export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
   if (!slug) return null;
-  
+
+  // Helper to normalize to a URL-friendly slug consistently
+  const slugify = (value: any) =>
+    String(value || '')
+      .trim()
+      .toLowerCase()
+      .replace(/\s+/g, '-')
+      .replace(/[^a-z0-9-]/g, '');
+
   try {
-    const post = await fetchWithTimeout(`${API_BASE_URL}/blogs/${encodeURIComponent(slug)}`);
-    if (!post) return null;
-    
-    return {
+    // First attempt: direct endpoint (some APIs accept id or slug here)
+    const response = await fetchWithLogging(`${API_BASE_URL}/blogs/${encodeURIComponent(slug)}`, { cache: 'no-store' });
+    // Some endpoints wrap the payload: { status, result } or { data }
+    const post = (response && (response.result || response.data)) || response;
+    if (!post) throw new Error('Empty post response');
+    if (process.env.NODE_ENV === 'development') {
+      // Lightweight introspection to understand available fields
+      try {
+        // eslint-disable-next-line no-console
+        console.log('🧩 Single post keys:', Object.keys(post));
+      } catch {}
+    }
+
+    const mappedDirect: BlogPost = {
       id: String(post.id || ''),
       title: String(post.title || 'Untitled Post'),
       excerpt: String(post.excerpt || post.summary || ''),
-      content: String(post.content || ''),
-      slug: String(post.slug || post.id || '').toLowerCase().replace(/\s+/g, '-'),
-      imageUrl: post.meta_image || post.featured_image || post.image_url || post.image || 'https://placehold.co/800x450/2563eb/white?text=GDA',
+      content: String(
+        post.content ||
+        post.content_html ||
+        post.html ||
+        post.body ||
+        post.body_html ||
+        post.description ||
+        post.details ||
+        post.detail ||
+        post.intro ||
+        post.excerpt ||
+        ''
+      ),
+      slug: slugify(post.slug || post.id || post.title),
+      imageUrl:
+        post.meta_image ||
+        post.featured_image ||
+        post.image_url ||
+        post.image ||
+        'https://placehold.co/800x450/2563eb/white?text=GDA',
       publishedAt: new Date(post.published_at || post.created_at || new Date()).toISOString(),
-      categories: Array.isArray(post.categories) ? post.categories : [post.category].filter(Boolean),
-      author: post.author ? {
-        name: String(post.author.name || post.author.username || 'Anonymous'),
-        avatar: post.author.avatar ? String(post.author.avatar) : undefined
-      } : undefined
+      // Normalize categories to an array of strings for a single post as well
+      categories: Array.isArray(post.categories)
+        ? post.categories
+            .map((c: any) => (typeof c === 'string' ? c : c?.name || c?.slug || ''))
+            .filter((c: string) => Boolean(c))
+        : [typeof post.category === 'string' ? post.category : (post.category?.name || post.category?.slug || '')]
+            .filter((c: string) => Boolean(c)),
+      author: post.author
+        ? {
+            name: String(post.author.name || post.author.username || 'Anonymous'),
+            avatar: post.author.avatar ? String(post.author.avatar) : undefined,
+          }
+        : undefined,
+      _raw: process.env.NODE_ENV === 'development' ? post : undefined,
     };
-  } catch (error) {
-    console.error(`Error fetching blog post ${slug}:`, error);
-    return null;
+    if (process.env.NODE_ENV === 'development') {
+      try {
+        console.log('🧾 Direct-mapped content length:', mappedDirect.content?.length || 0);
+      } catch {}
+    }
+    return mappedDirect;
+  } catch (directErr) {
+    // Fallback: fetch all posts and resolve by multiple identifiers
+    console.warn(`Direct fetch failed for ${slug}, falling back to list search...`, directErr);
+    try {
+      const posts = await fetchBlogPosts();
+      let target = posts.find((p) => {
+        const candidates = [p.slug, p.id, slugify(p.slug), slugify((p as any)._raw?.slug), slugify(p.title)];
+        return candidates.filter(Boolean).some((c) => String(c) === String(slug));
+      });
+
+      // If we found a target but its content is empty, try to enrich from raw payload
+      if (target && (!target.content || target.content.trim().length === 0)) {
+        const raw = (target as any)._raw || {};
+        const enriched = {
+          ...target,
+          content: String(
+            raw.content ||
+            raw.content_html ||
+            raw.html ||
+            raw.body ||
+            raw.body_html ||
+            raw.description ||
+            raw.details ||
+            raw.detail ||
+            raw.intro ||
+            raw.excerpt ||
+            ''
+          ),
+        } as BlogPost;
+        target = enriched;
+      }
+
+      if (process.env.NODE_ENV === 'development' && target) {
+        try {
+          console.log('🧾 Fallback-mapped content length:', target.content?.length || 0, 'slug:', target.slug);
+        } catch {}
+      }
+
+      return target || null;
+    } catch (fallbackErr) {
+      console.error(`Fallback resolution failed for ${slug}:`, fallbackErr);
+      return null;
+    }
   }
 }
 

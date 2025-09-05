@@ -39,6 +39,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     notFound();
   }
 
+  // Compute content with fallbacks in case upstream mapper missed a field
+  const resolvedContent = (() => {
+    const raw: any = (post as any)._raw || {};
+    const c = (post.content || '').trim();
+    if (c.length > 0) return c;
+    const fallbacks = [raw.content, raw.content_html, raw.html, raw.content_md, raw.body, raw.body_html, raw.description, raw.details, raw.detail, raw.intro, raw.excerpt]
+      .map((x: any) => (typeof x === 'string' ? x.trim() : ''))
+      .filter(Boolean);
+    return fallbacks[0] || '';
+  })();
+
   // Fetch related posts (most recent 2 posts)
   const allPosts = await fetchBlogPosts();
   const relatedPosts = allPosts
@@ -112,10 +123,15 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             
             {/* Post Content */}
             <div className="prose prose-lg max-w-none">
-              {post.content ? (
-                <ReactMarkdown>
-                  {post.content}
-                </ReactMarkdown>
+              {resolvedContent && resolvedContent.trim().length > 0 ? (
+                // If the API content includes HTML tags, render it as HTML. Otherwise, render as Markdown.
+                /<[^>]+>/.test(resolvedContent) ? (
+                  <div dangerouslySetInnerHTML={{ __html: resolvedContent }} />
+                ) : (
+                  <ReactMarkdown>
+                    {resolvedContent}
+                  </ReactMarkdown>
+                )
               ) : (
                 <p>No content available for this post.</p>
               )}
