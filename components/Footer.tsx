@@ -68,7 +68,7 @@ export default function Footer() {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/about-us" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                    <Link href="/blog/about-us" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <Building2 size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> About Us
                                     </Link>
                                 </li>
@@ -118,8 +118,8 @@ export default function Footer() {
                     </div>
                     <div className="flex space-x-6">
                         <Link href="/blog/privacy-and-policy" className="text-gray-600 hover:text-black">Privacy Policy</Link>
-                        <Link href="/terms-of-service" className="text-gray-600 hover:text-black">Terms of Service</Link>
-                        <Link href="/help" className="text-gray-600 hover:text-black">Help/FAQ</Link>
+                        <Link href="/blog/terms-of-service" className="text-gray-600 hover:text-black">Terms of Service</Link>
+                        <Link href="/blog/helpfaq" className="text-gray-600 hover:text-black">Help/FAQ</Link>
                     </div>
                 </div>
             </FooterContainer>

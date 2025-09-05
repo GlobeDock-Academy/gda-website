@@ -60,6 +60,9 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
     return ex;
   })();
 
+  // Hide related section for the Privacy Policy post only
+  const isPrivacyPolicy = (post.slug || '').toLowerCase() === 'privacy-and-policy';
+
   // Fetch related posts (most recent 2 posts)
   const allPosts = await fetchBlogPosts();
   const relatedPosts = allPosts
@@ -89,7 +92,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
               <div className="mb-2 flex items-center text-base md:text-lg">
                 <span className="font-bold text-gray-900">Blog</span>
                 <span className="mx-2 text-gray-400">/</span>
-                <span className="capitalize text-gray-600">{post.categories && post.categories.length > 0 ? post.categories[0] : 'General Info'}</span>
+                <span className="text-gray-600 lowercase">{post.slug}</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 mb-3 leading-tight">{post.title}</h1>
               {/* Intro placed directly under the title */}
@@ -141,7 +144,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
             </div>
             
             {/* Post Content */}
-            <div className="prose prose-lg max-w-none">
+            <div className="prose prose-lg max-w-none blog-content">
               {resolvedContent && resolvedContent.trim().length > 0 ? (
                 // If the API content includes HTML tags, render it as HTML. Otherwise, render as Markdown.
                 /<[^>]+>/.test(resolvedContent) ? (
@@ -155,54 +158,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
                 <p>No content available for this post.</p>
               )}
             </div>
-            
-            
-            
-            {/* Related Posts */}
-            {relatedPosts.length > 0 && (
-              <div className="mt-16">
-                <h3 className="text-2xl font-bold mb-6">Related Articles</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                  {relatedPosts.map((relatedPost) => (
-                    <div key={relatedPost.id} className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:-translate-y-1 hover:shadow-lg">
-                      <div className="relative h-48 w-full">
-                        <Image 
-                          src={relatedPost.imageUrl} 
-                          alt={relatedPost.title}
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                      <div className="p-6">
-                        <div className="flex items-center mb-2">
-                          <span className="text-sm text-primary font-medium">
-                            {relatedPost.categories && relatedPost.categories.length > 0 
-                              ? relatedPost.categories[0] 
-                              : 'GENERAL INFO'}
-                          </span>
-                          <span className="mx-2 text-gray-300">•</span>
-                          <span className="text-sm text-gray-500">
-                            {new Date(relatedPost.publishedAt).toLocaleDateString('en-US', {
-                              year: 'numeric',
-                              month: 'long',
-                              day: 'numeric'
-                            })}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold mb-2 text-gray-800 line-clamp-2">
-                          <Link href={`/blog/${relatedPost.slug}`} className="hover:text-primary transition-colors">
-                            {relatedPost.title}
-                          </Link>
-                        </h3>
-                        <Link href={`/blog/${relatedPost.slug}`} className="text-primary font-medium hover:underline">
-                          Read More
-                        </Link>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
+            {/* Related Articles removed per requirements */}
           </div>
         </div>
       </main>

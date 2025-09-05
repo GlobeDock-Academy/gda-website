@@ -3,6 +3,8 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   content: string;
+  // Short intro/summary text shown in grids
+  intro?: string;
   slug: string;
   imageUrl: string;
   publishedAt: string;
@@ -149,6 +151,7 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
         id: String(post.id || ''),
         title: String(post.title || 'Untitled Post'),
         excerpt: String(post.excerpt || post.summary || ''),
+        intro: String(post.intro || post.summary || post.excerpt || ''),
         content: String(
           post.content ||
           post.content_html ||
@@ -236,6 +239,7 @@ export async function fetchBlogPost(slug: string): Promise<BlogPost | null> {
       id: String(post.id || ''),
       title: String(post.title || 'Untitled Post'),
       excerpt: String(post.excerpt || post.summary || ''),
+      intro: String(post.intro || post.summary || post.excerpt || ''),
       content: String(
         post.content ||
         post.content_html ||

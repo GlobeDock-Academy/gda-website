@@ -179,7 +179,7 @@ export default function BlogPostGrid() {
 
   return (
     <div>
-      <div className="flex flex-col items-center mb-8">
+      <div className="w-full px-0 mb-6">
         <h2
           className="text-[56px] leading-[56px] font-semibold text-[#171717]"
           style={{
@@ -191,7 +191,16 @@ export default function BlogPostGrid() {
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mx-auto max-w-[1320px]">
+      <div
+        className="w-full px-0"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 394px)',
+          columnGap: '32px',
+          rowGap: '32px',
+          justifyContent: 'center',
+        }}
+      >
         {posts.map((post, index) => (
           <Link 
             key={post.id} 
@@ -199,7 +208,8 @@ export default function BlogPostGrid() {
             className={`blog-card block ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ 
               transitionDelay: `${index * 100}ms`,
-              height: '492.75px',
+              width: '394px',
+              height: '492px',
               margin: 0,
               transition: 'all 0.5s ease',
               transform: visibleCards[index] ? 'translateY(0)' : 'translateY(10px)',
@@ -229,7 +239,7 @@ export default function BlogPostGrid() {
                 letterSpacing: '0.32px',
               }}
             >
-              <div className="card-img-top" style={{ height: '200px', position: 'relative' }}>
+              <div className="card-img-top" style={{ height: '200px', position: 'relative', overflow: 'hidden', borderTopLeftRadius: '0.75rem', borderTopRightRadius: '0.75rem' }}>
                 <Image
                   src={post.imageUrl}
                   alt={`${post.title} - Cover Image`}
@@ -254,20 +264,24 @@ export default function BlogPostGrid() {
                 <div>
                   <div className="small text-uppercase">
                     <span style={{
-                      fontSize: '16px',
+                      fontSize: '14px',
                       fontStyle: 'normal',
-                      fontWeight: 420,
+                      fontWeight: 500,
+                      textTransform: 'uppercase',
                       fontFamily: 'Montserrat, InterVariable, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif',
-                      color: 'rgb(0, 0, 0)',
-                      textDecoration: 'underline solid rgb(0, 0, 0)'
+                      color: '#6b7280'
                     }}>{post.categories && post.categories.length > 0 ? post.categories[0] : 'GENERAL INFO'}</span>
                   </div>
                   <h5 className="mt-1">
-                    <span className="text-dark">
+                    <span className="text-gray-900 font-bold">
                       {post.title}
                     </span>
                   </h5>
-                  <p className="post-description text-muted line-clamp-2">{post.excerpt}</p>
+                  {post.intro && post.intro.trim().length > 0 && (
+                    <p className="mt-1 text-sm text-gray-600 leading-6 line-clamp-2">
+                      {post.intro}
+                    </p>
+                  )}
                 </div>
                 <div className="mt-3">
                   <span>

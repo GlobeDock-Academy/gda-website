@@ -21,6 +21,25 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
   },
+  async redirects() {
+    return [
+      {
+        source: '/about-us',
+        destination: '/blog/about-us',
+        permanent: true,
+      },
+      {
+        source: '/help',
+        destination: '/blog/helpfaq',
+        permanent: true,
+      },
+      {
+        source: '/terms-of-service',
+        destination: '/blog/terms-of-service',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
