@@ -22,9 +22,13 @@ export default function BlogPostGrid() {
         
         // Fetch posts from API using the fetchBlogPosts function
         const blogPosts = await fetchBlogPosts();
+        // Hide the Privacy Policy post from the grid
+        const filtered = blogPosts.filter(
+          (p) => (p.slug || '').toLowerCase() !== 'privacy-and-policy'
+        );
         
-        setPosts(blogPosts);
-        setVisibleCards(new Array(blogPosts.length).fill(false));
+        setPosts(filtered);
+        setVisibleCards(new Array(filtered.length).fill(false));
       } catch (err) {
         console.error('Error loading blog posts:', err);
         setError('Failed to load blog posts. Please try again later.');
