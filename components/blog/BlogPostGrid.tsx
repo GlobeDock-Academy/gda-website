@@ -9,7 +9,8 @@ export default function BlogPostGrid() {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  // Use HTMLElement because the card wrapper is a Next.js Link (anchor element)
+  const cardRefs = useRef<(HTMLElement | null)[]>([]);
   const [visibleCards, setVisibleCards] = useState<boolean[]>([]);
   const [loadedImages, setLoadedImages] = useState<Set<string>>(new Set());
 
@@ -199,7 +200,7 @@ export default function BlogPostGrid() {
               transition: 'all 0.5s ease',
               transform: visibleCards[index] ? 'translateY(0)' : 'translateY(10px)',
             }}
-            ref={(el) => { cardRefs.current[index] = el as HTMLAnchorElement; }}
+            ref={(el) => { cardRefs.current[index] = el; }}
           >
             <div 
               className="card h-100"
@@ -233,7 +234,11 @@ export default function BlogPostGrid() {
                   onLoad={(e) => {
                     const target = e.target as HTMLImageElement;
                     target.style.opacity = '1';
-                    setLoadedImages(prev => new Set([...prev, post.id]));
+                    setLoadedImages((prev) => {
+                      const next = new Set(prev);
+                      next.add(post.id);
+                      return next;
+                    });
                   }}
                   style={{ opacity: 0 }} // Start with 0 opacity, will be set to 1 on load
                 />
