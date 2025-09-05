@@ -151,9 +151,9 @@ export async function fetchBlogPosts(): Promise<BlogPost[]> {
         slug: String(post.slug || post.id || '').toLowerCase().replace(/\s+/g, '-'),
         publishedAt: new Date(post.published_at || post.created_at || new Date()).toISOString(),
         categories: Array.isArray(post.categories) 
-          ? post.categories.map((cat: any) => typeof cat === 'object' ? cat.name || String(cat) : String(cat))
+          ? post.categories 
           : post.category 
-            ? [typeof post.category === 'object' ? post.category.name || String(post.category) : String(post.category)].filter(Boolean)
+            ? [post.category].filter(Boolean)
             : [],
         _raw: process.env.NODE_ENV === 'development' ? post : undefined,
       };
@@ -226,3 +226,34 @@ export async function fetchGrades(): Promise<GradesResponse | null> {
     return null;
   }
 }
+
+export async function verifyPhoneNumber(phone: string): Promise<{
+  exist?: boolean;
+  status: string;
+  result: { message?: string; error?: string };
+}> {
+  try {
+    const data = await fetchWithTimeout(`${API_BASE_URL}/otp/request`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone }),
+    });
+    return data; 
+  } catch (error: any) {
+    if (error.message?.includes('422')) {
+      const response = await fetch(`${API_BASE_URL}/otp/request`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ phone }),
+      });
+
+      const data = await response.json();
+      return data; 
+    }
+
+    throw error; 
+  }
+}
+
+
+
