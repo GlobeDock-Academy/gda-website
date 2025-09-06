@@ -121,7 +121,7 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20" style={{ backgroundColor: '#F5F5F5' }}>
       <Container>
         <div className="relative max-w-7xl mx-auto">
           {/* Connecting line behind the stats - positioned higher to match reference */}

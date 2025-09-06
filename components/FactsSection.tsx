@@ -62,8 +62,8 @@ export default function FactsSection() {
             </h2>
             
             <p className="text-gray-600 text-lg">
-              Right now, 90% of ten-year-olds cannot read a simple sentence, and more than 13 million children are out of school. 
-              We&apos;re bringing offline classrooms packed with curriculum-aligned lessons to every kebele - but we can&apos;t do it alone. 
+              Right now, 90% of ten-year-olds cannot read a simple sentence, and more than 7 million school-aged children are out of school. 
+              We&apos;re bringing offline classrooms packed with curriculum-aligned lessons to every kebele – but we can&apos;t do it alone. 
               Join us and turn learning poverty into lifelong opportunity.
             </p>
           </div>

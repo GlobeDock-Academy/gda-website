@@ -66,7 +66,7 @@ const handleJoinForFree = async (e: React.MouseEvent) => {
                 <div className="grid lg:grid-cols-2 gap-12 items-center">
                     <div className="flex flex-col justify-center">
                         <h1 className="text-slate-800 mb-4" style={{ color:'#3C4852', fontSize: '52px', fontWeight: 700, lineHeight: '60px', letterSpacing: '-0.01em', paddingRight: '0', marginRight: '0' }}>
-                        An eLearning App for  <span style={{ color: '#FFB900' }}>Grades 7–12.</span>
+                        An eLearning App for  <span style={{ color: '#FFB900' }}>Grades 7–12 Students.</span>
                         </h1>
                         <p className="text-slate-600 mb-8 font-semibold" style={{ fontSize: '16px' }}>
                         Video Lessons, Practice Quizzes, and Progress Tracking <span className="text-[#6D3D94] font-bold">Anytime, Anywhere.</span>

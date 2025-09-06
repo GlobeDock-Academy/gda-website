@@ -16,22 +16,22 @@ const PricingPage = () => {
   const pricingPlans = [
     {
       duration: '1 Month',
-      price: 'ETB 200',
+      price: 'ETB 350',
       originalPrice: 'ETB 500',
       validity: '1 Month',
       popular: false
     },
     {
       duration: '6 Months',
-      price: 'ETB 1,000',
-      originalPrice: 'ETB 1,200',
+      price: 'ETB 1,749',
+      originalPrice: 'ETB 2500',
       validity: '6 Months',
       popular: true
     },
     {
       duration: '12 Months',
-      price: 'ETB 2,000',
-      originalPrice: 'ETB 2,400',
+      price: 'ETB 2,500',
+      originalPrice: 'ETB 3490',
       validity: '1 Year',
       popular: false
     }
@@ -51,7 +51,7 @@ const PricingPage = () => {
     },
     {
       title: 'Every grade covered',
-      description: 'Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There\'s a path for every learner.',
+      description: 'Learners in Grade 7 to 12 school can learn with GlobeDock Academy. There\'s a path for every learner.',
       icon: (
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6 text-blue-600">
           <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
@@ -259,7 +259,7 @@ const PricingPage = () => {
                     Every grade covered
                   </h3>
                   <p className={`${mulish.className}`} style={{ fontWeight: 400, fontSize: '16px', lineHeight: '24px', color: 'rgb(48, 20, 70)' }}>
-                    Learners in Primary, Junior Secondary & Senior Secondary school can learn with GDA. There&apos;s a path for every learner.
+                    Learners in Grade 7 to 12 school can learn with GlobeDock Academy. There&apos;s a path for every learner.
                   </p>
                 </div>
               </div>

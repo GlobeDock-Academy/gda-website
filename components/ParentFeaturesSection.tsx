@@ -120,10 +120,7 @@ export default function ParentFeaturesSection() {
                             })}
                         </div>
                         
-                        {/* CTA Button */}
-                        <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold text-lg">
-                            Get started today
-                        </Button>
+                        {/* CTA Button removed as requested */}
                     </div>
                 </div>
             </div>

@@ -24,7 +24,7 @@ const features = [
 
 export default function WhyGlobedockWorksSection() {
   return (
-    <section className="py-16 bg-gray-50">
+    <section className="py-16 bg-white">
       <Container>
         <h2 className="text-[2rem] font-bold text-center mb-12 text-[#212121] tracking-[-0.02em] leading-[1.2]">
           Why GlobeDock Academy works
