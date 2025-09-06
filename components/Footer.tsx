@@ -19,7 +19,7 @@ import FooterContainer from '@/components/FooterContainer';
 
 export default function Footer() {
     return (
-        <footer className="bg-white text-gray-800 py-48 border-t border-gray-200">
+        <footer className="bg-white text-gray-800 py-8 border-t border-gray-200">
             <FooterContainer>
                 {/* Main content area */}
                 <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 mb-12">
@@ -109,9 +109,9 @@ export default function Footer() {
                 </div>
 
                 {/* Bottom Bar */}
-                <div className="border-t border-gray-200 pt-8 flex flex-col sm:flex-row justify-between items-center text-sm">
+                <div className="border-t border-gray-200 pt-6 flex flex-col sm:flex-row justify-between items-center text-sm">
                     <div className="flex space-x-4 mb-4 sm:mb-0">
-                        <a href="https://facebook.com/globedockacademy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Facebook size={20} /></a>
+                        <a href="https://web.facebook.com/profile.php?id=61575697366790" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Facebook size={20} /></a>
                         <a href="https://www.youtube.com/@globedockacademy" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Youtube size={20} /></a>
                         <a href="https://www.linkedin.com/company/globedock-academy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Linkedin size={20} /></a>
                         <a href="https://www.instagram.com/globedockacademy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Instagram size={20} /></a>
