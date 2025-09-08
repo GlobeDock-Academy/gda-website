@@ -117,7 +117,7 @@ export default function Footer() {
                         <a href="https://www.instagram.com/globedockacademy/" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-black"><Instagram size={20} /></a>
                     </div>
                     <div className="flex space-x-6">
-                        <Link href="/blog/privacy-and-policy" className="text-gray-600 hover:text-black">Privacy Policy</Link>
+                        <Link href="/blog/privacy-policy" className="text-gray-600 hover:text-black">Privacy Policy</Link>
                         <Link href="/blog/terms-of-service" className="text-gray-600 hover:text-black">Terms of Service</Link>
                         <Link href="/blog/helpfaq" className="text-gray-600 hover:text-black">Help/FAQ</Link>
                     </div>

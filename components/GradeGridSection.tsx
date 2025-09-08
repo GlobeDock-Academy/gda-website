@@ -43,9 +43,11 @@ export default function GradeGridSection() {
     return <div className="text-center py-8">Loading grades...</div>;
   }
 
-  const midpoint = Math.ceil(grades.length / 2);
-  const leftColumnGrades = grades.slice(0, midpoint);
-  const rightColumnGrades = grades.slice(midpoint);
+  // Ensure specific alignment: Row1: 7 & 8, Row2: 9 & 10, Row3: 11 & 12
+  const desiredOrder = ['Grade 7', 'Grade 8', 'Grade 9', 'Grade 10', 'Grade 11', 'Grade 12'];
+  const sortedGrades = [...grades].sort((a, b) => desiredOrder.indexOf(a.name) - desiredOrder.indexOf(b.name));
+  const leftColumnGrades = sortedGrades.filter((_, idx) => idx % 2 === 0);  // 7, 9, 11
+  const rightColumnGrades = sortedGrades.filter((_, idx) => idx % 2 === 1); // 8, 10, 12
 
   const gradeSubjects: Record<string, string[]> = {
     'Grade 7': ['Social Studies', 'Citizenship', 'Math', 'General Science'],
@@ -74,7 +76,17 @@ export default function GradeGridSection() {
             >
               {item.grade_level}
             </div>
-            <span className="text-lg font-medium text-gray-900">{item.name}</span>
+            <span
+              className="text-[20px] font-bold"
+              style={{
+                fontFamily: 'Lato, Noto Sans, Helvetica, Corbel, sans-serif',
+                color: '#21242C',
+                lineHeight: '20px',
+                fontStyle: 'normal',
+              }}
+            >
+              {item.name}
+            </span>
           </div>
           <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -92,12 +104,18 @@ export default function GradeGridSection() {
           </svg>
         </button>
         {isExpanded && (
-          <div className="py-4 px-16 bg-white">
-            <ul className="space-y-2">
+          <div className="py-4 px-16 bg-[#f5f5f5]">
+            <ul
+              className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-2 text-base font-normal leading-5"
+              style={{
+                fontFamily: 'Lato, Noto Sans, Helvetica, Corbel, sans-serif',
+                color: 'rgb(72, 68, 86)',
+              }}
+            >
               {subjects.map((subject, index) => (
-                <li 
-                  key={index} 
-                  className="text-gray-700 cursor-pointer hover:text-primary hover:underline"
+                <li
+                  key={index}
+                  className="cursor-pointer hover:underline hover:decoration-[rgb(72,68,86)]"
                   onClick={() => handleSubjectClick(item.id)}
                 >
                   {subject}

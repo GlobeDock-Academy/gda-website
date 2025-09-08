@@ -48,7 +48,7 @@ export default function ContactUsSection() {
             <div className="absolute inset-x-4 sm:inset-x-8 -top-12 -bottom-12 sm:-top-16 sm:-bottom-16 lg:left-12 lg:right-0 rounded-3xl z-10 overflow-hidden">
               <div className="relative w-full h-full">
                 <Image
-                  src="/images/Contactusimg.png"
+                  src="/images/callus.jpg"
                   alt="GlobeDock Team"
                   fill
                   className="object-cover w-full h-full"

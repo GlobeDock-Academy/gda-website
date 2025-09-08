@@ -61,7 +61,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
   })();
 
   // Hide related section for the Privacy Policy post only
-  const isPrivacyPolicy = (post.slug || '').toLowerCase() === 'privacy-and-policy';
+  const isPrivacyPolicy = (post.slug || '').toLowerCase() === 'privacy-policy';
 
   // Fetch related posts (most recent 2 posts)
   const allPosts = await fetchBlogPosts();
