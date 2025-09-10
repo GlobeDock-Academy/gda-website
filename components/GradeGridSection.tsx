@@ -29,7 +29,7 @@ export default function GradeGridSection() {
   }, []);
 
   const handleSubjectClick = (grade: string) => {
-    window.location.href = `https://staging-stud.gdacademy.et/?guest=true&grade=${grade}`;
+    window.location.href = `https://student.gdacademy.et/?guest=true&grade=${grade}`;
   };
 
   const toggleItem = (id: string) => {

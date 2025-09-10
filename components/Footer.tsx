@@ -94,7 +94,7 @@ export default function Footer() {
                             <h4 className="font-semibold text-black mb-4">Company Apps</h4>
                             <ul className="space-y-3">
                                 <li>
-                                    <a href="https://app.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
+                                    <a href="https://student.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Student App
                                     </a>
                                 </li>

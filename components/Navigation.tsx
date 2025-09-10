@@ -57,7 +57,7 @@ export default function Navigation({ hidden = false }: NavigationProps) {
                                 }}
                                 asChild
                             >
-                                <a href="https://app.gdacademy.et/login">Log in</a>
+                                <a href="https://student.gdacademy.et/auth/signin">Log in</a>
                             </Button>
                             <Button 
                                 className="rounded-md px-4" 
@@ -73,7 +73,7 @@ export default function Navigation({ hidden = false }: NavigationProps) {
                                 }}
                                 asChild
                             >
-                                <a href="https://app.gdacademy.et/register">Join for free</a>
+                                <a href="https://student.gdacademy.et/auth/signin">Join for free</a>
                             </Button>
                         </div>
                     </div>

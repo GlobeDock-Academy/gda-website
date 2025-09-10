@@ -1,0 +1,8 @@
+2025-09-08 20:31:26 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-08 20:31:26 +03:00:  ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+2025-09-08 20:40:34 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-08 20:42:40 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-08 20:44:14 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-08 20:53:28 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-08 21:05:32 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.

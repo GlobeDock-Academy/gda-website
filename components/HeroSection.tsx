@@ -42,9 +42,9 @@ const handleJoinForFree = async (e: React.MouseEvent) => {
         const response = await verifyPhoneNumber(fullPhoneNumber);
 
         if (response.status === "ok") {
-            window.location.href = `https://staging-stud.gdacademy.et/auth/otp-verification?phone=${encodeURIComponent(fullPhoneNumber)}&action=new`;
+            window.location.href = `https://student.gdacademy.et/auth/otp-verification?phone=${encodeURIComponent(fullPhoneNumber)}&action=new`;
         } else if (response.status === "error" && response.exist) {
-            window.location.href = `https://staging-stud.gdacademy.et/auth/signin?phone=${encodeURIComponent(fullPhoneNumber)}`;
+            window.location.href = `https://student.gdacademy.et/auth/signin?phone=${encodeURIComponent(fullPhoneNumber)}`;
         }
         else {
             setError(true);

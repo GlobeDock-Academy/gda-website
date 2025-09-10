@@ -202,7 +202,7 @@ const PricingPage = () => {
                     
                     <div className="mt-8">
                       <a 
-                        href="https://staging-stud.gdacademy.et/auth/signin"
+                        href="https://student.gdacademy.et/auth/signin"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block w-full py-4 px-6 rounded-full text-lg font-semibold transition-transform duration-300 transform hover:scale-105 bg-[rgb(123,127,218)] text-white font-bold shadow-lg text-center"
