@@ -1,4 +1,5 @@
 import localFont from 'next/font/local';
+import { Lato as GoogleLato } from 'next/font/google';
 
 // Define the Montserrat variable font
 export const montserrat = localFont({
@@ -65,60 +66,10 @@ export const dailyMemo = localFont({
   display: 'swap'
 });
 
-// Define the Lato font family
-export const lato = localFont({
-  src: [
-    {
-      path: '../public/fonts/Lato-Thin.ttf',
-      weight: '100',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Lato-ThinItalic.ttf',
-      weight: '100',
-      style: 'italic',
-    },
-    {
-      path: '../public/fonts/Lato-Light.ttf',
-      weight: '300',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Lato-LightItalic.ttf',
-      weight: '300',
-      style: 'italic',
-    },
-    {
-      path: '../public/fonts/Lato-Regular.ttf',
-      weight: '400',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Lato-Italic.ttf',
-      weight: '400',
-      style: 'italic',
-    },
-    {
-      path: '../public/fonts/Lato-Bold.ttf',
-      weight: '700',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Lato-BoldItalic.ttf',
-      weight: '700',
-      style: 'italic',
-    },
-    {
-      path: '../public/fonts/Lato-Black.ttf',
-      weight: '900',
-      style: 'normal',
-    },
-    {
-      path: '../public/fonts/Lato-BlackItalic.ttf',
-      weight: '900',
-      style: 'italic',
-    }
-  ],
+// Define the Lato font family (Google-hosted, self-hosted by Next.js at build time)
+export const lato = GoogleLato({
+  subsets: ['latin'],
+  weight: ['100', '300', '400', '700', '900'],
   variable: '--font-lato',
   display: 'swap'
 });

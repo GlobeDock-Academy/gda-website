@@ -63,7 +63,7 @@ const DonationForm = () => {
                 }`}
                 style={{
                   fontSize: '20px',
-                  fontWeight: 700,
+                  fontWeight: 600,
                   padding: '16px 8px',
                   height: '62px',
                   width: '100%'
@@ -279,9 +279,17 @@ const FaqSection = () => {
   return (
     <div className="bg-white py-20">
       <div className="container mx-auto px-4 max-w-4xl">
-        <div className="w-full border border-gray-200 rounded-lg bg-white">
+        <div className="w-full border border-gray-200 rounded-lg bg-white" style={{ fontFamily: 'Lato, "Lato Fallback"' }}>
           <div className="px-6 py-6">
-            <h2 className="text-2xl font-semibold text-left text-gray-900">Frequently asked questions</h2>
+            <h2
+              className={`text-2xl font-semibold mb-4 text-gray-900 ${lato.className}`}
+              style={{
+                fontSize: '28px',
+                fontWeight: 700,
+              }}
+            >
+              Frequently asked questions
+            </h2>
           </div>
           {faqs.length > 0 ? (
             faqs.map((faq, index) => (
@@ -289,10 +297,35 @@ const FaqSection = () => {
                 <Accordion type="single" collapsible className="w-full">
                   <AccordionItem value={`item-${faq.id || index}`} className="border-0">
                     <AccordionTrigger className="flex flex-1 items-center justify-between py-5 px-6 text-left hover:no-underline [&[data-state=open]]:pb-3">
-                      <h3 className="text-lg font-normal text-gray-900 pr-4">{faq.question}</h3>
+                      <h3
+                        className={`pr-4 font-semibold text-gray-900 ${lato.className}`}
+                        style={{
+                          fontSize: '16px',
+                          fontWeight: 700,
+                          fontStyle: 'normal',
+                          lineHeight: '24px',
+                        }}
+                      >
+                        {faq.question}
+                      </h3>
                     </AccordionTrigger>
                     <AccordionContent className="pb-5 pt-0 px-6">
-                      <p className="text-base text-gray-700 leading-normal">{faq.answer}</p>
+                      <p
+                        className={`${lato.className}`}
+                        style={{
+                          fontSize: '16px',
+                          fontWeight: 400,
+                          fontStyle: 'normal',
+                          lineHeight: '24px',
+                          color: 'rgb(72, 68, 86)',
+                          margin: '0',
+                          padding: '0',
+                          textAlign: 'left',
+                          boxSizing: 'border-box'
+                        }}
+                      >
+                        {faq.answer}
+                      </p>
                     </AccordionContent>
                   </AccordionItem>
                 </Accordion>
