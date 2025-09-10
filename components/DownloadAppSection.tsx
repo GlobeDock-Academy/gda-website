@@ -36,12 +36,14 @@ const DownloadAppSection = () => {
           </div>
 
           {/* Right Column */}
-          <div className="flex justify-center md:justify-start mt-8 md:mt-0">
+          <div className="flex justify-center md:justify-start mt-8 md:mt-0 scale-125 md:scale-150 lg:scale-175 origin-center">
             <Image 
-              src="/images/phone-mockup.png" 
+              src="/images/GDA%20APP.png" 
               alt="Learning App Phone Mockup" 
-              width={380}
-              height={620}
+              width={500}
+              height={816}
+              priority
+              className="w-auto h-auto"
               style={{ objectFit: 'contain' }}
             />
           </div>
