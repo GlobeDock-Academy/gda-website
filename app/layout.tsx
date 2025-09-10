@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import { avertaStd, dailyMemo } from './fonts';
+import { avertaStd, dailyMemo, lato } from './fonts';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import NavigationWrapper from '@/components/NavigationWrapper';
 
@@ -20,8 +20,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en" className={`${avertaStd.variable} ${dailyMemo.variable}`}>
-            <body className="font-averta">
+        <html lang="en" className={`${avertaStd.variable} ${dailyMemo.variable} ${lato.variable}`}>
+            <body className="font-averta antialiased">
                 <GoogleAnalytics />  {/* Google Analytics integration */}
                 <NavigationWrapper />
                 {children}

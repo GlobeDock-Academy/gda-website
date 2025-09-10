@@ -12,6 +12,7 @@ const config: Config = {
   		fontFamily: {
   			averta: ['var(--font-averta)', 'sans-serif'],
   			'daily-memo': ['var(--font-daily-memo)', 'sans-serif'],
+  			lato: ['var(--font-lato)', 'Lato', 'sans-serif'],
   		},
   		backgroundImage: {
   			'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

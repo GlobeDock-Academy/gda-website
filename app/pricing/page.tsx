@@ -23,7 +23,7 @@ const PricingPage = () => {
     },
     {
       duration: '6 Months',
-      price: 'ETB 1,749',
+      price: 'ETB 1,750',
       originalPrice: 'ETB 2500',
       validity: '6 Months',
       popular: true
