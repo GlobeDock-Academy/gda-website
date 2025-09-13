@@ -198,7 +198,7 @@ export default function GradeGridSection() {
           </svg>
         </button>
         {isExpanded && (
-          <div className="py-3 px-12 bg-[#f5f5f5]">
+          <div className="py-3 pl-20 pr-4 bg-[#f5f5f5]">
             <ul
               className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[16px] font-normal"
               style={{
