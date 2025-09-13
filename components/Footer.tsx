@@ -52,7 +52,7 @@ export default function Footer() {
                             </p>
                             <a href="tel:+251741" className="flex items-center text-sm text-gray-800 hover:text-black">
                                 <Phone size={16} className="mr-2" />
-                                Call 7421
+                                <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Call 7421</span>
                             </a>
                         </div>
                     </div>
@@ -64,12 +64,12 @@ export default function Footer() {
                             <ul className="space-y-2">
                                 <li>
                                     <Link href="/blog" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <FileText size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Blog
+                                        <FileText size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Blog</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/blog/about-us" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <Building2 size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> About Us
+                                        <Building2 size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">About Us</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -79,12 +79,12 @@ export default function Footer() {
                             <ul className="space-y-2">
                                 <li>
                                     <Link href="/donate" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <HeartHandshake size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Donate
+                                        <HeartHandshake size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Donate</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/#contact" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <Mail size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Contact us
+                                        <Mail size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Contact us</span>
                                     </Link>
                                 </li>
 
@@ -95,12 +95,12 @@ export default function Footer() {
                             <ul className="space-y-3">
                                 <li>
                                     <a href="https://app.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Student App
+                                        <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Student App</span>
                                     </a>
                                 </li>
                                 <li>
                                     <Link href="#" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <Users size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Parental app
+                                        <Users size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Parental app</span>
                                     </Link>
                                 </li>
                             </ul>
@@ -122,9 +122,9 @@ export default function Footer() {
                         </a>
                     </div>
                     <div className="flex space-x-6">
-                        <Link href="/blog/privacy-policy" className="text-gray-600 hover:text-black">Privacy Policy</Link>
-                        <Link href="/blog/terms-of-service" className="text-gray-600 hover:text-black">Terms of Service</Link>
-                        <Link href="/blog/helpfaq" className="text-gray-600 hover:text-black">Help/FAQ</Link>
+                        <Link href="/blog/privacy-policy" className="text-gray-600 hover:text-black relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Privacy Policy</Link>
+                        <Link href="/blog/terms-of-service" className="text-gray-600 hover:text-black relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Terms of Service</Link>
+                        <Link href="/blog/helpfaq" className="text-gray-600 hover:text-black relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Help/FAQ</Link>
                     </div>
                 </div>
             </FooterContainer>
