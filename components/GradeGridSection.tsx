@@ -209,7 +209,7 @@ export default function GradeGridSection() {
               {subjects.map((subject, index) => (
                 <li
                   key={index}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:text-blue-600 hover:underline underline-offset-2 transition-colors"
                   onClick={() => handleSubjectClick(item.id)}
                   style={{
                     lineHeight: '20px',
