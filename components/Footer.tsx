@@ -94,13 +94,8 @@ export default function Footer() {
                             <h4 className="font-semibold text-black mb-4">Company Apps</h4>
                             <ul className="space-y-3">
                                 <li>
-<<<<<<< HEAD
                                     <a href="https://student.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
                                         <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> Student App
-=======
-                                    <a href="https://app.gdacademy.et" target="_blank" rel="noopener noreferrer" className="flex items-center hover:text-black text-sm" style={{ color: '#2D2D2D' }}>
-                                        <GraduationCap size={18} className="mr-2" style={{ color: '#2D2D2D' }} /> <span className="relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:h-[1px] after:w-0 after:bg-black after:transition-all after:duration-300 hover:after:w-full">Student App</span>
->>>>>>> fce6629dbe8a5ae991038562b5839eaa0732740b
                                     </a>
                                 </li>
                                 <li>
