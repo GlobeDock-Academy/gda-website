@@ -428,3 +428,565 @@ Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
     at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
     at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
 2025-09-10 18:10:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:19:23 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:19:23 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:19:23 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:19:23 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:19:23 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:19:23 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:19:23 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:19:23 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:19:23 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:19:23 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:19:23 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:20:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq?_rsc=1unyd specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:20:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq?_rsc=1unyd specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:20:09 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:20:09 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:20:09 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:20:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq?_rsc=1unyd specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:20:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq?_rsc=1unyd specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:20:09 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:20:09 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:20:09 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:20:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq?_rsc=1unyd specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:21:52 +03:00:  ⚠ The "images.domains" configuration is deprecated. Please use "images.remotePatterns" configuration instead.
+2025-09-10 18:21:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy?_rsc=uxlou specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:21:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy?_rsc=uxlou specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:21:59 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:21:59 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:21:59 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 18:21:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=uxlou specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:21:59 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 18:21:59 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:21:59 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 18:21:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=uxlou specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:21:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=uxlou specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 18:29:17 +03:00:  ⚠ For production Image Optimization with Next.js, the optional 'sharp' package is strongly recommended. Run 'npm i sharp', and Next.js will use it automatically for Image Optimization.
+Read more: https://nextjs.org/docs/messages/sharp-missing-in-production
+2025-09-10 20:06:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 20:06:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 20:06:59 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 20:06:59 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 20:06:59 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 20:06:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 20:06:59 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 20:06:59 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 20:06:59 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 20:06:59 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:38:33 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/about-us on /blog/about-us specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:38:33 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/about-us on /blog/about-us specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:38:33 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/about-us',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 22:38:33 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 22:38:33 +03:00: Direct fetch failed for about-us, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 22:38:33 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/about-us specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:38:33 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/about-us specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:38:33 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/about-us',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 22:38:33 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 22:38:33 +03:00: Direct fetch failed for about-us, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 22:38:33 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/about-us specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:42:21 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:42:21 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/helpfaq on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:42:21 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 22:42:21 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 22:42:21 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-10 22:42:21 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:42:21 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-10 22:42:21 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/helpfaq',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-10 22:42:21 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 22:42:21 +03:00: Direct fetch failed for helpfaq, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-10 22:42:21 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/helpfaq specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:20:13 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy?_rsc=p5wo1 specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:20:13 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy?_rsc=p5wo1 specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:20:13 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:20:13 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:20:13 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:20:13 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=p5wo1 specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:20:13 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=p5wo1 specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:20:13 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:20:13 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:20:13 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:20:13 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy?_rsc=p5wo1 specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:37:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:37:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:37:10 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:37:10 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:37:10 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:37:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:37:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:37:10 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:37:10 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:37:10 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:37:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:41:49 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:41:49 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:41:50 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:41:50 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:41:50 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 08:41:50 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:41:50 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 08:41:50 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 08:41:50 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:41:50 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 08:41:50 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 11:39:15 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service?_rsc=1nvjc specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 11:39:15 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service?_rsc=1nvjc specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 11:39:16 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 11:39:16 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 11:39:16 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-13 11:39:16 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service?_rsc=1nvjc specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 11:39:16 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service?_rsc=1nvjc specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-13 11:39:16 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-13 11:39:16 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 11:39:16 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-13 11:39:16 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service?_rsc=1nvjc specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 06:55:14 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 06:55:14 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 06:55:14 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 06:55:14 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 06:55:14 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 06:55:14 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 06:55:14 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 06:55:14 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 06:55:14 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 06:55:14 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 06:55:14 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:16:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:16:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:16:44 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 13:16:44 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 13:16:44 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 13:16:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:16:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:16:44 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 13:16:44 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 13:16:44 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 13:16:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:46:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:46:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:46:09 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 13:46:09 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 13:46:09 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 13:46:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:46:09 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 13:46:10 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 13:46:10 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 13:46:10 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 13:46:10 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 23:21:41 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 23:21:41 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/terms-of-service on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 23:21:41 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 23:21:41 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 23:21:41 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-14 23:21:41 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 23:21:41 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-14 23:21:41 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/terms-of-service',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-14 23:21:41 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 23:21:41 +03:00: Direct fetch failed for terms-of-service, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-14 23:21:41 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/terms-of-service specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 00:34:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 00:34:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 00:34:44 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-15 00:34:44 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-15 00:34:44 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-15 00:34:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 00:34:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 00:34:44 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-15 00:34:44 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-15 00:34:44 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-15 00:34:44 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 08:48:12 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 08:48:12 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/privacy-policy on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 08:48:12 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-15 08:48:12 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-15 08:48:12 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at nV (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139628)
+2025-09-15 08:48:12 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 08:48:12 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.
+2025-09-15 08:48:12 +03:00: ❌ API Error Response: {
+  status: 401,
+  statusText: 'Unauthorized',
+  url: 'https://app.gdacademy.et/api/v2/blogs/privacy-policy',
+  error: '{"status":"Authorization Token not found"}'
+}
+2025-09-15 08:48:12 +03:00: 🚨 API Request Failed: Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-15 08:48:12 +03:00: Direct fetch failed for privacy-policy, falling back to list search... Error: API request failed with status 401: {"status":"Authorization Token not found"}
+    at p (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:2704)
+    at d (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:4819)
+    at Module.nU (/var/www/gda-website/.next/server/app/blog/[slug]/page.js:1:139241)
+2025-09-15 08:48:12 +03:00:  ⚠ fetch for https://app.gdacademy.et/api/v2/blogs/all on /blog/privacy-policy specified "cache: no-store" and "revalidate: 60", only one should be specified.

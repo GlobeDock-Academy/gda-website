@@ -198,7 +198,7 @@ export default function GradeGridSection() {
           </svg>
         </button>
         {isExpanded && (
-          <div className="py-3 px-12 bg-[#f5f5f5]">
+          <div className="py-3 pl-20 pr-4 bg-[#f5f5f5]">
             <ul
               className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 text-[16px] font-normal"
               style={{
@@ -209,7 +209,7 @@ export default function GradeGridSection() {
               {subjects.map((subject, index) => (
                 <li
                   key={index}
-                  className="cursor-pointer"
+                  className="cursor-pointer hover:text-blue-600 hover:underline underline-offset-2 transition-colors"
                   onClick={() => handleSubjectClick(item.id)}
                   style={{
                     lineHeight: '20px',

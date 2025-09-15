@@ -201,15 +201,18 @@ const handleJoinForFree = async (e: React.MouseEvent) => {
                         >    {isLoading ? 'Checking...' : 'Join for free'}
                         </Button>
                     </div>
-                    <div className="relative">
+                    <div className="relative border-none overflow-hidden bg-white">
                         <Image 
-                            src="/images/hero_img.png" 
+                            src="/images/New Look22.png" 
                             alt="Students learning with GlobeDock Academy"
                             width={600} // Increased by 20% from 500
                             height={480} // Increased by 20% from 400
-                            className="w-full h-auto object-contain"
+                            className="w-full h-auto object-contain block select-none pointer-events-none"
+                            style={{ clipPath: 'inset(0 48px 0 0)' }}
                             priority
                         />
+                        {/* right-edge artifact blocker */}
+                        <div aria-hidden className="pointer-events-none absolute top-0 right-0 h-full w-[3px] bg-white" />
                     </div>
                 </div>
             </Container>
