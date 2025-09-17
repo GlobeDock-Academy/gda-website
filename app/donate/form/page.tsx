@@ -41,23 +41,28 @@ function DonationFormPageInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showMobileSummary, setShowMobileSummary] = useState(false);
 
-  // Normalize Ethiopian phone numbers into local format 09xxxxxxxx
+  // Normalize Ethiopian phone numbers into local 10-digit format 09xxxxxxxx
   const normalizePhone = (input: string) => {
-    const digits = (input || '').replace(/\D/g, ''); // keep only digits
-    // +2519xxxxxxxx or 2519xxxxxxxx -> 09xxxxxxxx
-    if (digits.startsWith('251') && digits.length >= 12) {
-      return '0' + digits.slice(3, 12);
+    const digits = (input || '').replace(/\D/g, ''); // remove non-digits
+    // Handle +251 or 251 country code
+    if (digits.startsWith('251')) {
+      // Expect 12 digits: 2519xxxxxxxx -> 09xxxxxxxx
+      if (digits.length >= 12) {
+        return '0' + digits.slice(3, 12);
+      }
+      // Partial typing fallback
+      return '0' + digits.slice(3);
     }
-    // 9xxxxxxxx -> 09xxxxxxxx
-    if (digits.startsWith('9') && digits.length >= 9) {
+    // Handle numbers starting with 9 -> add leading 0
+    if (digits.startsWith('9')) {
       return '0' + digits.slice(0, 9);
     }
-    // 09xxxxxxxx -> keep first 10 digits
-    if (digits.startsWith('0') && digits.length >= 10) {
+    // Already starts with 0: keep first 10 digits
+    if (digits.startsWith('0')) {
       return digits.slice(0, 10);
     }
-    // Fallback: return as-is (could be partial input while typing)
-    return digits;
+    // Fallback (unrecognized start): return first 10 digits
+    return digits.slice(0, 10);
   };
 
   const validateForm = () => {
@@ -67,7 +72,7 @@ function DonationFormPageInner() {
       name: !formData.name ? 'Name is required' : '',
       email: !formData.email ? 'Email is required' : 
              !emailRegex.test(formData.email) ? 'Please enter a valid email' : '',
-      phone: !normalizedPhone ? 'Phone number is required' : 
+      phone: !normalizedPhone ? 'Phone number is required' :
              !/^0\d{9}$/.test(normalizedPhone) ? 'Enter a valid phone (e.g., 09xxxxxxxx)' : ''
     };
     setErrors(newErrors);
@@ -88,7 +93,7 @@ function DonationFormPageInner() {
       setIsSubmitting(true);
       try {
         const normalizedPhone = normalizePhone(formData.phone);
-        // Keep UI in sync with normalized phone
+        // keep UI in sync so users see the accepted format
         if (normalizedPhone !== formData.phone) {
           setFormData(prev => ({ ...prev, phone: normalizedPhone }));
         }
