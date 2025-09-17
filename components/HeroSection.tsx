@@ -63,10 +63,13 @@ const handleJoinForFree = async (e: React.MouseEvent) => {
         <>
         <section className="relative pt-10 pb-8 bg-white">
             <Container>
-                <div className="grid lg:grid-cols-2 gap-12 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
                     <div className="flex flex-col justify-center">
-                        <h1 className="text-slate-800 mb-4" style={{ color:'#3C4852', fontSize: '52px', fontWeight: 700, lineHeight: '60px', letterSpacing: '-0.01em', paddingRight: '0', marginRight: '0' }}>
-                        An eLearning App for <span style={{ color: '#FFB900', whiteSpace: 'nowrap', display: 'inline-block' }}>Grade 7 to 12 Students.</span>
+                        <h1
+                          className="mb-4 font-bold text-slate-800 text-3xl sm:text-4xl md:text-5xl lg:text-[52px] leading-tight md:leading-[60px] tracking-[-0.01em]"
+                          style={{ color: '#3C4852' }}
+                        >
+                          An eLearning App for <span className="text-[#FFB900] whitespace-normal">Grade 7 to 12 Students.</span>
                         </h1>
                         <p className="text-slate-600 mb-8 font-semibold" style={{ fontSize: '16px' }}>
                         Video Lessons, Practice Quizzes, and Progress Tracking <span className="text-[#6D3D94] font-bold">Anytime, Anywhere.</span>
@@ -201,14 +204,13 @@ const handleJoinForFree = async (e: React.MouseEvent) => {
                         >    {isLoading ? 'Checking...' : 'Join for free'}
                         </Button>
                     </div>
-                    <div className="relative border-none overflow-hidden bg-white">
-                        <Image 
+                    <div className="relative border-none overflow-hidden bg-white mt-6 md:mt-0">
+                        <Image
                             src="/images/New Look22.png" 
                             alt="Students learning with GlobeDock Academy"
-                            width={600} // Increased by 20% from 500
-                            height={480} // Increased by 20% from 400
-                            className="w-full h-auto object-contain block select-none pointer-events-none"
-                            style={{ clipPath: 'inset(0 48px 0 0)' }}
+                            width={600}
+                            height={480}
+                            className="w-full h-auto object-contain block select-none pointer-events-none md:[clip-path:inset(0_48px_0_0)]"
                             priority
                         />
                         {/* right-edge artifact blocker */}

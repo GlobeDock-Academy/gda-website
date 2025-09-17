@@ -13,8 +13,8 @@ export default function NavigationWrapper() {
   console.log('Current path:', pathname);
   console.log('Hide navigation:', hideNavigation);
   
-  // Don't render Navigation on blog pages
-  if (pathname === '/blog' || pathname?.startsWith('/blog/') || hideNavigation) {
+  // Only hide on specific donate subpages; show on blog pages for mobile menu access
+  if (hideNavigation) {
     return null;
   }
   
