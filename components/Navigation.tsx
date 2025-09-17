@@ -12,8 +12,8 @@ interface NavigationProps {
 }
 
 export default function Navigation({ hidden = false }: NavigationProps) {
+  const [mobileOpen, setMobileOpen] = useState(false);
   if (hidden) return null;
-    const [mobileOpen, setMobileOpen] = useState(false);
     return (
         <>
             <style jsx>{`
