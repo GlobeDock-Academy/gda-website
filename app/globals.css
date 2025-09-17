@@ -71,6 +71,93 @@
   }
 }
 
+/* React Phone Input (react-phone-input-2) overrides for stable layout */
+.react-tel-input {
+  width: 100% !important;
+}
+.react-tel-input .special-label {
+  display: none; /* hide floating label that can shift layout */
+}
+.react-tel-input .form-control {
+  height: 42px; /* align with default input height */
+  line-height: 42px;
+  border: 0 !important; /* border handled by container */
+  box-shadow: none !important;
+}
+.react-tel-input .flag-dropdown {
+  border: 0 !important;
+  background: transparent !important;
+}
+.react-tel-input .selected-flag {
+  width: 56px; /* reserve stable width for flag area */
+  padding: 0 10px;
+  background: transparent !important;
+}
+.react-tel-input .country-list {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  margin-top: 4px;
+  z-index: 60; /* ensure dropdown overlays */
+  max-height: 240px; /* prevent oversized dropdown pushing layout */
+  background: #fff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 12px;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+}
+.react-tel-input .country-list .search {
+  box-shadow: none !important;
+  padding: 8px;
+}
+.react-tel-input .country-list .search-box {
+  height: 36px;
+  line-height: 36px;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 8px;
+  outline: none;
+}
+.react-tel-input .selected-flag:focus {
+  outline: none;
+}
+
+/* Country list item styling */
+.react-tel-input .country-list .country {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+.react-tel-input .country-list .country:hover {
+  background: #f3f4f6; /* gray-100 */
+}
+.react-tel-input .country-list .country.highlight {
+  background: #eef2ff; /* indigo-50 */
+}
+.react-tel-input .country-list .country .dial-code {
+  margin-left: auto;
+  color: #6b7280; /* gray-500 */
+  font-weight: 600;
+}
+.react-tel-input .country-list .divider {
+  display: none; /* remove old-style divider */
+}
+.react-tel-input .selected-flag {
+  cursor: pointer;
+}
+
+/* Nicer scrollbar for the dropdown */
+.react-tel-input .country-list::-webkit-scrollbar {
+  width: 8px;
+}
+.react-tel-input .country-list::-webkit-scrollbar-thumb {
+  background-color: rgba(0,0,0,0.15);
+  border-radius: 9999px;
+}
+.react-tel-input .country-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 /* Base sizing for all content inside blog posts */
 .blog-content {
   font-size: 16.8px;

@@ -8,6 +8,8 @@ import Link from 'next/link';
 import Navigation from '@/components/Navigation';
 import { lato } from '../../fonts';
 import { Calendar, ShieldCheck, ChevronDown, CreditCard } from 'lucide-react';
+import PhoneInput from 'react-phone-input-2';
+import { isValidPhoneNumber } from 'libphonenumber-js';
 
 function DonationFormPageInner() {
   const router = useRouter();
@@ -31,6 +33,8 @@ function DonationFormPageInner() {
       total: total
     };
   });
+  const [phonePlaceholder, setPhonePlaceholder] = useState<string>('+251');
+  const [currentDialCode, setCurrentDialCode] = useState<string>('251');
   
   const [errors, setErrors] = useState({
     name: '',
@@ -41,39 +45,77 @@ function DonationFormPageInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showMobileSummary, setShowMobileSummary] = useState(false);
 
-  // Normalize Ethiopian phone numbers into local 10-digit format 09xxxxxxxx
-  const normalizePhone = (input: string) => {
-    const digits = (input || '').replace(/\D/g, ''); // remove non-digits
-    // Handle +251 or 251 country code
-    if (digits.startsWith('251')) {
-      // Expect 12 digits: 2519xxxxxxxx -> 09xxxxxxxx
-      if (digits.length >= 12) {
-        return '0' + digits.slice(3, 12);
-      }
-      // Partial typing fallback
-      return '0' + digits.slice(3);
+  // Normalize pasted text into the numeric format PhoneInput expects (no '+')
+  const normalizePastedNumber = (raw: string, dialCode?: string) => {
+    const dc = (dialCode || '').replace(/\D/g, '');
+    let text = (raw || '').trim();
+    const hadPlus = text.trim().startsWith('+');
+    let digits = text.replace(/\D/g, '');
+    // Convert 00 prefix to international
+    if (digits.startsWith('00')) digits = digits.slice(2);
+    if (hadPlus) {
+      // Treat as international as-is
+      return digits;
     }
-    // Handle numbers starting with 9 -> add leading 0
-    if (digits.startsWith('9')) {
-      return '0' + digits.slice(0, 9);
+    // If starts with selected dial code, keep it and drop trunk 0 after code
+    if (dc && digits.startsWith(dc)) {
+      let rest = digits.slice(dc.length);
+      if (rest.startsWith('0')) rest = rest.slice(1);
+      return dc + rest;
     }
-    // Already starts with 0: keep first 10 digits
-    if (digits.startsWith('0')) {
-      return digits.slice(0, 10);
+    // If looks international already (non-zero and reasonably long), keep as-is
+    if (!digits.startsWith('0') && digits.length >= 9) {
+      return digits;
     }
-    // Fallback (unrecognized start): return first 10 digits
-    return digits.slice(0, 10);
+    // Otherwise treat as local and prefix selected dial code (drop trunk 0)
+    if (dc) {
+      const body = digits.startsWith('0') ? digits.slice(1) : digits;
+      return dc + body;
+    }
+    return digits;
   };
+
+  // Build E.164 on submit using selected dial code when user typed a local number
+  const toE164WithDial = (raw: string, dialCode?: string) => {
+    const digits = (raw || '').replace(/\D/g, '');
+    const dc = (dialCode || '').replace(/\D/g, '');
+    if (!digits) return '';
+
+    // If number already starts with the selected dial code, normalize and return
+    if (dc && digits.startsWith(dc)) {
+      let rest = digits.slice(dc.length);
+      if (rest.startsWith('0')) rest = rest.slice(1);
+      return `+${dc}${rest}`;
+    }
+
+    // If user typed a non-zero-starting number with reasonable international length (>=9),
+    // assume they entered another country's code manually. Do NOT prepend selected dial code.
+    if (!digits.startsWith('0') && digits.length >= 9) {
+      return `+${digits}`;
+    }
+
+    // Otherwise, treat as local and prepend selected dial code (if available)
+    if (dc) {
+      const body = digits.startsWith('0') ? digits.slice(1) : digits;
+      return `+${dc}${body}`;
+    }
+    return `+${digits}`;
+  };
+
+  // Legacy helper retained for clarity; use toE164WithDial at submit time
+  const toE164 = (raw: string) => `+${(raw || '').replace(/\D/g, '')}`;
 
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const normalizedPhone = normalizePhone(formData.phone);
+    const e164Phone = toE164WithDial(formData.phone, currentDialCode);
+    // Validate with libphonenumber-js to enforce per-country lengths and rules
+    const phoneValid = isValidPhoneNumber(e164Phone);
     const newErrors = {
       name: !formData.name ? 'Name is required' : '',
       email: !formData.email ? 'Email is required' : 
              !emailRegex.test(formData.email) ? 'Please enter a valid email' : '',
-      phone: !normalizedPhone ? 'Phone number is required' :
-             !/^0\d{9}$/.test(normalizedPhone) ? 'Enter a valid phone (e.g., 09xxxxxxxx)' : ''
+      phone: !e164Phone ? 'Phone number is required' :
+             !phoneValid ? 'Please enter a valid phone number for the selected country' : ''
     };
     setErrors(newErrors);
     return !Object.values(newErrors).some(error => error !== '');
@@ -92,11 +134,13 @@ function DonationFormPageInner() {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
-        const normalizedPhone = normalizePhone(formData.phone);
-        // keep UI in sync so users see the accepted format
-        if (normalizedPhone !== formData.phone) {
-          setFormData(prev => ({ ...prev, phone: normalizedPhone }));
-        }
+        const e164Phone = toE164WithDial(formData.phone, currentDialCode);
+        // For Ethiopian numbers, also generate local format (09xxxxxxxx) for wallet prefill
+        const digits = e164Phone.replace(/\D/g, ''); // e.g. 2519xxxxxxxx
+        const isEthiopia = e164Phone.startsWith('+251');
+        const phoneLocalET = isEthiopia && digits.length >= 12 ? ('0' + digits.slice(3)) : '';
+        // Prefer local format for ET to help Chapa prefill wallets; otherwise keep E.164
+        const phoneForApi = phoneLocalET || e164Phone;
         const response = await fetch('https://app.gdacademy.et/api/v2/donor/chapa/pay_start?donation=true', {
           method: 'POST',
           headers: {
@@ -107,7 +151,9 @@ function DonationFormPageInner() {
             name: formData.name.trim(),
             number_of_students: formData.numberOfStudents,
             amount: formData.total,
-            phone: normalizedPhone,
+            phone: phoneForApi,
+            phone_number: phoneForApi,
+            phone_e164: e164Phone,
             email: formData.email.trim(),
           }),
         });
@@ -255,22 +301,55 @@ function DonationFormPageInner() {
                   {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
                 </div>
 
-                {/* Phone Number Field */}
+                {/* Phone Number Field (International) */}
                 <div>
                   <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1">
                     Phone Number *
                   </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
+                  <PhoneInput
+                    country="et" // default to Ethiopia, but allow changing
                     value={formData.phone}
-                    onChange={handleInputChange}
-                    className={`w-full px-3 py-2 border ${errors.phone ? 'border-red-500' : 'border-gray-300'} rounded-xl focus:ring-blue-500 focus:border-blue-500`}
-                    placeholder="Enter your phone number"
+                    onChange={(value: string, data: any) => {
+                      const newDial = (data?.dialCode || '').replace(/\D/g, '') || currentDialCode;
+                      setCurrentDialCode(newDial);
+                      setFormData(prev => ({ ...prev, phone: value }));
+                      if (newDial) setPhonePlaceholder(`+${newDial}`);
+                    }}
+                    // When users paste numbers like "094 408 247 9" or "94 408 247 9",
+                    // normalize them based on the selected country dial code
+                    inputProps={{
+                      name: 'phone',
+                      id: 'phone',
+                      required: true,
+                      onPaste: (e: any) => {
+                        const text = (e.clipboardData?.getData('text') || '').toString();
+                        if (!text) return;
+                        e.preventDefault();
+                        const normalized = normalizePastedNumber(text, currentDialCode);
+                        setFormData(prev => ({ ...prev, phone: normalized }));
+                      },
+                      onBlur: () => {
+                        // Light normalization on blur: if user typed local, prefix dial code
+                        const normalizedDigits = normalizePastedNumber(formData.phone, currentDialCode);
+                        setFormData(prev => ({ ...prev, phone: normalizedDigits }));
+                      }
+                    }}
+                    enableSearch
+                    preferredCountries={["et", "us", "gb", "ca", "de", "ae", "sa"]}
+                    searchPlaceholder="Search country or code"
+                    disableSearchIcon
+                    countryCodeEditable
+                    placeholder={phonePlaceholder}
+                    inputProps={{ name: 'phone', id: 'phone', required: true }}
+                    containerClass={`relative w-full !border ${errors.phone ? '!border-red-500' : '!border-gray-300'} !rounded-xl focus-within:!border-blue-500`}
+                    inputClass={`w-full !h-11 !pl-14 px-3 !py-2 !border-0 focus:!ring-0 focus:!border-0`}
+                    buttonClass="!border-0 !bg-transparent !h-11"
+                    dropdownClass="!z-50 !absolute !left-0 !top-full !mt-1 !rounded-xl !shadow-lg"
+                    dropdownStyle={{ position: 'absolute', left: 0, top: '100%', marginTop: '4px', borderRadius: 12, boxShadow: '0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05)' }}
+                    searchStyle={{ padding: 8, boxShadow: 'none' }}
                   />
                   {errors.phone && <p className="mt-1 text-sm text-red-600">{errors.phone}</p>}
-                </div>
+               </div>
               </div>
 
               {/* Submit Button */}

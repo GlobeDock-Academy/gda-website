@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import 'react-phone-input-2/lib/style.css';
 import { avertaStd, dailyMemo, lato } from './fonts';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
 import NavigationWrapper from '@/components/NavigationWrapper';

@@ -27,6 +27,7 @@
         "react-dom": "^18",
         "react-markdown": "^10.1.0",
         "react-phone-input-2": "^2.15.1",
+        "libphonenumber-js": "^1.11.6",
         "tailwind-merge": "^2.6.0",
         "tailwindcss-animate": "^1.0.7"
     },
