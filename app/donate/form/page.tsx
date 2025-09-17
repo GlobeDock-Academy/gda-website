@@ -340,8 +340,7 @@ function DonationFormPageInner() {
                     disableSearchIcon
                     countryCodeEditable
                     placeholder={phonePlaceholder}
-                    inputProps={{ name: 'phone', id: 'phone', required: true }}
-                    containerClass={`relative w-full !border ${errors.phone ? '!border-red-500' : '!border-gray-300'} !rounded-xl focus-within:!border-blue-500`}
+                    containerClass={`relative w-full !border ${errors.phone ? '!border-red-500' : '!border-gray-300'} !rounded-xl focus-within:!border-gray-500 focus-within:!ring-gray-500`}
                     inputClass={`w-full !h-11 !pl-14 px-3 !py-2 !border-0 focus:!ring-0 focus:!border-0`}
                     buttonClass="!border-0 !bg-transparent !h-11"
                     dropdownClass="!z-50 !absolute !left-0 !top-full !mt-1 !rounded-xl !shadow-lg"

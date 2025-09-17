@@ -73,27 +73,87 @@
   }
 }
 
+/* Unified selection highlight for form fields (avoid default blue) */
+input::selection,
+textarea::selection,
+select::selection,
+.react-tel-input .form-control::selection {
+  background: rgba(113, 44, 148, 0.2); /* brand purple at 20% */
+  color: inherit;
+}
+input::-moz-selection,
+textarea::-moz-selection,
+select::-moz-selection,
+.react-tel-input .form-control::-moz-selection {
+  background: rgba(113, 44, 148, 0.2);
+  color: inherit;
+}
+
+/* Also apply to the phone dropdown search field */
+.react-tel-input .country-list .search-box::selection {
+  background: rgba(113, 44, 148, 0.2);
+}
+.react-tel-input .country-list .search-box::-moz-selection {
+  background: rgba(113, 44, 148, 0.2);
+}
+
+/* Brand caret color for consistency */
+.react-tel-input .form-control {
+  caret-color: #712C94; /* brand purple */
+}
+
 /* React Phone Input (react-phone-input-2) overrides for stable layout */
 .react-tel-input {
   width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0; /* allow shrinking in flex/grid */
+  display: block; /* avoid inline-block width quirks */
+  box-sizing: border-box;
+  background: #fff; /* paint background on the rounded wrapper to avoid corner seams */
 }
 .react-tel-input .special-label {
   display: none; /* hide floating label that can shift layout */
 }
 .react-tel-input .form-control {
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
   height: 42px; /* align with default input height */
   line-height: 42px;
   border: 0 !important; /* border handled by container */
   box-shadow: none !important;
+  padding-left: 3.5rem !important; /* align with flag area by default */
+  background: transparent !important; /* let wrapper show through to avoid inner corners */
+  border-radius: 0 !important; /* remove inner rounding that can cause gaps at corners */
 }
 .react-tel-input .flag-dropdown {
   border: 0 !important;
-  background: transparent !important;
+  background: transparent !important; /* avoid different background at left corners */
 }
 .react-tel-input .selected-flag {
   width: 56px; /* reserve stable width for flag area */
   padding: 0 10px;
   background: transparent !important;
+}
+
+/* Responsive tweaks for very small screens */
+@media (max-width: 380px) {
+  .react-tel-input .selected-flag {
+    width: 48px;
+    padding: 0 8px;
+  }
+  .react-tel-input .form-control {
+    padding-left: 2.9rem !important; /* match reduced flag width */
+  }
+}
+@media (max-width: 330px) {
+  .react-tel-input .selected-flag {
+    width: 44px;
+    padding: 0 6px;
+  }
+  .react-tel-input .form-control {
+    padding-left: 2.6rem !important;
+  }
 }
 .react-tel-input .country-list {
   position: absolute;
