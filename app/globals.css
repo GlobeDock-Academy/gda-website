@@ -68,8 +68,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    /* Prevent subtle horizontal overflow from creating vertical scroll space on mobile */
-    overflow-x: hidden;
   }
 }
 

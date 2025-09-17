@@ -3,13 +3,13 @@ import Container from '@/components/Container';
 
 const DownloadAppSection = () => {
   return (
-    <section className="bg-white py-6 md:py-8">
+    <section className="bg-white py-8 md:py-12">
       <Container>
-        <div className="bg-primary text-white rounded-[2rem] overflow-hidden py-8 md:py-12 px-4 md:px-6 lg:px-10">
-          <div className="grid md:grid-cols-2 gap-8 items-center max-w-5xl mx-auto">
+        <div className="bg-primary text-white rounded-[2rem] overflow-hidden py-12 px-6 md:px-10 lg:px-16">
+          <div className="grid md:grid-cols-2 gap-6 items-center max-w-5xl mx-auto">
           {/* Left Column */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6">
+            <h2 className="text-4xl lg:text-5xl font-bold text-white mb-6">
               Get the learning app
             </h2>
             <p className="text-lg text-white/80 mb-8 max-w-md">
@@ -36,14 +36,14 @@ const DownloadAppSection = () => {
           </div>
 
           {/* Right Column */}
-          <div className="flex justify-center md:justify-start mt-8 md:mt-0 origin-center">
-            <Image
+          <div className="flex justify-center md:justify-start mt-8 md:mt-0 scale-125 md:scale-150 lg:scale-175 origin-center">
+            <Image 
               src="/images/GDA%20APP.png" 
               alt="Learning App Phone Mockup" 
               width={500}
               height={816}
               priority
-              className="h-auto w-full max-w-[240px] sm:max-w-[300px] md:max-w-none md:scale-125 lg:scale-150"
+              className="w-auto h-auto"
               style={{ objectFit: 'contain' }}
             />
           </div>

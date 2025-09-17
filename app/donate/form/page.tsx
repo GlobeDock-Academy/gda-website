@@ -41,13 +41,34 @@ function DonationFormPageInner() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showMobileSummary, setShowMobileSummary] = useState(false);
 
+  // Normalize Ethiopian phone numbers into local format 09xxxxxxxx
+  const normalizePhone = (input: string) => {
+    const digits = (input || '').replace(/\D/g, ''); // keep only digits
+    // +2519xxxxxxxx or 2519xxxxxxxx -> 09xxxxxxxx
+    if (digits.startsWith('251') && digits.length >= 12) {
+      return '0' + digits.slice(3, 12);
+    }
+    // 9xxxxxxxx -> 09xxxxxxxx
+    if (digits.startsWith('9') && digits.length >= 9) {
+      return '0' + digits.slice(0, 9);
+    }
+    // 09xxxxxxxx -> keep first 10 digits
+    if (digits.startsWith('0') && digits.length >= 10) {
+      return digits.slice(0, 10);
+    }
+    // Fallback: return as-is (could be partial input while typing)
+    return digits;
+  };
+
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const normalizedPhone = normalizePhone(formData.phone);
     const newErrors = {
       name: !formData.name ? 'Name is required' : '',
       email: !formData.email ? 'Email is required' : 
              !emailRegex.test(formData.email) ? 'Please enter a valid email' : '',
-      phone: !formData.phone ? 'Phone number is required' : ''
+      phone: !normalizedPhone ? 'Phone number is required' : 
+             !/^0\d{9}$/.test(normalizedPhone) ? 'Enter a valid phone (e.g., 09xxxxxxxx)' : ''
     };
     setErrors(newErrors);
     return !Object.values(newErrors).some(error => error !== '');
@@ -66,6 +87,11 @@ function DonationFormPageInner() {
     if (validateForm()) {
       setIsSubmitting(true);
       try {
+        const normalizedPhone = normalizePhone(formData.phone);
+        // Keep UI in sync with normalized phone
+        if (normalizedPhone !== formData.phone) {
+          setFormData(prev => ({ ...prev, phone: normalizedPhone }));
+        }
         const response = await fetch('https://app.gdacademy.et/api/v2/donor/chapa/pay_start?donation=true', {
           method: 'POST',
           headers: {
@@ -76,7 +102,7 @@ function DonationFormPageInner() {
             name: formData.name.trim(),
             number_of_students: formData.numberOfStudents,
             amount: formData.total,
-            phone: formData.phone.trim(),
+            phone: normalizedPhone,
             email: formData.email.trim(),
           }),
         });

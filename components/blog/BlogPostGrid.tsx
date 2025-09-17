@@ -180,10 +180,27 @@ export default function BlogPostGrid() {
   return (
     <div>
       <div className="w-full px-0 mb-6">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-[#171717]">Blog</h2>
+        <h2
+          className="text-[56px] leading-[56px] font-semibold text-[#171717]"
+          style={{
+            fontFamily:
+              'Montserrat, InterVariable, Inter, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif',
+          }}
+        >
+          Blog
+        </h2>
       </div>
 
-      <div className="w-full px-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+      <div
+        className="w-full px-0"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, 394px)',
+          columnGap: '32px',
+          rowGap: '32px',
+          justifyContent: 'center',
+        }}
+      >
         {posts.map((post, index) => (
           <Link 
             key={post.id} 
@@ -191,6 +208,9 @@ export default function BlogPostGrid() {
             className={`blog-card block ${visibleCards[index] ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
             style={{ 
               transitionDelay: `${index * 100}ms`,
+              width: '394px',
+              height: '492px',
+              margin: 0,
               transition: 'all 0.5s ease',
               transform: visibleCards[index] ? 'translateY(0)' : 'translateY(10px)',
             }}
@@ -210,6 +230,7 @@ export default function BlogPostGrid() {
                 backgroundColor: 'rgb(255, 255, 255)',
                 backgroundClip: 'border-box',
                 borderRadius: '0.75rem',
+                height: '100%',
                 boxSizing: 'border-box',
                 color: '#525252',
                 fontSize: '16px',
@@ -218,7 +239,7 @@ export default function BlogPostGrid() {
                 letterSpacing: '0.32px',
               }}
             >
-              <div className="card-img-top relative overflow-hidden rounded-t-xl aspect-[16/9]">
+              <div className="card-img-top" style={{ height: '200px', position: 'relative', overflow: 'hidden', borderTopLeftRadius: '0.75rem', borderTopRightRadius: '0.75rem' }}>
                 <Image
                   src={post.imageUrl}
                   alt={`${post.title} - Cover Image`}
@@ -239,7 +260,7 @@ export default function BlogPostGrid() {
                   {index + 1}/{posts.length}
                 </div>
               </div>
-              <div className="card-body p-4 md:p-6 flex-1">
+              <div className="card-body" style={{ padding: '1rem', flex: '1 1 auto' }}>
                 <div>
                   <div className="small text-uppercase">
                     <span style={{

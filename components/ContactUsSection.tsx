@@ -15,23 +15,14 @@ const contactInfo = [
   {
     icon: <Mail className="w-6 h-6 text-slate-700" />,
     title: 'Email Us',
-    lines: [
-      <span key="email" className="break-all text-xl sm:text-2xl font-semibold">info@gdacademy.et</span>,
-      <a
-        key="mail-link"
-        href="mailto:info@gdacademy.et"
-        className="text-purple-600 hover:text-purple-700 underline text-base sm:text-lg font-semibold"
-      >
-        Mail Us &rarr;
-      </a>
-    ],
+    lines: [<span key="email" className="text-[24px] font-semibold">info@gdacademy.et</span>, <a key="mail-link" href="mailto:info@gdacademy.et" className="text-purple-600 hover:text-purple-700 underline text-[24px] font-semibold">Mail Us &rarr;</a>],
   },
   {
     icon: <Phone className="w-6 h-6 text-slate-700" />,
     title: 'Get In Touch',
     lines: [
       <div key="phone1" className="flex flex-col">
-        <a href="tel:+2517421" className="text-purple-600 hover:text-purple-700 text-2xl sm:text-3xl font-semibold">7421</a>
+        <a href="tel:+2517421" className="text-purple-600 hover:text-purple-700 text-[24px] font-semibold">7421</a>
         <span className="text-xs text-slate-500 mt-1">(local calls from within Ethiopia only)</span>
       </div>,
     ],
@@ -71,23 +62,23 @@ export default function ContactUsSection() {
 
           {/* Right Column: Contact Details */}
           <div className="relative z-10">
-            <div className="mb-8 sm:mb-12">
+            <div className="mb-10 sm:mb-12">
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-slate-800 mb-2 leading-tight">
                 Contact Us
               </h2>
-              <p className="text-base sm:text-lg text-slate-600 leading-relaxed max-w-prose break-words">
+              <p className="text-lg text-slate-600">
                 Need more clarification? Connect with our Learning Advisors.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-y-8 sm:gap-y-10">
+            <div className="grid grid-cols-1 gap-y-10">
               {contactInfo.map((item, index) => (
-                <div key={index} className="flex items-start gap-3 sm:gap-4">
+                <div key={index} className="flex items-start space-x-4">
                   <div className="flex-shrink-0 mt-1">{item.icon}</div>
                   <div>
                     <h3 className="text-lg font-semibold text-slate-800 mb-1.5">{item.title}</h3>
                     {item.lines.map((line, i) => (
-                      <div key={i} className="text-sm sm:text-base text-slate-600 leading-relaxed">
+                      <div key={i} className="text-sm text-slate-600 leading-relaxed">
                         {line}
                       </div>
                     ))}
