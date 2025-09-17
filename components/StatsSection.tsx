@@ -68,22 +68,22 @@ const StatCard: React.FC<StatCardProps> = ({ icon, value, label, borderColor, is
   };
 
   return (
-    <div className={`flex h-[280px] w-full max-w-[220px] items-center justify-center flex-col relative bg-white rounded-lg shadow-sm border-b-4 ${isLowered ? 'mt-12' : ''}`} style={{ borderBottomColor: borderColor }}>
+    <div className={`flex w-full items-center justify-center flex-col relative bg-white rounded-lg shadow-sm border-b-4 p-4 sm:p-6 ${isLowered ? 'md:mt-12' : ''} md:h-[260px] md:max-w-[220px]`} style={{ borderBottomColor: borderColor }}>
       {/* Half circle background behind icon */}
-      <div className="relative w-20 h-20 flex items-center justify-center mb-8 mt-8">
+      <div className="relative w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-6 md:mb-8 mt-4 md:mt-8">
         <div className="absolute inset-0 w-full h-full bg-gray-100 rounded-full opacity-60"></div>
-        <div className="relative z-10 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
+        <div className="relative z-10 w-10 h-10 sm:w-12 sm:h-12 bg-white rounded-full flex items-center justify-center shadow-sm">
           {icon}
         </div>
       </div>
       
       {/* Stats number */}
-      <p ref={ref} className="text-3xl font-bold text-gray-900 mb-3">
+      <p ref={ref} className="text-2xl sm:text-3xl font-bold text-gray-900 mb-3">
         {formatCount(count)}
       </p>
       
       {/* Label */}
-      <p className="text-sm text-gray-600 text-center px-4 mb-6">{label}</p>
+      <p className="text-xs sm:text-sm text-gray-600 text-center px-2 sm:px-4 mb-4 md:mb-6">{label}</p>
     </div>
   );
 };
@@ -121,11 +121,11 @@ const stats = [
 
 export default function StatsSection() {
   return (
-    <section className="py-20" style={{ backgroundColor: '#F5F5F5' }}>
+    <section className="py-14 md:py-20" style={{ backgroundColor: '#F5F5F5' }}>
       <Container>
         <div className="relative max-w-7xl mx-auto">
           {/* Connecting line behind the stats - positioned higher to match reference */}
-          <div className="absolute top-[30px] left-0 w-full h-2 flex items-center justify-center">
+          <div className="hidden md:flex absolute top-[30px] left-0 w-full h-2 items-center justify-center">
             <div className="w-full h-[2px] bg-blue-300 relative">
               {/* Connection dots on the line */}
               <div className="absolute left-[12.5%] top-1/2 w-3 h-3 bg-blue-400 rounded-full -translate-y-1/2 -translate-x-1/2"></div>
@@ -136,7 +136,7 @@ export default function StatsSection() {
           </div>
           
           {/* Stats grid with proper spacing */}
-          <div className="relative flex justify-between items-start gap-8 pt-16">
+          <div className="relative grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 md:gap-8 pt-8 md:pt-16 place-items-center">
             {stats.map((stat, index) => (
               <StatCard 
                 key={index} 

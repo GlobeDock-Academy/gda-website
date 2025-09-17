@@ -85,7 +85,7 @@ export default function TestimonialsSection() {
   return (
     <section className="pt-8 pb-20 relative overflow-hidden" style={{ backgroundColor: '#0B1D53' }}>
       <Container>
-        <div className="relative max-w-4xl mx-auto px-8">
+        <div className="relative max-w-4xl mx-auto px-4 md:px-8">
           {/* Quote Icon - Positioned top left */}
           <div className="absolute left-8 top-0">
             <svg width="48" height="48" viewBox="0 0 48 48" fill="none" className="text-white/30 flex-shrink-0 opacity-70">
@@ -104,7 +104,7 @@ export default function TestimonialsSection() {
           {/* Navigation Arrows */}
           <button 
             onClick={() => handleManualNavigation(prevTestimonial)}
-            className="absolute left-0 md:left-2 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
+            className="absolute left-0 md:left-2 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
             aria-label="Previous testimonial"
           >
             <ChevronLeft className="w-5 h-5 text-white" />
@@ -112,7 +112,7 @@ export default function TestimonialsSection() {
 
           <button 
             onClick={() => handleManualNavigation(nextTestimonial)}
-            className="absolute right-0 md:right-2 top-1/2 transform -translate-y-1/2 w-10 h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
+            className="absolute right-0 md:right-2 top-1/2 transform -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 rounded-full bg-blue-600 hover:bg-blue-700 transition-colors duration-200 flex items-center justify-center"
             aria-label="Next testimonial"
           >
             <ChevronRight className="w-5 h-5 text-white" />
