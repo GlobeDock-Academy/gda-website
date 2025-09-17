@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Container from '@/components/Container';
 import Link from 'next/link';
 import { HeartHandshake, CreditCard, BookOpen } from 'lucide-react';
+import {useState} from 'react';
 
 interface NavigationProps {
   hidden?: boolean;
