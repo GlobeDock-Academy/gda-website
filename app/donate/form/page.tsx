@@ -9,7 +9,7 @@ import Navigation from '@/components/Navigation';
 import { lato } from '../../fonts';
 import { Calendar, ShieldCheck, ChevronDown, CreditCard } from 'lucide-react';
 import PhoneInput from 'react-phone-input-2';
-import { isValidPhoneNumber } from 'libphonenumber-js';
+import { isValidPhoneNumber, parsePhoneNumberFromString } from 'libphonenumber-js';
 
 function DonationFormPageInner() {
   const router = useRouter();
@@ -35,6 +35,7 @@ function DonationFormPageInner() {
   });
   const [phonePlaceholder, setPhonePlaceholder] = useState<string>('+251');
   const [currentDialCode, setCurrentDialCode] = useState<string>('251');
+  const [currentIso2, setCurrentIso2] = useState<string>('et');
   
   const [errors, setErrors] = useState({
     name: '',
@@ -75,29 +76,38 @@ function DonationFormPageInner() {
     return digits;
   };
 
-  // Build E.164 on submit using selected dial code when user typed a local number
-  const toE164WithDial = (raw: string, dialCode?: string) => {
-    const digits = (raw || '').replace(/\D/g, '');
-    const dc = (dialCode || '').replace(/\D/g, '');
-    if (!digits) return '';
+  // Build E.164 leveraging libphonenumber-js so significant leading zeros are preserved when required
+  const toE164WithDial = (raw: string, dialCode?: string, iso2?: string) => {
+    if (!raw) return '';
+    let text = (typeof raw === 'string' ? raw : String(raw)).trim();
+    if (!text) return '';
 
-    // If number already starts with the selected dial code, normalize and return
-    if (dc && digits.startsWith(dc)) {
-      let rest = digits.slice(dc.length);
-      if (rest.startsWith('0')) rest = rest.slice(1);
-      return `+${dc}${rest}`;
+    // Normalize leading 00 to + for international formats
+    if (text.startsWith('00')) text = `+${text.slice(2)}`;
+
+    // 1) If it already contains '+', parse as international
+    if (text.startsWith('+')) {
+      const pn = parsePhoneNumberFromString(text);
+      if (pn && pn.isValid()) return pn.number;
     }
 
-    // If user typed a non-zero-starting number with reasonable international length (>=9),
-    // assume they entered another country's code manually. Do NOT prepend selected dial code.
+    // 2) Try parsing using default country (iso2) to construct E.164
+    const iso = (iso2 || '').toUpperCase() as any;
+    if (iso) {
+      const pnLocal = parsePhoneNumberFromString(text, iso);
+      if (pnLocal && pnLocal.isValid()) return pnLocal.number;
+    }
+
+    // 3) Fallback heuristics: as a last resort, if digits look like international, prefix '+'; else prefix selected dial
+    const digits = text.replace(/\D/g, '');
+    if (!digits) return '';
+    const dc = (dialCode || '').replace(/\D/g, '');
     if (!digits.startsWith('0') && digits.length >= 9) {
       return `+${digits}`;
     }
-
-    // Otherwise, treat as local and prepend selected dial code (if available)
     if (dc) {
-      const body = digits.startsWith('0') ? digits.slice(1) : digits;
-      return `+${dc}${body}`;
+      // Do NOT strip a leading 0 in the national part here; leave as typed
+      return `+${dc}${digits}`;
     }
     return `+${digits}`;
   };
@@ -107,9 +117,9 @@ function DonationFormPageInner() {
 
   const validateForm = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const e164Phone = toE164WithDial(formData.phone, currentDialCode);
+    const e164Phone = toE164WithDial(formData.phone, currentDialCode, currentIso2);
     // Validate with libphonenumber-js to enforce per-country lengths and rules
-    const phoneValid = isValidPhoneNumber(e164Phone);
+    const phoneValid = e164Phone ? isValidPhoneNumber(e164Phone) : false;
     const newErrors = {
       name: !formData.name ? 'Name is required' : '',
       email: !formData.email ? 'Email is required' : 
@@ -311,7 +321,9 @@ function DonationFormPageInner() {
                     value={formData.phone}
                     onChange={(value: string, data: any) => {
                       const newDial = (data?.dialCode || '').replace(/\D/g, '') || currentDialCode;
+                      const newIso = (data?.countryCode || currentIso2) as string;
                       setCurrentDialCode(newDial);
+                      setCurrentIso2(newIso);
                       setFormData(prev => ({ ...prev, phone: value }));
                       if (newDial) setPhonePlaceholder(`+${newDial}`);
                     }}
