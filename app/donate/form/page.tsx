@@ -44,7 +44,7 @@ function DonationFormPageInner() {
   });
   
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showMobileSummary, setShowMobileSummary] = useState(false);
+  const [showMobileSummary, setShowMobileSummary] = useState(true);
 
   // Normalize pasted text into the numeric format PhoneInput expects (no '+')
   const normalizePastedNumber = (raw: string, dialCode?: string) => {
@@ -237,7 +237,7 @@ function DonationFormPageInner() {
               className="lg:hidden w-full flex items-center justify-between py-3 mb-2 bg-transparent border-0 rounded-none hover:bg-transparent focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-300 focus-visible:rounded-md"
             >
               <div className="flex items-center gap-2 text-[15px] font-medium text-gray-800">
-                View summary
+                {showMobileSummary ? 'Hide summary' : 'View summary'}
                 <ChevronDown className={`w-5 h-5 transition-transform ${showMobileSummary ? 'rotate-180' : ''}`} />
               </div>
               <div className="flex items-center gap-2 text-sm">
