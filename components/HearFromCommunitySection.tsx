@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import { useCallback, useEffect, useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import Autoplay from 'embla-carousel-autoplay';
 import { ChevronRight } from 'lucide-react';
 import { VideoCard } from '@/components/VideoCard';
 import { VideoReview } from '@/lib/testimonials-data';
@@ -15,12 +14,10 @@ interface Props {
 export default function HearFromCommunitySection({ testimonials }: Props) {
     if (!testimonials || testimonials.length === 0) return null;
 
-    const PREVIEW_VIDEOS = testimonials.slice(0, 5);
-    const autoplay = Autoplay({ delay: 4000, stopOnInteraction: true });
+    const PREVIEW_VIDEOS = testimonials;
 
     const [emblaRef, emblaApi] = useEmblaCarousel(
-        { align: 'start', loop: true, dragFree: true },
-        [autoplay]
+        { align: 'start', loop: true, slidesToScroll: 'auto' }
     );
 
     const [selectedIndex, setSelectedIndex] = useState(0);
@@ -42,22 +39,22 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
     }, [emblaApi]);
 
     return (
-        <section className="py-20 bg-white overflow-hidden">
-            {/* Header */}
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-12">
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-                    Hear from the community
+        <section className="py-20 bg-white overflow-hidden" style={{ fontFamily: 'Silka, Arial, sans-serif' }}>
+            {/* Header — benchmark typography: 60/69 weight 800, paragraph 20/30 weight 500 black/55 */}
+            <div className="px-4 sm:px-8 lg:px-16 xl:px-20 text-center mb-20 lg:mb-24">
+                <h2 className="text-4xl md:text-5xl lg:text-[60px] font-extrabold leading-tight lg:leading-[69px] text-black mb-5 tracking-normal">
+                    Hear From the Community
                 </h2>
-                <p className="text-gray-500 text-lg max-w-2xl mx-auto">
+                <p className="text-[20px] font-medium leading-[30px] text-black/55 max-w-[720px] mx-auto">
                     Check out our Wall of Love where GlobeDock Academy community members share highlights of their learning journey.
                 </p>
             </div>
 
-            {/* Carousel */}
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Carousel — full width */}
+            <div className="relative w-full px-4 sm:px-8 lg:px-12 xl:px-16">
                 {/* Prev Arrow (Custom SVG from benchmark) */}
-                <div 
-                  className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 w-8 flex-shrink-0 flex-grow-0 bg-transparent flex items-center cursor-pointer"
+                <div
+                  className="absolute left-1 sm:left-2 top-1/2 -translate-y-1/2 z-10 w-8 flex-shrink-0 flex-grow-0 bg-transparent flex items-center cursor-pointer"
                   onClick={scrollPrev}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style={{ fill: 'rgb(155, 169, 180)' }} className="w-full hover:contrast-75 transition-all">
@@ -66,8 +63,8 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
                 </div>
 
                 {/* Next Arrow (Custom SVG from benchmark) */}
-                <div 
-                  className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 w-8 flex-shrink-0 flex-grow-0 bg-transparent flex items-center cursor-pointer"
+                <div
+                  className="absolute right-1 sm:right-2 top-1/2 -translate-y-1/2 z-10 w-8 flex-shrink-0 flex-grow-0 bg-transparent flex items-center cursor-pointer"
                   onClick={scrollNext}
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style={{ fill: 'rgb(155, 169, 180)' }} className="w-full hover:contrast-75 transition-all">
@@ -80,13 +77,13 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
                         {PREVIEW_VIDEOS.map((video) => (
                             <div
                                 key={video.id}
-                                className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_45%] md:flex-[0_0_33%] lg:flex-[0_0_19%] pl-4"
+                                className="flex-[0_0_85%] min-w-0 sm:flex-[0_0_50%] md:flex-[0_0_33.333%] lg:flex-[0_0_25%] pl-4"
                             >
                                 <VideoCard
                                     video={video}
                                     playing={playingId === video.id}
                                     onTogglePlay={(id) => setPlayingId(id)}
-                                    className="h-80 lg:h-[420px]"
+                                    className="aspect-[4/3] w-full"
                                 />
                             </div>
                         ))}
@@ -110,19 +107,20 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
                 </div>
             </div>
 
-            {/* See All Reviews CTA (Styled from benchmark) */}
+            {/* See All Reviews CTA — exact benchmark spec */}
             <div className="flex justify-center mt-12">
                 <Link
                     href="/reviews"
                     style={{
-                      fontFamily: 'Silka, Inter, Arial, sans-serif',
+                      fontFamily: 'Silka, Arial, sans-serif',
                       fontSize: '16px',
-                      fontWeight: '800',
-                      lineHeight: '1',
+                      fontWeight: 800,
+                      lineHeight: '16px',
                       backgroundColor: '#202945',
                       color: '#FFFFFF',
+                      borderColor: '#171C31',
                       borderRadius: '12px',
-                      padding: '12px 24px',
+                      padding: '18px 32px',
                       cursor: 'pointer',
                       boxShadow: 'rgb(92, 112, 121) 0px 1px 6px -2px',
                       display: 'inline-flex',
@@ -132,7 +130,7 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
                     className="hover:bg-[#171C31] transition-colors"
                 >
                     See All Reviews
-                    <ChevronRight className="w-4 h-4" />
+                    <ChevronRight style={{ width: 14, height: 14, color: '#FFFFFF' }} />
                 </Link>
             </div>
         </section>
