@@ -12,10 +12,6 @@ interface Props {
 }
 
 export default function HearFromCommunitySection({ testimonials }: Props) {
-    if (!testimonials || testimonials.length === 0) return null;
-
-    const PREVIEW_VIDEOS = testimonials;
-
     const [emblaRef, emblaApi] = useEmblaCarousel(
         { align: 'start', loop: true, slidesToScroll: 'auto' }
     );
@@ -37,6 +33,10 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
             setSelectedIndex(emblaApi.selectedScrollSnap());
         });
     }, [emblaApi]);
+
+    if (!testimonials || testimonials.length === 0) return null;
+
+    const PREVIEW_VIDEOS = testimonials;
 
     return (
         <section className="py-20 bg-white overflow-hidden" style={{ fontFamily: 'Silka, Arial, sans-serif' }}>
@@ -81,7 +81,7 @@ export default function HearFromCommunitySection({ testimonials }: Props) {
                             >
                                 <VideoCard
                                     video={video}
-                                    playing={playingId === video.id}
+                                    playing={playingId === String(video.id)}
                                     onTogglePlay={(id) => setPlayingId(id)}
                                     className="aspect-[4/3] w-full"
                                 />

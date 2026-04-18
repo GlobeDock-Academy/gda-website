@@ -113,7 +113,7 @@ export default function ReviewsClient({ testimonials }: Props) {
                                         <div ref={measureRef}>
                                             <VideoCard
                                                 video={video}
-                                                playing={playingId === video.id}
+                                                playing={playingId === String(video.id)}
                                                 onTogglePlay={(id) => setPlayingId(id)}
                                                 aspectRatio={video.aspectRatio}
                                             />
