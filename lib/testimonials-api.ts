@@ -28,6 +28,9 @@ export async function fetchTestimonials(): Promise<VideoReview[]> {
     
     return [];
   } catch (error) {
+    if ((error as { digest?: string })?.digest?.startsWith('DYNAMIC_SERVER_USAGE')) {
+      throw error;
+    }
     console.warn("Error fetching testimonials:", error);
     return [];
   }
