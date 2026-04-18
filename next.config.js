@@ -2,12 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'placehold.co',
-      'app.gdacademy.et',
-      'gdacademy.et',
-      'www.gdacademy.et',
-    ],
     remotePatterns: [
       {
         protocol: 'https',

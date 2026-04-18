@@ -4,9 +4,8 @@ export async function fetchTestimonials(): Promise<VideoReview[]> {
   try {
     const baseUrl = process.env.BASE_API_URL?.replace('/v2', '/v1') || 'https://app.gdacademy.et/api/v1';
     
-    // Server-side fetch, dynamic and no cache since it's a CMS-managed content
     const res = await fetch(`${baseUrl}/testimonials/approved`, {
-      cache: 'no-store'
+      next: { revalidate: 60 }
     });
     
     if (!res.ok) {
