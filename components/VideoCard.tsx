@@ -15,7 +15,6 @@ interface VideoCardProps {
 
 export function VideoCard({ video, onClick, className = '', playing = false, onTogglePlay, aspectRatio }: VideoCardProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [thumbReady, setThumbReady] = useState(false);
     const [playReady, setPlayReady] = useState(false);
 
     const handlePlay = (e: React.MouseEvent) => {
@@ -42,7 +41,6 @@ export function VideoCard({ video, onClick, className = '', playing = false, onT
                 muted
                 playsInline
                 aria-label={`${video.name} testimonial`}
-                onLoadedData={() => setThumbReady(true)}
                 className={`absolute inset-0 w-full h-full object-cover transition-transform duration-500 ${playing ? '' : 'group-hover:scale-105'}`}
             />
 
@@ -62,8 +60,8 @@ export function VideoCard({ video, onClick, className = '', playing = false, onT
                 </video>
             )}
 
-            {/* Loading spinner — visible until thumbnail or play video is ready */}
-            {((playing && !playReady) || (!playing && !thumbReady)) && (
+            {/* Loading spinner — visible only after play is clicked, while video buffers */}
+            {playing && !playReady && (
                 <div className="absolute inset-0 z-[5] flex items-center justify-center pointer-events-none">
                     <Loader2 className="w-8 h-8 text-black/40 animate-spin" />
                 </div>
